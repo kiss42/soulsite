@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { UserProvider } from './contexts/UserContext';
+import NumerologyCalculator from './components/NumerologyCalculator';
+import KarmicLessonsComponent from './components/KarmicLessonsComponent';
+import AngelNumberSearch from './components/AngelNumberSearch';
+import TarotReading from './components/Tarots/TarotReading';
+import Navbar from './components/Navbar';
+import './index.css';
+import ButtonWithRing from './ButtonWithRing';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <div className="relative min-h-screen flex flex-col bg-spiritual-image text-white">
+        <Navbar />
+        <div className="flex-grow flex flex-col justify-center items-center p-4">
+          <div className="flex flex-wrap justify-center items-center space-x-4 mb-4">
+            <NumerologyCalculator />
+            <KarmicLessonsComponent />
+            <ButtonWithRing/>
+            <AngelNumberSearch />
+          </div>
+        </div>
+        <div className="pb-4">
+          <TarotReading />
+        </div>
+      </div>
+    </UserProvider>
   );
-}
+};
 
 export default App;

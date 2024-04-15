@@ -1,0 +1,31 @@
+{
+    "root": {
+      "name": "Root Chakra (Muladhara)",
+      "guidance": "Focus on grounding and stabilizing your life. Engage in practices that connect you to nature and strengthen your sense of security. Meditation on grounding, physical activity, and eating root vegetables can help balance this chakra."
+    },
+    "sacral": {
+      "name": "Sacral Chakra (Svadhishthana)",
+      "guidance": "Embrace and explore your creativity, emotions, and sexuality. Creative expression, water-based activities, and honoring your feelings can help balance this chakra."
+    },
+    "solarPlexus": {
+      "name": "Solar Plexus Chakra (Manipura)",
+      "guidance": "Build your self-esteem, personal power, and autonomy. Activities that challenge your strength, learning new skills, and sun exposure can energize and balance this chakra."
+    },
+    "heart": {
+      "name": "Heart Chakra (Anahata)",
+      "guidance": "Open your heart to give and receive love more freely. Practices like forgiveness, gratitude, and engaging in loving-kindness meditation can help in balancing this chakra."
+    },
+    "throat": {
+      "name": "Throat Chakra (Vishuddha)",
+      "guidance": "Enhance your ability to communicate and express your truth. Singing, chanting, and speaking assertively in a loving manner can help balance this chakra."
+    },
+    "thirdEye": {
+      "name": "Third Eye Chakra (Ajna)",
+      "guidance": "Develop your intuition, insight, and mental clarity. Meditation, visualization exercises, and trusting your inner voice can help balance this chakra."
+    },
+    "crown": {
+      "name": "Crown Chakra (Sahasrara)",
+      "guidance": "Cultivate your spiritual connection and awareness. Meditation, prayer, and mindfulness practices that help you feel connected to the universe can balance this chakra."
+    }
+  }
+  

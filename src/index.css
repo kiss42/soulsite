@@ -1,13 +1,69 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+/* Background image with spiritual theme */
+.bg-spiritual-image {
+  background-image: url('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*H_145W8OiHlLc0LDFdK9_Q.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Additional thematic styles */
+.bg-spiritual {
+  background-color: #303030; /* Dark grey for depth */
+}
+
+.text-spiritual {
+  color: #c0a080; /* Soft gold for spirituality */
+  font-family: 'Amatic SC', cursive; /* Handcrafted font for a spiritual feel */
+}
+
+.shadow-spiritual {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.font-spiritual {
+  font-family: 'Amatic SC', cursive; /* Use Amatic SC for a spiritual touch */
+}
+
+/* Keyframes for sparkling stars */
+@keyframes sparkle {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Custom class for the sparkling button */
+.sparkle-button {
+  @apply bg-gray-700 text-white py-5 px-10 rounded-lg border-none cursor-pointer text-base outline-none inline-block;
+  position: relative;
+  overflow: visible; /* Allows sparkles to show around the edges */
+  font-family: 'Amatic SC', cursive; /* Apply Amatic SC to buttons as well */
+}
+
+/* Positioning and sizing of sparkles */
+.sparkle-button span {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 6px; /* Increased size for visibility */
+  height: 6px; /* Match width */
+  top: var(--sparkle-y); /* Dynamic vertical positioning */
+  left: var(--sparkle-x); /* Dynamic horizontal positioning */
+  animation: sparkle 2s infinite ease-in-out alternate;
+  animation-duration: var(--sparkle-speed);
+  animation-delay: var(--sparkle-delay);
+}
+.input-base {
+  @apply block w-full px-4 py-2 bg-purple-800 border border-purple-700 rounded-full text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500;
 }

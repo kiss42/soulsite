@@ -1,6 +1,5 @@
-// tailwind.config.js
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'], // Adjust this path as necessary
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -10,7 +9,7 @@ module.exports = {
         'sparkle-white': '#E2E8F0', // A soft, celestial white
       },
       fontFamily: {
-        spiritual: ['Merriweather', 'serif'], // Ensures a profound thematic feel
+        'spiritual': ['Merriweather', 'serif'], // Ensures a profound thematic feel
       },
     },
   },
@@ -18,5 +17,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
 }

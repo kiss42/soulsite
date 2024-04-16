@@ -23,9 +23,9 @@ function AngelNumberSearch() {
             <p>{result.future}</p>
             <p className="font-bold">Actions You Can Take:</p>
             <ul>
-              {result.actions.split('. ').map((action, index) => (
+              {result.actions ? result.actions.split('. ').map((action, index) => (
                 <li key={index}>{action}</li>
-              ))}
+              )) : <li>No specific actions provided.</li>}
             </ul>
           </>
         );

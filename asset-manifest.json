@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/soulsite/static/css/main.561c2012.css",
+    "main.js": "/soulsite/static/js/main.ce95c54f.js",
+    "index.html": "/soulsite/index.html",
+    "main.561c2012.css.map": "/soulsite/static/css/main.561c2012.css.map",
+    "main.ce95c54f.js.map": "/soulsite/static/js/main.ce95c54f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.561c2012.css",
+    "static/js/main.ce95c54f.js"
+  ]
+}

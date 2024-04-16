@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/soulsite/static/css/main.0f42b841.css",
+    "main.css": "/soulsite/static/css/main.e6cbc25b.css",
     "main.js": "/soulsite/static/js/main.0988429c.js",
     "static/js/239.03142929.chunk.js": "/soulsite/static/js/239.03142929.chunk.js",
     "static/js/213.d3c95d03.chunk.js": "/soulsite/static/js/213.d3c95d03.chunk.js",
     "static/js/732.f93612ac.chunk.js": "/soulsite/static/js/732.f93612ac.chunk.js",
     "index.html": "/soulsite/index.html",
-    "main.0f42b841.css.map": "/soulsite/static/css/main.0f42b841.css.map",
+    "main.e6cbc25b.css.map": "/soulsite/static/css/main.e6cbc25b.css.map",
     "main.0988429c.js.map": "/soulsite/static/js/main.0988429c.js.map",
     "239.03142929.chunk.js.map": "/soulsite/static/js/239.03142929.chunk.js.map",
     "213.d3c95d03.chunk.js.map": "/soulsite/static/js/213.d3c95d03.chunk.js.map",
     "732.f93612ac.chunk.js.map": "/soulsite/static/js/732.f93612ac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f42b841.css",
+    "static/css/main.e6cbc25b.css",
     "static/js/main.0988429c.js"
   ]
 }

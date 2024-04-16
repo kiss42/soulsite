@@ -6,7 +6,7 @@ import AngelNumberSearch from './components/AngelNumberSearch';
 import TarotReading from './components/Tarots/TarotReading';
 import Navbar from './components/Navbar';
 import './index.css';
-import ButtonWithRing from './ButtonWithRing';
+import ShadowWorksJournal from './components/ShadowWorksJournal';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           <div className="flex flex-wrap justify-center items-center space-x-4 mb-4">
             <NumerologyCalculator />
             <KarmicLessonsComponent />
-            <ButtonWithRing/>
+            <ShadowWorksJournal/>
             <AngelNumberSearch />
           </div>
         </div>

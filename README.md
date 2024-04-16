@@ -4,7 +4,6 @@ Welcome to the Spiritual Insights Platform, a unique web application designed to
 
 ## Features
 
-- **Astrology Chart Form**: Generate your personal astrology chart based on your birth details.
 - **Numerology Calculator**: Discover the numerological analysis based on your name and birthdate.
 - **Karmic Lessons Component**: Learn about the karmic lessons associated with your life path.
 - **Angel Number Search**: Explore the meanings and messages behind different angel numbers.

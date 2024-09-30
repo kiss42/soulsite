@@ -51,7 +51,7 @@ function AngelNumberSearch() {
       {!showInput ? (
         <button
           onClick={() => setShowInput(true)}
-          className="hover:bg-purple-700 text-white font-spiritual font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out w-full sm:w-auto"
+          className="hover:bg-purple-700 hover:scale-105 text-white font-spiritual font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300 ease-in-out w-full sm:w-auto"
         >
           Find Out Angel Number Meaning
         </button>
@@ -66,15 +66,15 @@ function AngelNumberSearch() {
           />
           <button
             onClick={handleSearch}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out mt-3 w-full sm:w-auto"
+            className="bg-purple-600 hover:bg-purple-700 hover:scale-105 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300 ease-in-out mt-3 w-full sm:w-auto"
             disabled={loading}
           >
             {loading ? 'Searching...' : 'Search'}
           </button>
 
           {showModal && (
-            <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center p-4">
-              <div className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full text-black max-h-[80vh] overflow-y-auto">
+            <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center p-4 fade-in show">
+              <div className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full text-black max-h-[80vh] overflow-y-auto scroll-smooth">
                 <button
                   onClick={handleCloseModal}
                   className="float-right font-bold text-lg text-red-500 hover:text-red-700"

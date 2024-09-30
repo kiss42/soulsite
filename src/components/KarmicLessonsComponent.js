@@ -32,13 +32,13 @@ const KarmicLessonsComponent = () => {
       />
       <button
         onClick={handleCalculate}
-        className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-4"
+        className="w-full bg-purple-700 hover:bg-purple-800 hover:scale-105 text-white font-bold py-2 px-4 rounded transition-all duration-300 ease-in-out mt-4"
       >
         Get Your Karmic Lessons
       </button>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={`Karmic Lessons for ${userDetails.name}`}>
-        <div className="mt-4 bg-black p-5 text-white rounded-lg shadow-2xl max-w-lg mx-auto border-none outline-none">
+        <div className="mt-4 bg-black p-5 text-white rounded-lg shadow-2xl max-w-lg mx-auto border-none outline-none scroll-smooth">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-xl font-bold">{`Karmic Lessons for ${userDetails.name}`}</h3>
             <button
@@ -48,7 +48,7 @@ const KarmicLessonsComponent = () => {
               X
             </button>
           </div>
-          <div className="space-y-3 max-h-[60vh] overflow-y-auto">
+          <div className="space-y-3 max-h-[60vh] overflow-y-auto scroll-smooth">
             {karmicLessons.length > 0 ? (
               <ul className="list-disc pl-5 text-sm text-gray-100">
                 {karmicLessons.map((lesson, index) => (
@@ -63,7 +63,7 @@ const KarmicLessonsComponent = () => {
           </div>
           <button
             onClick={handleReset}
-            className="mt-6 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
+            className="mt-6 w-full bg-red-600 hover:bg-red-700 hover:scale-105 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out"
           >
             Reset
           </button>

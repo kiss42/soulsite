@@ -40,8 +40,10 @@ const TarotReading = () => {
       {/* Modal for displaying selected card */}
       {selectedCard && (
         <Modal isOpen={!!selectedCard} onClose={handleCloseModal} title={selectedCard.name}>
-          <p><strong>Meaning:</strong> {selectedCard.meaning}</p>
-          <p><strong>Story:</strong> {selectedCard.story}</p>
+          <div className="bg-black text-white p-4 rounded-lg">
+            <p><strong>Meaning:</strong> {selectedCard.meaning}</p>
+            <p><strong>Story:</strong> {selectedCard.story}</p>
+          </div>
         </Modal>
       )}
     </div>

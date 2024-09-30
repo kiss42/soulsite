@@ -1,0 +1,161 @@
+{
+    "tarotDeck": [
+      {
+        "name": "The Fool",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/705/large/thiago-lehmann-the-fool01.jpg?1614713684",
+        "meaning": "New beginnings, innocence, and a sense of adventure.",
+        "story": "The Fool is about to step off a cliff into the unknown; representing the start of a new journey filled with unforeseen challenges and opportunities."
+      },
+      {
+        "name": "The Magician",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/756/large/thiago-lehmann-the-magician01.jpg?1614713752",
+        "meaning": "Manifestation, resourcefulness, and power.",
+        "story": "The Magician uses his tools on the table to manifest his desires, symbolizing the ability to utilize one's talents to achieve goals and turn situations to one's advantage."
+      },
+      {
+        "name": "The High Priestess",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/738/large/thiago-lehmann-the-high-priestess01.jpg?1614713720",
+        "meaning": "Intuition, mystery, and understanding.",
+        "story": "Seated between the darkness and the light, the High Priestess holds the knowledge of the unseen world and represents the hidden depths of the unconscious."
+      },
+      {
+        "name": "The Empress",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/701/large/thiago-lehmann-the-empress01.jpg?1614713676",
+        "meaning": "Femininity, nurturing, and abundance.",
+        "story": "The Empress, surrounded by the richness of nature, symbolizes fertility, creativity, and the nurturing of ideas or projects until their fruition."
+      },
+      {
+        "name": "The Emperor",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/694/large/thiago-lehmann-the-emperor01.jpg?1614713667",
+        "meaning": "Authority, structure, and control.",
+        "story": "The Emperor symbolizes strong leadership and firm decisions, reflecting a stable authority figure who uses power and structure to bring order."
+      },
+      {
+        "name": "The Hierophant",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/727/large/thiago-lehmann-the-hierophant01.jpg?1614713711",
+        "meaning": "Tradition, conformity, and spiritual guidance.",
+        "story": "The Hierophant is a spiritual mentor guiding others along their religious or spiritual path, symbolizing education, tradition, and the pursuit of spiritual truths."
+      },
+      {
+        "name": "The Lovers",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/754/large/thiago-lehmann-the-lovers00.jpg?1614713743",
+        "meaning": "Love, relationships, and choices.",
+        "story": "The Lovers card symbolizes the harmony and attraction of opposites, representing important decisions in relationships and personal beliefs."
+      },
+      {
+        "name": "The Chariot",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/675/large/thiago-lehmann-the-chariot01.jpg?1614713648",
+        "meaning": "Determination, control, and victory.",
+        "story": "The Chariot signifies overcoming obstacles through determination and willpower, driving forward with confidence and ambition."
+      },
+      {
+        "name": "Strength",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/776/large/thiago-lehmann-the-strenght-copy.jpg?1614713777",
+        "meaning": "Courage, inner strength, and resilience.",
+        "story": "Strength offers a message of mastery over one’s instincts and urges, using inner strength and resilience to persist in the face of challenges."
+      },
+      {
+        "name": "The Hermit",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/719/large/thiago-lehmann-the-hermit-01.jpg?1614713702",
+        "meaning": "Solitude, search for personal truth, and introspection.",
+        "story": "The Hermit stands alone on the top of a mountain, searching for spiritual truths and inner illumination away from the distractions of the outside world."
+      },
+      {
+        "name": "Wheel of Fortune",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/803/large/thiago-lehmann-wheel-of-fortune-01.jpg?1614713814",
+        "meaning": "Cycles, change, and life's ups and downs.",
+        "story": "The Wheel of Fortune turns evermore, suggesting that life is made up of both good and bad times, and that the cycle is one that plays out continuously."
+      },
+      {
+        "name": "Justice",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/659/large/thiago-lehmann-justice-01.jpg?1614713632",
+        "meaning": "Fairness, truth, and law.",
+        "story": "Justice represents the search for truth, and the benefits of fair treatment, urging a balanced, thoughtful approach to resolving disputes."
+      },
+      {
+        "name": "The Hanged Man",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/714/large/thiago-lehmann-the-hanged-man01.jpg?1614713694",
+        "meaning": "Pause, surrender, new perspectives.",
+        "story": "The Hanged Man suggests a pause in life’s journey to look at everything from a different angle, encouraging sacrifice and letting go."
+      },
+      {
+        "name": "Death",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/654/large/thiago-lehmann-death01.jpg?1614713623",
+        "meaning": "Endings, beginnings, change, transformation.",
+        "story": "Death signifies an end to something significant in your life, but also the start of something new, a continuous cycle of change and rebirth."
+      },
+      {
+        "name": "Temperance",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/666/large/thiago-lehmann-temperance01.jpg?1614713641",
+        "meaning": "Balance, moderation, purpose.",
+        "story": "Temperance symbolizes the need for balance and moderation, blending opposites and finding a middle ground in life’s various challenges."
+      },
+      {
+        "name": "The Devil",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/683/large/thiago-lehmann-the-devil01.jpg?1614713657",
+        "meaning": "Bondage, addiction, sexuality, materialism.",
+        "story": "The Devil card warns of the destructive patterns or addictions holding you back, urging a reassessment of your relationship with material or physical desires."
+      },
+      {
+        "name": "The Tower",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/789/large/thiago-lehmann-the-tower01.jpg?1614713796",
+        "meaning": "Sudden upheaval, broken pride, disaster.",
+        "story": "The Tower represents catastrophic change and destruction, clearing the way for new growth and rebuilding after a sudden, inevitable downfall."
+      },
+      {
+        "name": "The Star",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/772/large/thiago-lehmann-the-star01.jpg?1614713767",
+        "meaning": "Hope, faith, rejuvenation.",
+        "story": "The Star is a light in the darkness, providing hope and encouragement with its calming and rejuvenative energy."
+      },
+      {
+        "name": "The Moon",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/764/large/thiago-lehmann-the-moon01.jpg?1614713759",
+        "meaning": "Illusion, fear, anxiety, subconscious.",
+        "story": "The Moon warns of the deceiving appearances and the potential for greater misunderstanding, reflecting the shadowy journey through the subconscious mind."
+      },
+      {
+        "name": "The Sun",
+        "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/783/large/thiago-lehmann-the-sun01.jpg?1614713788",
+        "meaning": "Success, vitality, joy.",
+        "story": "The Sun shines brightly, representing vitality and success, illuminating the path with its warm and radiant energy, promising joy and prosperity."
+      },
+      {
+        "name": "Judgement",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/748/large/thiago-lehmann-the-judgement-01.jpg?1614713734",
+        "meaning": "Judgment, rebirth, inner calling.",
+        "story": "Judgement calls for a period of reflection and self-evaluation, leading to personal revelations that can bring about a new phase of life."
+      },
+      {
+        "name": "The World",
+        "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/800/large/thiago-lehmann-the-world01.jpg?1614713804",
+        "meaning": "Completion, integration, accomplishment.",
+        "story": "The World signifies the completion of a long journey, having achieved full understanding and harmony, symbolizing the end of one cycle and the potential for a new beginning."
+      },
+      {
+        "name": "Ace of Wands",
+        "imageURL": "https://cdn.shopify.com/s/files/1/0561/8477/files/Divine-Feminine-Tarot-NOCTURNAL-65.png?v=1605877481",
+        "meaning": "Inspiration, new opportunities, and potential.",
+        "story": "The Ace of Wands ignites a spark of creativity or a surge of powerful energy, urging you to pursue new ventures and powerful ideas."
+      },
+      {
+        "name": "Two of Wands",
+        "imageURL": "https://cdn.shopify.com/s/files/1/0561/8477/files/AURORA-TAROT-GOLD-66.png?v=1696335156",
+        "meaning": "Future planning, progress, decisions.",
+        "story": "The Two of Wands represents the moment of contemplation before embarking on a new path, offering a view of the challenges and rewards that lie ahead."
+      },
+      {
+        "name": "Three of Wands",
+        "imageURL": "https://i.pinimg.com/564x/a7/d3/02/a7d302664d1b7b624c20138608719cfc.jpg",
+        "meaning": "Preparation, foresight, expansion.",
+        "story": "The Three of Wands expands your horizons, setting the stage for future success, reflecting a period of growth as plans start to come to fruition."
+      },
+      {
+        "name": "Four of Wands",
+        "imageURL": "https://www.cocorrina.com/cdn/shop/articles/Divine-Feminine-Tarot-NOCTURNAL-68.png?v=1605877246",
+        "meaning": "Community, homecoming, celebration.",
+        "story": "The Four of Wands celebrates a time of joy and satisfaction in personal or communal achievements, often marking an event or a homecoming."
+      }
+    ]
+  }
+  

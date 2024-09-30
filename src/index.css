@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+/* Global background styles */
+body {
+  background-color: #fafafa; /* Light background to keep focus on content */
+  font-family: 'Amatic SC', cursive; /* Consistent font throughout the app */
+  background-image: url('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*H_145W8OiHlLc0LDFdK9_Q.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Fix the background image in place */
+}
+
+/* Text and font styles */
+.text-spiritual {
+  color: #c0a080; /* Soft gold color for a spiritual touch */
+}
+
+.font-spiritual {
+  font-family: 'Amatic SC', cursive; /* Ensuring the spiritual feel is consistent */
+}
+
+/* Button styling */
+.button-base {
+  @apply bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out;
+  @apply hover:bg-purple-800; /* Darker on hover for better user feedback */
+}
+
+.button-primary {
+  @apply bg-purple-600; /* Tailwind default class if you removed custom accent-purple */
+  @apply hover:bg-purple-900; /* Even darker purple on hover for primary buttons */
+}
+
+.button-danger {
+  @apply bg-red-500;
+  @apply hover:bg-red-700; /* Red for actions like 'reset' or 'delete' */
+}
+
+/* Input styling */
+.input-base {
+  @apply block w-full px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
+}
+
+/* Shadows for depth */
+.shadow-spiritual {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadows for floating effect */
+}
+
+/* Container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Fixed positioning for components */
+.fixed-component {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 100;
+}
+
+/* Responsive components */
+.responsive-component {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Scrollable content */
+.scrollable-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Add overlay for better text readability */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+  z-index: 1;
+  filter: blur(2px); /* Add subtle blur */
+}
+
+/* Ensures other content is positioned above the overlay */
+body > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: Add a text box class for better contrast in key areas */
+.text-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}

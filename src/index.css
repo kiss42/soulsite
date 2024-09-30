@@ -7,48 +7,52 @@
 
 /* Global background styles */
 body {
-  background-color: #fafafa; /* Light background to keep focus on content */
-  font-family: 'Amatic SC', cursive; /* Consistent font throughout the app */
+  background-color: #fafafa;
+  font-family: 'Amatic SC', cursive;
   background-image: url('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*H_145W8OiHlLc0LDFdK9_Q.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Fix the background image in place */
+  background-attachment: fixed;
 }
 
 /* Text and font styles */
 .text-spiritual {
-  color: #c0a080; /* Soft gold color for a spiritual touch */
+  color: #c0a080;
 }
 
 .font-spiritual {
-  font-family: 'Amatic SC', cursive; /* Ensuring the spiritual feel is consistent */
+  font-family: 'Amatic SC', cursive;
 }
 
 /* Button styling */
 .button-base {
   @apply bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out;
-  @apply hover:bg-purple-800; /* Darker on hover for better user feedback */
+  @apply hover:bg-purple-800;
+  @apply w-full; /* Ensuring the button spans full width on smaller screens */
 }
 
 .button-primary {
-  @apply bg-purple-600; /* Tailwind default class if you removed custom accent-purple */
-  @apply hover:bg-purple-900; /* Even darker purple on hover for primary buttons */
+  @apply bg-purple-600;
+  @apply hover:bg-purple-900;
+  @apply w-full; /* Full width for mobile screens */
 }
 
 .button-danger {
   @apply bg-red-500;
-  @apply hover:bg-red-700; /* Red for actions like 'reset' or 'delete' */
+  @apply hover:bg-red-700;
+  @apply w-full; /* Full width for mobile screens */
 }
 
 /* Input styling */
 .input-base {
-  @apply block w-full px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
+  @apply block w-full px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900;
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
 }
 
 /* Shadows for depth */
 .shadow-spiritual {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadows for floating effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Container styling */
@@ -61,6 +65,21 @@ body {
   padding: 20px;
 }
 
+/* Responsive container */
+.responsive-component {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 16px; /* Add padding for small screens */
+}
+
+@media (min-width: 768px) {
+  /* Larger screens get more padding */
+  .responsive-component {
+    padding: 32px;
+  }
+}
+
 /* Fixed positioning for components */
 .fixed-component {
   position: fixed;
@@ -71,11 +90,12 @@ body {
   z-index: 100;
 }
 
-/* Responsive components */
-.responsive-component {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
+@media (max-width: 768px) {
+  /* For small screens */
+  .fixed-component {
+    width: 100%;
+    padding: 16px;
+  }
 }
 
 /* Scrollable content */
@@ -84,7 +104,7 @@ body {
   overflow-y: auto;
 }
 
-/* Add overlay for better text readability */
+/* Overlay for readability */
 body::before {
   content: "";
   position: absolute;
@@ -92,21 +112,51 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
-  filter: blur(2px); /* Add subtle blur */
+  filter: blur(2px);
 }
 
-/* Ensures other content is positioned above the overlay */
 body > * {
   position: relative;
   z-index: 2;
 }
 
-/* Optional: Add a text box class for better contrast in key areas */
+/* Textbox class */
 .text-box {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+}
+
+/* Responsive text and button sizes */
+.text-box {
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .text-box {
+    font-size: 1.25rem; /* Larger text on bigger screens */
+  }
+}
+
+@media (max-width: 640px) {
+  .button-base, .button-primary, .button-danger {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .input-base {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .input-base {
+    font-size: 0.875rem;
+    padding: 8px;
+  }
 }

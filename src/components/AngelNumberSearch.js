@@ -16,17 +16,17 @@ function AngelNumberSearch() {
       if (result) {
         const messageContent = (
           <>
-            <p className="font-bold">Major Message:</p>
-            <p>{result.majorMessage}</p>
-            <p className="font-bold">Description:</p>
-            <p>{result.description}</p>
-            <p className="font-bold">What Your Future Holds:</p>
-            <p>{result.future}</p>
-            <p className="font-bold">Actions You Can Take:</p>
+            <p className="font-bold text-lg sm:text-base">Major Message:</p>
+            <p className="text-sm">{result.majorMessage}</p>
+            <p className="font-bold text-lg sm:text-base">Description:</p>
+            <p className="text-sm">{result.description}</p>
+            <p className="font-bold text-lg sm:text-base">What Your Future Holds:</p>
+            <p className="text-sm">{result.future}</p>
+            <p className="font-bold text-lg sm:text-base">Actions You Can Take:</p>
             <ul className="list-disc list-inside">
               {result.actions
                 ? result.actions.split('. ').map((action, index) => (
-                    <li key={index}>{action}</li>
+                    <li key={index} className="text-sm">{action}</li>
                   ))
                 : <li>No specific actions provided.</li>}
             </ul>
@@ -74,7 +74,7 @@ function AngelNumberSearch() {
 
           {showModal && (
             <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center p-4">
-              <div className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full text-black">
+              <div className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full text-black max-h-[80vh] overflow-y-auto">
                 <button
                   onClick={handleCloseModal}
                   className="float-right font-bold text-lg text-red-500 hover:text-red-700"

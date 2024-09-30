@@ -60,22 +60,27 @@ const NumerologyCalculator = () => {
         </button>
       </div>
 
+      {/* Ensure Modal is correctly styled */}
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Numerology Results">
-          <div className="mt-6 space-y-3">
-            <h3 className="text-xl font-bold">Numerology Results for {userDetails.name}:</h3>
+          <div className="bg-black text-white p-6 rounded-lg shadow-2xl">
+            <h3 className="text-xl font-bold mb-4">Numerology Results for {userDetails.name}:</h3>
             {Object.entries(results).map(([key, value]) => (
-              <p key={key} className="font-semibold">
+              <p key={key} className="font-semibold mb-2">
                 <span className="font-bold">{key}:</span> Number {value.number}, Meaning: {value.meaning}
               </p>
             ))}
-            <h4 className="text-lg font-bold">Chakra Recommendations:</h4>
-            {chakraRecommendations.map((recommendation, index) => (
-              <p key={index}>
-                {recommendation.name}: {recommendation.guidance}
-              </p>
-            ))}
-            <button onClick={handleReset} className="w-full button-base button-danger">
+            <h4 className="text-lg font-bold mt-4">Chakra Recommendations:</h4>
+            {chakraRecommendations.length > 0 ? (
+              chakraRecommendations.map((recommendation, index) => (
+                <p key={index}>
+                  {recommendation.name}: {recommendation.guidance}
+                </p>
+              ))
+            ) : (
+              <p>No Chakra recommendations available.</p>
+            )}
+            <button onClick={handleReset} className="w-full button-base button-danger mt-6">
               Reset
             </button>
           </div>

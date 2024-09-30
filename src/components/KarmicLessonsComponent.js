@@ -38,21 +38,32 @@ const KarmicLessonsComponent = () => {
       </button>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={`Karmic Lessons for ${userDetails.name}`}>
-        <div className="mt-4 space-y-2 max-h-80 overflow-y-auto">
-          {karmicLessons.length > 0 ? (
-            <ul className="list-disc pl-5 text-purple-300">
-              {karmicLessons.map((lesson, index) => (
-                <li key={index}>
-                  Lesson {lesson}: {karmicLessonsData[lesson]}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No karmic lessons found.</p>
-          )}
+        <div className="mt-4 bg-black p-5 text-white rounded-lg shadow-2xl max-w-lg mx-auto border-none outline-none">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-xl font-bold">{`Karmic Lessons for ${userDetails.name}`}</h3>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="text-red-500 text-xl font-bold hover:text-red-700"
+            >
+              X
+            </button>
+          </div>
+          <div className="space-y-3 max-h-[60vh] overflow-y-auto">
+            {karmicLessons.length > 0 ? (
+              <ul className="list-disc pl-5 text-sm text-gray-100">
+                {karmicLessons.map((lesson, index) => (
+                  <li key={index}>
+                    Lesson {lesson}: {karmicLessonsData[lesson]}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No karmic lessons found.</p>
+            )}
+          </div>
           <button
             onClick={handleReset}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-4"
+            className="mt-6 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
           >
             Reset
           </button>

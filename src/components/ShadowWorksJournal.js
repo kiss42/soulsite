@@ -44,14 +44,14 @@ function ShadowWorksJournal() {
     <div className="space-y-6 p-5 max-w-xl mx-auto font-spiritual">
       <button
         onClick={handleSelectPrompt}
-        className="hover:bg-purple-700 text-white font-spiritual font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out w-full"
+        className="hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out w-full"
       >
         Illuminate the Unconscious
       </button>
 
       {showPopup && (
         <Popup isOpen={showPopup} onClose={handleClosePopup} title="Your Daily Shadow Work Prompt">
-          <p className="font-bold text-lg mb-3">{selectedPrompt.prompt}</p>
+          <p className="font-bold text-lg text-black mb-3">{selectedPrompt.prompt}</p>
           <textarea
             value={journalEntry}
             onChange={(e) => setJournalEntry(e.target.value)}

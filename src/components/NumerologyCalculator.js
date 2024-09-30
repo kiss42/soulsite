@@ -2,52 +2,37 @@ import React, { useState } from 'react';
 import numerologyMeanings from '../data/numerologyMeanings.json';
 import { calculateLifePathNumber, calculatePersonalityNumber, calculateSoulUrgeNumber, calculateHiddenPassionNumber } from '../services/numerologyService';
 import { useUser } from '../contexts/UserContext';
-import { getChakraRecommendation } from '../services/chakraService'; // Add this import for chakra recommendations
-import Modal from '../utilities/modal'; // Import Modal
+import { getChakraRecommendation } from '../services/chakraService';
+import Modal from '../utilities/modal';
 
 const NumerologyCalculator = () => {
-  const { userDetails, setUserDetails } = useUser();  // Destructure user context
+  const { userDetails, setUserDetails } = useUser();
   const [results, setResults] = useState({});
   const [chakraRecommendations, setChakraRecommendations] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Handle calculations
   const handleCalculate = () => {
     const lifePathNumber = calculateLifePathNumber(userDetails.birthdate);
     const personalityNumber = calculatePersonalityNumber(userDetails.name);
     const soulUrgeNumber = calculateSoulUrgeNumber(userDetails.name);
     const hiddenPassionNumber = calculateHiddenPassionNumber(userDetails.name);
 
-    // Set results
     setResults({
-      LifePath: {
-        number: lifePathNumber,
-        meaning: numerologyMeanings.lifePath[lifePathNumber.toString()]
-      },
-      Personality: {
-        number: personalityNumber,
-        meaning: numerologyMeanings.personality[personalityNumber.toString()]
-      },
-      SoulUrge: {
-        number: soulUrgeNumber,
-        meaning: numerologyMeanings.soulUrge[soulUrgeNumber.toString()]
-      },
-      HiddenPassion: {
-        number: hiddenPassionNumber,
-        meaning: numerologyMeanings.hiddenPassion[hiddenPassionNumber.toString()]
-      }
+      LifePath: { number: lifePathNumber, meaning: numerologyMeanings.lifePath[lifePathNumber.toString()] },
+      Personality: { number: personalityNumber, meaning: numerologyMeanings.personality[personalityNumber.toString()] },
+      SoulUrge: { number: soulUrgeNumber, meaning: numerologyMeanings.soulUrge[soulUrgeNumber.toString()] },
+      HiddenPassion: { number: hiddenPassionNumber, meaning: numerologyMeanings.hiddenPassion[hiddenPassionNumber.toString()] }
     });
 
-    setChakraRecommendations(getChakraRecommendation({ LifePath: { number: lifePathNumber } })); // Now it's defined
-    setIsModalOpen(true); // Open modal with results
+    setChakraRecommendations(getChakraRecommendation({ LifePath: { number: lifePathNumber } }));
+    setIsModalOpen(true);
   };
 
-  // Reset form and state
   const handleReset = () => {
     setUserDetails({ name: '', birthdate: '' });
     setResults({});
     setChakraRecommendations([]);
-    setIsModalOpen(false); // Close modal
+    setIsModalOpen(false);
   };
 
   return (
@@ -75,7 +60,6 @@ const NumerologyCalculator = () => {
         </button>
       </div>
 
-      {/* Modal for displaying numerology results */}
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Numerology Results">
           <div className="mt-6 space-y-3">

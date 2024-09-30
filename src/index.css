@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-
 /* Global background styles */
 body {
   background-color: #fafafa;
@@ -16,95 +13,59 @@ body {
   background-attachment: fixed;
 }
 
-/* Text and font styles */
-.text-spiritual {
-  color: #c0a080;
+/* Scrollable modal or content */
+.scrollable-content {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1rem;
+  scroll-behavior: smooth; /* Adds smooth scrolling */
 }
 
-.font-spiritual {
-  font-family: 'Amatic SC', cursive;
+@media (max-width: 768px) {
+  .scrollable-content {
+    max-height: 70vh; /* Adjust for smaller screens */
+  }
 }
 
 /* Button styling */
 .button-base {
   @apply bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out;
   @apply hover:bg-purple-800;
-  @apply w-full; /* Ensuring the button spans full width on smaller screens */
+  @apply w-full;
 }
 
-.button-primary {
-  @apply bg-purple-600;
-  @apply hover:bg-purple-900;
-  @apply w-full; /* Full width for mobile screens */
-}
-
-.button-danger {
-  @apply bg-red-500;
-  @apply hover:bg-red-700;
-  @apply w-full; /* Full width for mobile screens */
-}
-
-/* Input styling */
+/* Input styling for forms */
 .input-base {
   @apply block w-full px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900;
   @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
 }
 
-/* Shadows for depth */
-.shadow-spiritual {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Input field for date */
+.input-date {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  @apply w-full text-center px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
 }
 
-/* Container styling */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 20px;
-}
-
-/* Responsive container */
-.responsive-component {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  padding: 16px; /* Add padding for small screens */
-}
-
-@media (min-width: 768px) {
-  /* Larger screens get more padding */
-  .responsive-component {
-    padding: 32px;
-  }
-}
-
-/* Fixed positioning for components */
-.fixed-component {
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  z-index: 100;
+::-webkit-datetime-edit {
+  color: black;
 }
 
 @media (max-width: 768px) {
-  /* For small screens */
-  .fixed-component {
-    width: 100%;
-    padding: 16px;
+  .input-date {
+    font-size: 1rem;
   }
 }
 
-/* Scrollable content */
-.scrollable-content {
-  max-height: 80vh;
+/* Container for larger modals */
+.modal-container {
+  max-height: 90vh;
+  max-width: 100vw;
   overflow-y: auto;
 }
 
-/* Overlay for readability */
+/* Add overlay for better text readability */
 body::before {
   content: "";
   position: absolute;
@@ -120,43 +81,4 @@ body::before {
 body > * {
   position: relative;
   z-index: 2;
-}
-
-/* Textbox class */
-.text-box {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-/* Responsive text and button sizes */
-.text-box {
-  font-size: 1rem;
-}
-
-@media (min-width: 640px) {
-  .text-box {
-    font-size: 1.25rem; /* Larger text on bigger screens */
-  }
-}
-
-@media (max-width: 640px) {
-  .button-base, .button-primary, .button-danger {
-    font-size: 1rem;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .input-base {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .input-base {
-    font-size: 0.875rem;
-    padding: 8px;
-  }
 }

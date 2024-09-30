@@ -8,15 +8,12 @@ function AngelNumberSearch() {
   const [showInput, setShowInput] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  // Handle the search logic for angel numbers
   const handleSearch = () => {
     setLoading(true);
-    const result = angelNumbers[number]; // Look up the angel number in the data
+    const result = angelNumbers[number];
 
-    // Simulate a delay for loading effect
     setTimeout(() => {
       if (result) {
-        // Construct the message content based on the search result
         const messageContent = (
           <>
             <p className="font-bold">Major Message:</p>
@@ -40,49 +37,43 @@ function AngelNumberSearch() {
         setMessage("Adding more angel numbers for the future, please be patient.");
       }
 
-      setShowModal(true); // Show the modal with the result
-      setLoading(false);  // Stop loading
-    }, 500); // 500ms delay for simulated search effect
+      setShowModal(true);
+      setLoading(false);
+    }, 500);
   };
 
-  // Handle closing the modal
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center p-4">
-      {/* Toggle between the button and the input field */}
       {!showInput ? (
         <button
           onClick={() => setShowInput(true)}
-          className="hover:bg-purple-700 text-white font-spiritual font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out"
+          className="hover:bg-purple-700 text-white font-spiritual font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out w-full sm:w-auto"
         >
           Find Out Angel Number Meaning
         </button>
       ) : (
         <>
-          {/* Input field for the angel number */}
           <input
             type="text"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
             placeholder="Enter an angel number"
-            className="border-2 border-purple-500 p-3 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border-2 border-purple-500 p-3 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-purple-500 w-full"
           />
-
-          {/* Search button */}
           <button
             onClick={handleSearch}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out mt-3"
+            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out mt-3 w-full sm:w-auto"
             disabled={loading}
           >
             {loading ? 'Searching...' : 'Search'}
           </button>
 
-          {/* Modal to display the result */}
           {showModal && (
-            <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+            <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center p-4">
               <div className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full text-black">
                 <button
                   onClick={handleCloseModal}

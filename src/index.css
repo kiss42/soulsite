@@ -71,6 +71,27 @@ body {
   overflow-y: auto;
   font-family: 'Cinzel Decorative', serif; /* Apply Cinzel Decorative inside modals */
 }
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
+  animation: glow 1.5s infinite alternate;
+  z-index: 1000;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+  }
+}
 
 /* Add overlay for better text readability */
 body::before {

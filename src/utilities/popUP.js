@@ -5,18 +5,18 @@ const Popup = ({ isOpen, onClose, title, children }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex justify-center items-center bg-black/70 p-4"
       onClick={onClose} // Allow clicking the background to close the popup
     >
       <div 
-        className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto relative"
+        className="modal-surface max-w-lg w-full max-h-[80vh] overflow-y-auto relative text-white"
         onClick={(e) => e.stopPropagation()} // Prevent click from closing the popup when clicking inside it
       >
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold">{title}</h3>
+          <h3 className="text-lg font-bold leading-tight">{title}</h3>
           <button
             onClick={onClose}
-            className="text-lg font-bold hover:text-red-500"
+            className="text-lg font-bold hover:text-red-300"
           >
             X
           </button>

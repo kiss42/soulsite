@@ -47,41 +47,47 @@ function AngelNumberSearch() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-4">
+    <div className="space-y-3">
       {!showInput ? (
         <button
           onClick={() => setShowInput(true)}
-          className="hover:bg-purple-700 hover:scale-105 text-white font-spiritual font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300 ease-in-out w-full sm:w-auto"
+          className="primary-btn w-full"
         >
           Find Out Angel Number Meaning
         </button>
       ) : (
         <>
-          <input
-            type="text"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            placeholder="Enter an angel number"
-            className="border-2 border-purple-500 p-3 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-purple-500 w-full"
-          />
-          <button
-            onClick={handleSearch}
-            className="bg-purple-600 hover:bg-purple-700 hover:scale-105 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300 ease-in-out mt-3 w-full sm:w-auto"
-            disabled={loading}
-          >
-            {loading ? 'Searching...' : 'Search'}
-          </button>
+          <div className="stack-card space-y-3">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/70">
+              <span className="text-lg">🪽</span>
+              <span>Angel lookup</span>
+            </div>
+            <input
+              type="text"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+              placeholder="Enter an angel number"
+              className="pill-input"
+            />
+            <button
+              onClick={handleSearch}
+              className="primary-btn w-full"
+              disabled={loading}
+            >
+              {loading ? 'Searching...' : 'Search'}
+            </button>
+          </div>
 
           {showModal && (
-            <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center p-4 fade-in show">
-              <div className="bg-white p-5 rounded-lg shadow-lg max-w-lg w-full text-black max-h-[80vh] overflow-y-auto scroll-smooth">
+            <div className="fixed inset-0 bg-black/70 flex justify-center items-center p-4 fade-in show z-50">
+              <div className="modal-surface max-w-lg w-full text-white max-h-[80vh] overflow-y-auto scroll-smooth">
                 <button
                   onClick={handleCloseModal}
-                  className="float-right font-bold text-lg text-red-500 hover:text-red-700"
+                  className="float-right font-bold text-lg text-red-400 hover:text-red-200"
                 >
                   X
                 </button>
-                <div className="mt-5">{message}</div>
+                <div className="mt-5 space-y-2 text-gray-200">{message}</div>
               </div>
             </div>
           )}

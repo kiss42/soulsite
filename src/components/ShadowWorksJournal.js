@@ -41,26 +41,32 @@ function ShadowWorksJournal() {
   };
 
   return (
-    <div className="space-y-6 p-5 max-w-xl mx-auto font-spiritual">
-      <button
-        onClick={handleSelectPrompt}
-        className="hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out w-full"
-      >
-        Illuminate the Unconscious
-      </button>
+    <div className="space-y-4">
+      <div className="stack-card space-y-3">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/70">
+          <span className="text-lg">🌙</span>
+          <span>Shadow prompt</span>
+        </div>
+        <button
+          onClick={handleSelectPrompt}
+          className="primary-btn w-full"
+        >
+          Illuminate the Unconscious
+        </button>
+      </div>
 
       {showPopup && (
         <Popup isOpen={showPopup} onClose={handleClosePopup} title="Your Daily Shadow Work Prompt">
-          <p className="font-bold text-lg text-black mb-3">{selectedPrompt.prompt}</p>
+          <p className="font-bold text-lg text-white mb-3">{selectedPrompt.prompt}</p>
           <textarea
             value={journalEntry}
             onChange={(e) => setJournalEntry(e.target.value)}
             placeholder="Reflect on the prompt here..."
-            className="border-2 border-purple-500 p-3 rounded-lg w-full h-28 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full h-28 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-gray-300 p-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
           <button
             onClick={handleSaveAsPDF}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full mt-4 transition duration-300 ease-in-out w-full"
+            className="primary-btn w-full mt-4"
           >
             Save as PDF
           </button>

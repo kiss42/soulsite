@@ -20,17 +20,17 @@ const TarotReading = () => {
   const handleCloseModal = () => setSelectedCard(null);
 
   return (
-    <div className="text-center">
+    <div className="text-center space-y-4">
       <button 
         onClick={shuffleCards} 
-        className="hover:bg-purple-700 text-sparkle-white font-spiritual font-bold py-2 px-4 rounded-full shadow-spiritual transition duration-300 ease-in-out"
+        className="primary-btn w-auto px-6"
       >
-        Draw Card
+        Draw a spread
       </button>
 
       {/* Display drawn cards */}
       {drawnCards && (
-        <div className="flex justify-center flex-wrap gap-4 mt-4 mx-auto" style={{ maxWidth: '1200px' }}>
+        <div className="flex justify-center flex-wrap gap-6 mt-6 mx-auto" style={{ maxWidth: '1200px' }}>
           {drawnCards.map((card) => (
             <TarotCard key={card.name} card={card} onClick={() => handleCardClick(card)} />
           ))}
@@ -40,7 +40,7 @@ const TarotReading = () => {
       {/* Modal for displaying selected card */}
       {selectedCard && (
         <Modal isOpen={!!selectedCard} onClose={handleCloseModal} title={selectedCard.name}>
-          <div className="bg-black text-white p-4 rounded-lg">
+          <div className="modal-surface text-white space-y-2">
             <p><strong>Meaning:</strong> {selectedCard.meaning}</p>
             <p><strong>Story:</strong> {selectedCard.story}</p>
           </div>

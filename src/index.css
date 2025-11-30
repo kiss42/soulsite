@@ -3,74 +3,104 @@
 @tailwind utilities;
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* Global background styles */
+:root {
+  --card-surface: rgba(12, 19, 40, 0.7);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --text-main: #f3f4ff;
+  --muted: #c2c7e0;
+  --accent: #e9d8a6;
+  --glow: 0 14px 50px -18px rgba(233, 216, 166, 0.45);
+  --bg-base: linear-gradient(170deg, rgba(8, 11, 25, 0.92), rgba(5, 6, 16, 0.95));
+  --bg-texture: url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1600&q=80');
+  --bg-radial-1: radial-gradient(ellipse at 50% 0%, rgba(233, 216, 166, 0.08), transparent 45%);
+  --bg-radial-2: radial-gradient(ellipse at 80% 10%, rgba(126, 210, 255, 0.08), transparent 40%);
+  --bg-radial-3: radial-gradient(ellipse at 15% 20%, rgba(180, 155, 255, 0.1), transparent 45%);
+}
+
+.theme-dark {
+  --card-surface: rgba(12, 19, 40, 0.7);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --text-main: #f3f4ff;
+  --muted: #c2c7e0;
+  --accent: #e9d8a6;
+  --glow: 0 14px 50px -18px rgba(233, 216, 166, 0.45);
+  --bg-base: linear-gradient(170deg, rgba(8, 11, 25, 0.92), rgba(5, 6, 16, 0.95));
+  --bg-texture: url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1600&q=80');
+  --bg-radial-1: radial-gradient(ellipse at 50% 0%, rgba(233, 216, 166, 0.08), transparent 45%);
+  --bg-radial-2: radial-gradient(ellipse at 80% 10%, rgba(126, 210, 255, 0.08), transparent 40%);
+  --bg-radial-3: radial-gradient(ellipse at 15% 20%, rgba(180, 155, 255, 0.1), transparent 45%);
+}
+
+.theme-light {
+  --card-surface: rgba(28, 34, 62, 0.6);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text-main: #f9fbff;
+  --muted: #d8ddf0;
+  --accent: #f5d48c;
+  --glow: 0 14px 40px -18px rgba(245, 212, 140, 0.35);
+  --bg-base: linear-gradient(165deg, #1b243a, #11182e);
+  --bg-texture: linear-gradient(120deg, rgba(255, 214, 153, 0.18), rgba(116, 178, 255, 0.14));
+  --bg-radial-1: radial-gradient(ellipse at 30% 0%, rgba(255, 214, 153, 0.18), transparent 45%);
+  --bg-radial-2: radial-gradient(ellipse at 80% 10%, rgba(116, 178, 255, 0.16), transparent 40%);
+  --bg-radial-3: radial-gradient(ellipse at 20% 20%, rgba(245, 212, 140, 0.14), transparent 45%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #fafafa;
-  font-family: 'Cinzel Decorative', serif; /* Applying Cinzel Decorative globally */
-  background-image: url('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*H_145W8OiHlLc0LDFdK9_Q.png');
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  background:
+    var(--bg-radial-1),
+    var(--bg-radial-2),
+    var(--bg-radial-3),
+    var(--bg-base),
+    var(--bg-texture);
+  color: var(--text-main);
+  position: relative;
+  overflow-x: hidden;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-/* Scrollable modal or content */
-.scrollable-content {
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 1rem;
-  scroll-behavior: smooth; /* Adds smooth scrolling */
+/* Ambient glow + star field */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(233, 216, 166, 0.25), transparent 45%),
+    radial-gradient(circle at 70% 20%, rgba(126, 210, 255, 0.18), transparent 42%);
+  filter: blur(140px);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .scrollable-content {
-    max-height: 70vh; /* Adjust for smaller screens */
-  }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(233, 216, 166, 0.1) 1px, transparent 0),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 260px 260px, 160px 160px, 160px 160px;
+  opacity: 0.06;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* Button styling */
-.button-base {
-  @apply bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out;
-  @apply hover:bg-purple-800;
-  @apply w-full;
-  font-family: 'Cinzel Decorative', serif; /* Apply Cinzel Decorative to buttons */
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Input styling for forms */
-.input-base {
-  @apply block w-full px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900;
-  @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
-  font-family: 'Cinzel Decorative', serif; /* Apply Cinzel Decorative to input fields */
-}
-
-/* Input field for date */
-.input-date {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  @apply w-full text-center px-4 py-2 bg-white border border-gray-300 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
-  font-family: 'Cinzel Decorative', serif; /* Apply Cinzel Decorative to date inputs */
-}
-
-::-webkit-datetime-edit {
-  color: black;
-}
-
-@media (max-width: 768px) {
-  .input-date {
-    font-size: 1rem;
-  }
-}
-
-/* Container for larger modals */
-.modal-container {
-  max-height: 90vh;
-  max-width: 100vw;
-  overflow-y: auto;
-  font-family: 'Cinzel Decorative', serif; /* Apply Cinzel Decorative inside modals */
-}
 .cursor {
   position: absolute;
   width: 20px;
@@ -93,24 +123,6 @@ body {
   }
 }
 
-/* Add overlay for better text readability */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  filter: blur(2px);
-}
-
-body > * {
-  position: relative;
-  z-index: 2;
-}
-
 .fade-in {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -119,16 +131,161 @@ body > * {
 .fade-in.show {
   opacity: 1;
 }
+
 .scrollable-content {
   max-height: 80vh;
   overflow-y: auto;
-  scroll-behavior: smooth; /* Adds smooth scrolling */
+  scroll-behavior: smooth;
   padding: 1rem;
 }
 
 @media (max-width: 768px) {
   .scrollable-content {
-    max-height: 70vh; /* Adjust for smaller screens */
+    max-height: 70vh;
   }
 }
 
+@layer components {
+  .glass-panel {
+    @apply rounded-2xl p-6 shadow-xl backdrop-blur-xl;
+    background: var(--card-surface);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--glow);
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold tracking-tight text-white;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-gray-300;
+  }
+
+  .pill-input {
+    @apply w-full px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent;
+  }
+
+  .primary-btn {
+    @apply bg-gradient-to-r from-[#d7b46a] via-[#b49bff] to-[#6ec0ff] text-slate-950 font-semibold py-3 px-4 rounded-xl shadow-lg transition-transform duration-300 ease-out;
+    box-shadow: var(--glow);
+  }
+
+  .primary-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .ghost-btn {
+    @apply inline-flex items-center justify-center gap-2 border border-white/30 text-white rounded-xl py-3 px-4 hover:bg-white/5 transition-colors duration-200;
+  }
+
+  .card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[11px] uppercase tracking-[0.2em] text-white;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.32em] text-white/70 inline-flex items-center gap-2;
+    letter-spacing: 0.32em;
+  }
+
+  .stat-chip {
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white/90;
+  }
+
+  .trim-card {
+    @apply rounded-2xl p-6 relative overflow-hidden;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--card-border);
+  }
+
+  .trim-card::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(180, 155, 255, 0.25), transparent 42%),
+      radial-gradient(circle at 80% 0%, rgba(98, 228, 255, 0.2), transparent 42%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  .ribbon {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/10 border border-white/15 text-white;
+  }
+
+  .stack-card {
+    @apply rounded-2xl p-5 border border-white/10 bg-white/5 shadow-lg;
+  }
+
+  .tarot-card-frame {
+    @apply relative overflow-hidden rounded-3xl border shadow-xl transition duration-300 cursor-pointer;
+    border-color: rgba(233, 216, 166, 0.5);
+    background: radial-gradient(circle at 30% 20%, rgba(233, 216, 166, 0.15), transparent 50%), #0b122b;
+    box-shadow: 0 15px 50px -24px rgba(0, 0, 0, 0.8), 0 8px 30px -18px rgba(233, 216, 166, 0.5);
+  }
+
+.tarot-card-frame::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid rgba(233, 216, 166, 0.5);
+  border-radius: 22px;
+  pointer-events: none;
+  box-shadow: inset 0 0 40px rgba(233, 216, 166, 0.08);
+  }
+
+/* Starfield layers */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 200px 80px, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 320px 220px, rgba(255, 255, 255, 0.6), transparent);
+  background-size: 320px 320px;
+  animation: twinkle 9s linear infinite;
+  z-index: 0;
+}
+
+.starfield--near {
+  background-image: radial-gradient(1px 1px at 40px 60px, rgba(233, 216, 166, 0.8), transparent),
+    radial-gradient(1px 1px at 140px 200px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 220px 140px, rgba(233, 216, 166, 0.6), transparent),
+    radial-gradient(1px 1px at 300px 40px, rgba(255, 255, 255, 0.7), transparent);
+  animation-duration: 12s;
+  mix-blend-mode: screen;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: translate3d(0,0,0); }
+  50% { opacity: 0.65; transform: translate3d(0, -4px, 0); }
+}
+
+  .modal-surface {
+    @apply bg-slate-950/85 border border-white/10 rounded-2xl shadow-2xl p-5 backdrop-blur-2xl;
+  }
+
+  .muted-text {
+    @apply text-gray-300 text-sm;
+  }
+
+  /* Legacy helpers refreshed to match the new palette */
+  .button-base {
+    @apply bg-white/10 border border-white/20 text-white font-semibold py-3 px-4 rounded-xl transition-transform duration-300 ease-out;
+    box-shadow: var(--glow);
+  }
+
+  .button-base:hover {
+    transform: translateY(-2px);
+  }
+
+  .input-base,
+  .input-date {
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+}

@@ -32,6 +32,85 @@ const POSITION_PROMPTS = {
   'Outcome':       'What does this card suggest about where you are headed?',
 };
 
+function meaning(card) {
+  return card.reversed ? card.reversedMeaning : card.meaning;
+}
+
+function orientation(card) {
+  return card.reversed ? 'reversed' : 'upright';
+}
+
+function buildStory(cards, spreadType, intention) {
+  const intentionClose = intention?.trim()
+    ? `You came to this reading holding the question: "${intention.trim()}". Read the arc of these cards as the answer forming — not a prescription, but a map of the energy already in motion around that question.`
+    : null;
+
+  if (spreadType === 'single') {
+    const c = cards[0];
+    return [
+      {
+        label: `${c.name} · ${orientation(c)}`,
+        body: `${meaning(c)} — ${c.story}`,
+      },
+      {
+        body: intentionClose ?? `The cards draw a single thread today and hand it directly to you. Notice where in your life this energy is already alive. Let it be your quiet lantern for the hours ahead.`,
+      },
+    ];
+  }
+
+  if (spreadType === 'three') {
+    const [past, present, future] = cards;
+    return [
+      {
+        label: `Past · ${past.name}${past.reversed ? ' · reversed' : ''}`,
+        body: `Your story opens in ${past.name}'s energy — ${meaning(past)}. This is the ground you have walked. It shaped what you carry into the present, whether you named it clearly or not. ${past.story}`,
+      },
+      {
+        label: `Present · ${present.name}${present.reversed ? ' · reversed' : ''}`,
+        body: `From that ground you arrive at ${present.name}. ${meaning(present)}. This is the lens through which everything is currently being filtered — the feeling you wake with, the undercurrent in every room you enter. The past handed you a current, and this is the one you are swimming in now.`,
+      },
+      {
+        label: `Future · ${future.name}${future.reversed ? ' · reversed' : ''}`,
+        body: `What stirs at the horizon carries the energy of ${future.name}. ${meaning(future)}. The future in a reading is not a sentence — it is a current the cards can see gathering. You still choose how you meet it.`,
+      },
+      {
+        body: intentionClose ?? `Three cards, one arc. The past set the scene, the present holds the tension, and the future offers a way through. The story is yours to finish.`,
+      },
+    ];
+  }
+
+  if (spreadType === 'five') {
+    const [foundation, challenge, subconscious, advice, outcome] = cards;
+    return [
+      {
+        label: `Foundation · ${foundation.name}${foundation.reversed ? ' · reversed' : ''}`,
+        body: `Every reading has an unseen floor, and yours is ${foundation.name}. ${meaning(foundation)}. This is the energy field you have been living inside — often unnoticed, always present beneath the surface of your choices and your restlessness.`,
+      },
+      {
+        label: `Challenge · ${challenge.name}${challenge.reversed ? ' · reversed' : ''}`,
+        body: `Rising from that floor, ${challenge.name} stands across your path. ${meaning(challenge)}. Challenges in a reading are rarely warnings — they are doors that look like walls from one angle. This card is asking: what would shift if you stopped pushing and started listening?`,
+      },
+      {
+        label: `Subconscious · ${subconscious.name}${subconscious.reversed ? ' · reversed' : ''}`,
+        body: `Beneath what you have been saying out loud, ${subconscious.name} stirs quietly. ${meaning(subconscious)}. The cards see what you have not yet put into words. This is the quiet driver behind much of what you have been feeling without being able to name it.`,
+      },
+      {
+        label: `Advice · ${advice.name}${advice.reversed ? ' · reversed' : ''}`,
+        body: `Into this moment, ${advice.name} arrives with a clear instruction: ${meaning(advice)}. Not a command — more like something a clear-eyed friend would say when they see the situation more plainly than you can from inside it. This is the pivot the reading is pointing toward.`,
+      },
+      {
+        label: `Outcome · ${outcome.name}${outcome.reversed ? ' · reversed' : ''}`,
+        body: `Follow that thread, and ${outcome.name} waits. ${meaning(outcome)}. This is the current the reading is pointing toward. Tend to what the advice card is asking of you, and you move closer to this resolution — one honest step at a time.`,
+      },
+      {
+        body: intentionClose ?? `Five positions, one story. Foundation to outcome is rarely a straight line — but there is a line. Trace it slowly and you find the shape of what you are moving through right now.`,
+      },
+    ];
+  }
+
+  return [];
+}
+
 function drawCards(count) {
   const deck = [...tarotData.tarotDeck];
   for (let i = deck.length - 1; i > 0; i--) {
@@ -51,6 +130,7 @@ const TarotReading = () => {
   const [drawId, setDrawId] = useState(0);
   const [revealAll, setRevealAll] = useState(false);
   const [selected, setSelected] = useState(null);
+  const [showStory, setShowStory] = useState(false);
 
   const spread = SPREADS[spreadType];
 
@@ -59,6 +139,7 @@ const TarotReading = () => {
     setDrawId(id => id + 1);
     setRevealAll(false);
     setSelected(null);
+    setShowStory(false);
   };
 
   const handleSpreadChange = (key) => {
@@ -66,7 +147,10 @@ const TarotReading = () => {
     setDrawnCards(null);
     setRevealAll(false);
     setSelected(null);
+    setShowStory(false);
   };
+
+  const story = drawnCards ? buildStory(drawnCards, spreadType, intention) : [];
 
   return (
     <div className="space-y-5">
@@ -89,27 +173,30 @@ const TarotReading = () => {
       </div>
 
       {/* Intention input */}
-      <div>
-        <input
-          type="text"
-          value={intention}
-          onChange={e => setIntention(e.target.value)}
-          placeholder="Set your intention — what do you seek guidance on? (optional)"
-          className="pill-input text-sm"
-        />
-      </div>
+      <input
+        type="text"
+        value={intention}
+        onChange={e => setIntention(e.target.value)}
+        placeholder="Set your intention — what do you seek guidance on? (optional)"
+        className="pill-input text-sm"
+      />
 
-      {/* Draw button */}
+      {/* Actions row */}
       <div className="flex gap-3 flex-wrap">
         <button onClick={handleDraw} className="primary-btn w-auto px-6">
           {drawnCards ? 'Reshuffle & draw again' : `Draw ${spread.label}`}
         </button>
         {drawnCards && !revealAll && (
+          <button onClick={() => setRevealAll(true)} className="ghost-btn px-4 w-auto text-sm">
+            Reveal all
+          </button>
+        )}
+        {drawnCards && (
           <button
-            onClick={() => setRevealAll(true)}
+            onClick={() => setShowStory(true)}
             className="ghost-btn px-4 w-auto text-sm"
           >
-            Reveal all
+            ✦ Read your story
           </button>
         )}
       </div>
@@ -136,7 +223,56 @@ const TarotReading = () => {
         </div>
       )}
 
-      {/* Interpretation modal */}
+      {/* ── Story modal ───────────────────────────────────────────────── */}
+      {showStory && (
+        <div
+          className="fixed inset-0 bg-black/80 flex justify-center items-center p-4 z-50"
+          onClick={() => setShowStory(false)}
+        >
+          <div
+            className="modal-surface max-w-lg w-full text-white max-h-[88vh] overflow-y-auto space-y-5"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex justify-between items-start">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/35 mb-1">Your reading</p>
+                <h3 className="text-xl font-bold text-[var(--accent)]">{spread.label}</h3>
+                {intention.trim() && (
+                  <p className="text-xs text-white/45 italic mt-1">"{intention.trim()}"</p>
+                )}
+              </div>
+              <button
+                onClick={() => setShowStory(false)}
+                className="text-xl font-bold text-gray-400 hover:text-red-300 transition ml-4 shrink-0"
+                aria-label="Close"
+              >✖</button>
+            </div>
+
+            <div className="h-px bg-white/10" />
+
+            {/* Story sections */}
+            {story.map((section, i) => (
+              <div key={i} className="space-y-1.5">
+                {section.label && (
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]/65 font-medium">
+                    {section.label}
+                  </p>
+                )}
+                <p className="text-sm text-white/75 leading-[1.75]">{section.body}</p>
+              </div>
+            ))}
+
+            <div className="h-px bg-white/10" />
+
+            <p className="text-[10px] text-center text-white/25 tracking-widest uppercase">
+              The cards offer a mirror — the meaning is yours to hold
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* ── Interpretation modal ──────────────────────────────────────── */}
       {selected && (
         <div
           className="fixed inset-0 bg-black/75 flex justify-center items-center p-4 z-50"
@@ -146,7 +282,6 @@ const TarotReading = () => {
             className="modal-surface max-w-md w-full text-white max-h-[88vh] overflow-y-auto space-y-4"
             onClick={e => e.stopPropagation()}
           >
-            {/* Header */}
             <div className="flex justify-between items-start">
               <div>
                 {selected.positionLabel && (
@@ -164,7 +299,6 @@ const TarotReading = () => {
               >✖</button>
             </div>
 
-            {/* Intention echo */}
             {intention.trim() && (
               <div className="rounded-xl bg-white/[0.03] border border-white/10 px-3 py-2">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-white/30 mb-0.5">Your intention</p>
@@ -172,7 +306,6 @@ const TarotReading = () => {
               </div>
             )}
 
-            {/* Card image + active meaning */}
             <div className="flex gap-4">
               <div className="shrink-0">
                 <img
@@ -192,7 +325,6 @@ const TarotReading = () => {
               </div>
             </div>
 
-            {/* Reflection prompt */}
             {selected.positionLabel && POSITION_PROMPTS[selected.positionLabel] && (
               <div className="border-t border-white/10 pt-3">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-white/35 mb-1">Reflect</p>
@@ -200,7 +332,6 @@ const TarotReading = () => {
               </div>
             )}
 
-            {/* Upright meaning reference when reversed */}
             {selected.reversed && (
               <div className="border-t border-white/10 pt-3">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-white/35 mb-1">Upright meaning</p>

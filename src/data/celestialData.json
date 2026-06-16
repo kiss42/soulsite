@@ -1,0 +1,135 @@
+{
+  "retrogrades": [
+    {
+      "planet": "Mercury",
+      "symbol": "☿",
+      "color": "#94a3b8",
+      "rules": "communication, technology, travel, contracts, the mind",
+      "meaning": "The messenger planet slows its orbit and turns inward. Communication snags, technology glitches, travel delays, and misunderstandings multiply. Old people, ideas, and unfinished conversations resurface for a reason. Review, revise, and reflect — but hold off on signing contracts, launching projects, or making irreversible decisions.",
+      "advice": "Back up your files, re-read messages before sending, and treat every miscommunication as information rather than offence.",
+      "periods": [
+        { "start": "2025-01-13", "end": "2025-02-04", "sign": "Capricorn" },
+        { "start": "2025-05-02", "end": "2025-05-26", "sign": "Taurus" },
+        { "start": "2025-09-10", "end": "2025-10-02", "sign": "Virgo" },
+        { "start": "2026-01-10", "end": "2026-02-01", "sign": "Capricorn" },
+        { "start": "2026-05-14", "end": "2026-06-07", "sign": "Taurus" },
+        { "start": "2026-09-18", "end": "2026-10-10", "sign": "Libra" },
+        { "start": "2027-01-06", "end": "2027-01-27", "sign": "Capricorn" },
+        { "start": "2027-05-01", "end": "2027-05-25", "sign": "Taurus" },
+        { "start": "2027-08-31", "end": "2027-09-21", "sign": "Virgo" }
+      ]
+    },
+    {
+      "planet": "Venus",
+      "symbol": "♀",
+      "color": "#f9a8d4",
+      "rules": "love, beauty, relationships, money, values, pleasure",
+      "meaning": "The planet of love turns inward, asking you to reassess what and who you truly value. Past loves often reappear — sometimes for closure, sometimes for a second chapter. New romances started now tend to transform dramatically once Venus goes direct. It is a poor time to make major financial decisions or change your appearance significantly.",
+      "advice": "Revisit what you value in relationships. Let go of beauty standards that were never yours. Nurture existing bonds over chasing new ones.",
+      "periods": [
+        { "start": "2025-03-01", "end": "2025-04-12", "sign": "Aries" },
+        { "start": "2026-10-03", "end": "2026-11-14", "sign": "Virgo" }
+      ]
+    },
+    {
+      "planet": "Mars",
+      "symbol": "♂",
+      "color": "#f87171",
+      "rules": "action, drive, ambition, conflict, sexuality, courage",
+      "meaning": "The warrior planet retreats. Your drive and energy feel muted or misdirected. Anger is harder to channel constructively, frustration builds under the surface, and projects launched now often stall or reverse. Physical energy dips. This is a time to audit your ambitions — are you fighting for what you actually want, or for what you think you should want?",
+      "advice": "Rest more than usual. Avoid starting fights or projects that require sustained momentum. Use the slowdown to sharpen your strategy.",
+      "periods": [
+        { "start": "2024-12-06", "end": "2025-02-23", "sign": "Leo" },
+        { "start": "2027-01-12", "end": "2027-03-21", "sign": "Gemini" }
+      ]
+    },
+    {
+      "planet": "Jupiter",
+      "symbol": "♃",
+      "color": "#fbbf24",
+      "rules": "expansion, luck, philosophy, abundance, higher learning",
+      "meaning": "The great benefic turns its gaze inward. External growth and lucky breaks quiet down, but inner expansion deepens. Beliefs and philosophies you have taken for granted are up for re-examination. Wisdom already gained gets integrated rather than new knowledge being accumulated. The gifts of this transit are patience and the courage to grow in silence.",
+      "advice": "Journal your beliefs. Question the philosophies you inherited. True expansion during this period is the kind that happens in the quiet.",
+      "periods": [
+        { "start": "2025-02-07", "end": "2025-06-02", "sign": "Gemini" },
+        { "start": "2025-10-23", "end": "2026-02-27", "sign": "Gemini" },
+        { "start": "2026-11-10", "end": "2027-03-10", "sign": "Cancer" }
+      ]
+    },
+    {
+      "planet": "Saturn",
+      "symbol": "♄",
+      "color": "#a78bfa",
+      "rules": "structure, discipline, karma, time, responsibility, limits",
+      "meaning": "The lord of karma turns inward. The structures you have built — in work, in relationships, in your sense of self — are being tested from the inside. Old debts (karmic and literal) resurface. Responsibilities you have avoided demand attention. What is built on solid ground holds; what is built on avoidance begins to crack. This is not punishment — it is accountability arriving on schedule.",
+      "advice": "Audit your commitments. Do the unglamorous maintenance work. Face the thing you have been procrastinating on — it will not grow easier with waiting.",
+      "periods": [
+        { "start": "2025-06-29", "end": "2025-11-15", "sign": "Pisces" },
+        { "start": "2026-06-06", "end": "2026-10-14", "sign": "Aries" },
+        { "start": "2027-06-18", "end": "2027-10-27", "sign": "Aries" }
+      ]
+    },
+    {
+      "planet": "Uranus",
+      "symbol": "♅",
+      "color": "#67e8f9",
+      "rules": "revolution, liberation, sudden change, technology, the future",
+      "meaning": "The awakener turns introspective. The revolutionary energy of Uranus moves from external disruption to internal questioning. Where have you been living inauthentically to keep the peace? Where have you traded freedom for security in ways that are slowly hollowing you out? Unexpected inner revelations arrive — often in dreams, in sudden clarity, in the quiet after a long stretch of noise.",
+      "advice": "Notice what feels genuinely free versus what just looks free from the outside. The disruptions Uranus brings are invitations to live more honestly.",
+      "periods": [
+        { "start": "2025-09-06", "end": "2026-01-26", "sign": "Gemini" },
+        { "start": "2026-09-17", "end": "2027-02-04", "sign": "Gemini" }
+      ]
+    },
+    {
+      "planet": "Neptune",
+      "symbol": "♆",
+      "color": "#818cf8",
+      "rules": "dreams, illusion, spirituality, dissolution, imagination, compassion",
+      "meaning": "The planet of fog and vision turns inward. Illusions you have been maintaining — about people, situations, or yourself — begin to dissolve. What looked dreamy in Neptune direct can reveal its sharper contours now. This can feel like disillusionment, but it is more accurately clarity returning. Spiritual sensitivity heightens; creative and psychic channels open wider; the boundary between dreaming and waking becomes thinner.",
+      "advice": "This is a powerful time for creative work, dreams, and spiritual practice. Be cautious about substances and anything that blurs your perception further — Neptune retrograde already has that covered.",
+      "periods": [
+        { "start": "2025-07-04", "end": "2025-12-10", "sign": "Aries" },
+        { "start": "2026-06-16", "end": "2026-11-21", "sign": "Aries" },
+        { "start": "2027-06-28", "end": "2027-12-02", "sign": "Aries" }
+      ]
+    },
+    {
+      "planet": "Pluto",
+      "symbol": "♇",
+      "color": "#c084fc",
+      "rules": "transformation, power, death and rebirth, the unconscious, control",
+      "meaning": "The planet of total transformation slows and turns inward. Power dynamics you have been navigating externally move inside. Where do you give your power away? Where do you hold on to control in ways that prevent growth? The parts of yourself you have been evolving through Pluto direct are now being consolidated at a cellular level. Old versions of yourself that have not yet been released surface for a final reckoning.",
+      "advice": "This is not a time to force transformation — it is a time to allow it. Let the versions of yourself that no longer fit dissolve without drama. What remains is what is truly yours.",
+      "periods": [
+        { "start": "2025-05-04", "end": "2025-10-13", "sign": "Aquarius" },
+        { "start": "2026-04-23", "end": "2026-10-05", "sign": "Aquarius" },
+        { "start": "2027-05-08", "end": "2027-10-17", "sign": "Aquarius" }
+      ]
+    }
+  ],
+  "moonPhases": [
+    { "name": "New Moon",        "emoji": "🌑", "from": 0,     "to": 1.85,  "energy": "Initiation. Plant seeds, set intentions, begin quietly." },
+    { "name": "Waxing Crescent", "emoji": "🌒", "from": 1.85,  "to": 7.38,  "energy": "First steps. Act on what you seeded at the new moon." },
+    { "name": "First Quarter",   "emoji": "🌓", "from": 7.38,  "to": 9.22,  "energy": "Decision. Face what is blocking you and push through it." },
+    { "name": "Waxing Gibbous",  "emoji": "🌔", "from": 9.22,  "to": 14.77, "energy": "Refinement. Adjust, improve, prepare for the peak." },
+    { "name": "Full Moon",       "emoji": "🌕", "from": 14.77, "to": 16.61, "energy": "Culmination. Release what is finished. Emotions run high." },
+    { "name": "Waning Gibbous",  "emoji": "🌖", "from": 16.61, "to": 22.15, "energy": "Gratitude. Share what you have learned with others." },
+    { "name": "Last Quarter",    "emoji": "🌗", "from": 22.15, "to": 23.99, "energy": "Release. Let go of what no longer serves the next cycle." },
+    { "name": "Waning Crescent", "emoji": "🌘", "from": 23.99, "to": 29.53, "energy": "Rest. Surrender, integrate, prepare for the dark." }
+  ],
+  "zodiacSigns": [
+    { "name": "Aries",       "symbol": "♈", "element": "Fire",  "keywords": "bold, initiating, instinctive" },
+    { "name": "Taurus",      "symbol": "♉", "element": "Earth", "keywords": "grounded, sensory, patient" },
+    { "name": "Gemini",      "symbol": "♊", "element": "Air",   "keywords": "curious, adaptive, communicative" },
+    { "name": "Cancer",      "symbol": "♋", "element": "Water", "keywords": "nurturing, intuitive, protective" },
+    { "name": "Leo",         "symbol": "♌", "element": "Fire",  "keywords": "creative, generous, expressive" },
+    { "name": "Virgo",       "symbol": "♍", "element": "Earth", "keywords": "analytical, discerning, healing" },
+    { "name": "Libra",       "symbol": "♎", "element": "Air",   "keywords": "harmonising, diplomatic, aesthetic" },
+    { "name": "Scorpio",     "symbol": "♏", "element": "Water", "keywords": "intense, transformative, perceptive" },
+    { "name": "Sagittarius", "symbol": "♐", "element": "Fire",  "keywords": "expansive, philosophical, free" },
+    { "name": "Capricorn",   "symbol": "♑", "element": "Earth", "keywords": "disciplined, ambitious, enduring" },
+    { "name": "Aquarius",    "symbol": "♒", "element": "Air",   "keywords": "innovative, humanitarian, visionary" },
+    { "name": "Pisces",      "symbol": "♓", "element": "Water", "keywords": "compassionate, dreamy, boundless" }
+  ]
+}

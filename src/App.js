@@ -7,6 +7,7 @@ import AngelNumberSearch from './components/AngelNumberSearch';
 import TarotReading from './components/Tarots/TarotReading';
 import Navbar from './components/Navbar';
 import ShadowWorksJournal from './components/ShadowWorksJournal';
+import CelestialStatus from './components/CelestialStatus';
 import './index.css';
 
 const App = () => {
@@ -121,6 +122,19 @@ const App = () => {
                   </div>
                   <AngelNumberSearch />
                 </section>
+              </div>
+            </section>
+
+            <section className="container mx-auto px-4 pb-10">
+              <div className="stack-card flex flex-col gap-4">
+                <div>
+                  <div className="eyebrow">Celestial</div>
+                  <h3 className="section-title">Moon &amp; Planetary Weather</h3>
+                  <p className="section-subtitle">
+                    Live moon phase, current sign, and every active retrograde — with what each one is asking of you.
+                  </p>
+                </div>
+                <CelestialStatus />
               </div>
             </section>
 

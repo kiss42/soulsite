@@ -49,13 +49,15 @@ const NumerologyCalculator = () => {
           onChange={e => setUserDetails({ ...userDetails, name: e.target.value })}
           className="pill-input"
         />
-        <input
-          type="date"
-          placeholder="Enter your birthdate"
-          value={userDetails.birthdate}
-          onChange={e => setUserDetails({ ...userDetails, birthdate: e.target.value })}
-          className="pill-input"
-        />
+        <div className="flex flex-col gap-1">
+          <label className="text-xs text-white/45 pl-4 uppercase tracking-[0.18em]">Date of birth</label>
+          <input
+            type="date"
+            value={userDetails.birthdate}
+            onChange={e => setUserDetails({ ...userDetails, birthdate: e.target.value })}
+            className="pill-input"
+          />
+        </div>
         <button
           onClick={handleCalculate}
           className="primary-btn w-full hover:scale-[1.01] transition-transform duration-300 ease-in-out"

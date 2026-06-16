@@ -19,7 +19,11 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
   return (
     <nav className="sticky top-0 z-30 pointer-events-none">
       <div className="container mx-auto px-4 pt-4">
-        <div className="backdrop-blur-xl bg-slate-950/60 border border-white/10 rounded-full shadow-lg shadow-yellow-200/10 px-4 py-3 pointer-events-auto">
+        <div className={`backdrop-blur-xl border rounded-full shadow-lg px-4 py-3 pointer-events-auto transition-colors duration-300 ${
+          theme === 'light'
+            ? 'bg-[#f5f0ea]/90 border-purple-200/40 shadow-purple-200/10'
+            : 'bg-slate-950/60 border-white/10 shadow-yellow-200/10'
+        }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 text-sm uppercase tracking-[0.18em] text-[var(--accent)] font-semibold">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/15 shadow-inner shadow-black/40">
@@ -31,7 +35,11 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
             <div className="flex items-center gap-3">
               <button
                 onClick={onToggleTheme}
-                className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/80 border border-white/15 rounded-full px-3 py-2 hover:bg-white/5 transition"
+                className={`hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] rounded-full px-3 py-2 transition ${
+                theme === 'light'
+                  ? 'text-purple-900/70 border border-purple-300/40 hover:bg-purple-100/50'
+                  : 'text-white/80 border border-white/15 hover:bg-white/5'
+              }`}
               >
                 <span>{theme === 'dark' ? '🌞' : '🌙'}</span>
                 <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
@@ -46,7 +54,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
               </div>
             </div>
 
-            <ul className="hidden md:flex items-center gap-6 text-sm text-white">
+            <ul className={`hidden md:flex items-center gap-6 text-sm ${theme === 'light' ? 'text-purple-950' : 'text-white'}`}>
               {navItems.map(item => (
                 <li key={item.label} className="group">
                   <a
@@ -54,7 +62,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
                     className="flex flex-col items-center gap-1 px-3 py-1 rounded-xl border border-transparent hover:border-white/15 hover:bg-white/5 transition"
                   >
                     <span className="text-lg">{item.icon}</span>
-                    <span className="text-xs uppercase tracking-[0.2em] text-white/80 group-hover:text-[var(--accent)]">{item.label}</span>
+                    <span className={`text-xs uppercase tracking-[0.2em] group-hover:text-[var(--accent)] ${theme === 'light' ? 'text-purple-900/65' : 'text-white/80'}`}>{item.label}</span>
                   </a>
                 </li>
               ))}
@@ -65,7 +73,11 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-slate-950/90 backdrop-blur-lg border-t border-white/10 pointer-events-auto">
+        <div className={`md:hidden backdrop-blur-lg border-t pointer-events-auto transition-colors duration-300 ${
+          theme === 'light'
+            ? 'bg-[#f5f0ea]/96 border-purple-200/30'
+            : 'bg-slate-950/90 border-white/10'
+        }`}>
           <ul className="px-6 py-4 space-y-3 text-sm">
             {navItems.map(item => (
               <li key={item.label}>

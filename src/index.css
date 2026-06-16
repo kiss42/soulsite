@@ -373,3 +373,72 @@ body > * {
   35%      { opacity: 1.00; }
   65%      { opacity: 0.60; }
 }
+
+/* ─── Light theme ────────────────────────────────────────────────────────────
+   True warm-parchment mode. Text hierarchy flipped via attribute selectors;
+   starfield fades out; card surfaces go light.
+──────────────────────────────────────────────────────────────────────────── */
+.theme-light {
+  --bg-base: #f5f0ea;
+  --card-surface: rgba(255, 255, 255, 0.80);
+  --card-border: rgba(140, 100, 200, 0.18);
+  --text-main: #1e0a2e;
+  --muted: #5a3878;
+  --accent: #7c4a14;
+  --glow: 0 8px 28px -12px rgba(140, 100, 200, 0.22);
+  --bg-radial-1: radial-gradient(ellipse 80% 55% at 50% -5%,  rgba(180, 155, 255, 0.28), transparent);
+  --bg-radial-2: radial-gradient(ellipse 60% 45% at 85%  5%,  rgba(245, 212, 140, 0.22), transparent);
+  --bg-radial-3: radial-gradient(ellipse 55% 45% at 15% 15%,  rgba(200, 180, 255, 0.18), transparent);
+  color: #1e0a2e;
+}
+
+/* Stars become invisible on light bg */
+.theme-light .starfield--far,
+.theme-light .starfield,
+.theme-light .starfield--near { opacity: 0.04 !important; }
+
+/* Flip all white/gray text → dark purple */
+.theme-light [class*="text-white"] { color: #1e0a2e !important; }
+.theme-light [class*="text-gray-"]  { color: #5a3878 !important; }
+
+/* Card surfaces */
+.theme-light .stack-card {
+  background: rgba(255, 255, 255, 0.78) !important;
+  border-color: rgba(140, 100, 200, 0.18) !important;
+  box-shadow: 0 4px 24px -8px rgba(100, 60, 160, 0.10) !important;
+}
+.theme-light .trim-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.90), rgba(255,255,255,0.65)) !important;
+  border-color: rgba(140, 100, 200, 0.18) !important;
+}
+.theme-light .glass-panel {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(140, 100, 200, 0.22) !important;
+}
+.theme-light .modal-surface {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(140, 100, 200, 0.20) !important;
+  color: #1e0a2e !important;
+}
+
+/* Component tokens */
+.theme-light .eyebrow        { color: rgba(80, 40, 130, 0.60) !important; }
+.theme-light .section-title  { color: #1e0a2e !important; }
+.theme-light .section-subtitle { color: #5a3878 !important; }
+.theme-light .stat-chip      { background: rgba(255,255,255,0.70) !important; border-color: rgba(140,100,200,0.18) !important; color: #1e0a2e !important; }
+.theme-light .ribbon         { background: rgba(180,155,255,0.15) !important; border-color: rgba(140,100,200,0.25) !important; color: #4a2880 !important; }
+.theme-light .tag            { background: rgba(255,255,255,0.68) !important; border-color: rgba(140,100,200,0.18) !important; color: #4a2880 !important; }
+.theme-light .pill-input,
+.theme-light .input-base,
+.theme-light .input-date {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(140, 100, 200, 0.28) !important;
+  color: #1e0a2e !important;
+}
+.theme-light .pill-input::placeholder { color: #8a6aaa !important; }
+.theme-light .ghost-btn   { border-color: rgba(100, 60, 160, 0.32) !important; color: #1e0a2e !important; }
+.theme-light .ghost-btn:hover { background: rgba(140, 100, 200, 0.10) !important; }
+.theme-light .button-base { background: rgba(255,255,255,0.70) !important; border-color: rgba(140,100,200,0.25) !important; color: #1e0a2e !important; }
+
+/* Subtle borders that vanish on cream — nudge them visible */
+.theme-light [class*="border-white\/"] { border-color: rgba(140, 100, 200, 0.15) !important; }

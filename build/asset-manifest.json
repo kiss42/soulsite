@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/soulsite/static/css/main.9b355abb.css",
-    "main.js": "/soulsite/static/js/main.32964b4e.js",
+    "main.css": "/soulsite/static/css/main.f90edd9b.css",
+    "main.js": "/soulsite/static/js/main.91b721ae.js",
     "static/js/239.e2a52ab6.chunk.js": "/soulsite/static/js/239.e2a52ab6.chunk.js",
     "static/js/213.3034b590.chunk.js": "/soulsite/static/js/213.3034b590.chunk.js",
     "static/js/455.7d4b2790.chunk.js": "/soulsite/static/js/455.7d4b2790.chunk.js",
     "index.html": "/soulsite/index.html",
-    "main.9b355abb.css.map": "/soulsite/static/css/main.9b355abb.css.map",
-    "main.32964b4e.js.map": "/soulsite/static/js/main.32964b4e.js.map",
+    "main.f90edd9b.css.map": "/soulsite/static/css/main.f90edd9b.css.map",
+    "main.91b721ae.js.map": "/soulsite/static/js/main.91b721ae.js.map",
     "239.e2a52ab6.chunk.js.map": "/soulsite/static/js/239.e2a52ab6.chunk.js.map",
     "213.3034b590.chunk.js.map": "/soulsite/static/js/213.3034b590.chunk.js.map",
     "455.7d4b2790.chunk.js.map": "/soulsite/static/js/455.7d4b2790.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b355abb.css",
-    "static/js/main.32964b4e.js"
+    "static/css/main.f90edd9b.css",
+    "static/js/main.91b721ae.js"
   ]
 }

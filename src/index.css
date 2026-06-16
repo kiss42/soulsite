@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Fonts loaded via <link> in index.html — no @import here */
 
 :root {
   --card-surface: rgba(12, 19, 40, 0.7);
@@ -12,25 +11,19 @@
   --muted: #c2c7e0;
   --accent: #e9d8a6;
   --glow: 0 14px 50px -18px rgba(233, 216, 166, 0.45);
-  --bg-base: linear-gradient(170deg, rgba(8, 11, 25, 0.92), rgba(5, 6, 16, 0.95));
-  --bg-texture: url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1600&q=80');
-  --bg-radial-1: radial-gradient(ellipse at 50% 0%, rgba(233, 216, 166, 0.08), transparent 45%);
-  --bg-radial-2: radial-gradient(ellipse at 80% 10%, rgba(126, 210, 255, 0.08), transparent 40%);
-  --bg-radial-3: radial-gradient(ellipse at 15% 20%, rgba(180, 155, 255, 0.1), transparent 45%);
+  --bg-base: #080b19;
+  --bg-radial-1: radial-gradient(ellipse 70% 50% at 50% 0%,   rgba(233, 216, 166, 0.09), transparent);
+  --bg-radial-2: radial-gradient(ellipse 60% 45% at 80% 10%,  rgba(126, 210, 255, 0.08), transparent);
+  --bg-radial-3: radial-gradient(ellipse 55% 45% at 15% 20%,  rgba(180, 155, 255, 0.10), transparent);
 }
 
 .theme-dark {
-  --card-surface: rgba(12, 19, 40, 0.7);
-  --card-border: rgba(255, 255, 255, 0.14);
-  --text-main: #f3f4ff;
-  --muted: #c2c7e0;
+  --bg-base: #080b19;
+  --bg-radial-1: radial-gradient(ellipse 70% 50% at 50% 0%,  rgba(233, 216, 166, 0.09), transparent);
+  --bg-radial-2: radial-gradient(ellipse 60% 45% at 80% 10%, rgba(126, 210, 255, 0.08), transparent);
+  --bg-radial-3: radial-gradient(ellipse 55% 45% at 15% 20%, rgba(180, 155, 255, 0.10), transparent);
   --accent: #e9d8a6;
   --glow: 0 14px 50px -18px rgba(233, 216, 166, 0.45);
-  --bg-base: linear-gradient(170deg, rgba(8, 11, 25, 0.92), rgba(5, 6, 16, 0.95));
-  --bg-texture: url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1600&q=80');
-  --bg-radial-1: radial-gradient(ellipse at 50% 0%, rgba(233, 216, 166, 0.08), transparent 45%);
-  --bg-radial-2: radial-gradient(ellipse at 80% 10%, rgba(126, 210, 255, 0.08), transparent 40%);
-  --bg-radial-3: radial-gradient(ellipse at 15% 20%, rgba(180, 155, 255, 0.1), transparent 45%);
 }
 
 .theme-light {
@@ -40,11 +33,10 @@
   --muted: #d8ddf0;
   --accent: #f5d48c;
   --glow: 0 14px 40px -18px rgba(245, 212, 140, 0.35);
-  --bg-base: linear-gradient(165deg, #1b243a, #11182e);
-  --bg-texture: linear-gradient(120deg, rgba(255, 214, 153, 0.18), rgba(116, 178, 255, 0.14));
-  --bg-radial-1: radial-gradient(ellipse at 30% 0%, rgba(255, 214, 153, 0.18), transparent 45%);
-  --bg-radial-2: radial-gradient(ellipse at 80% 10%, rgba(116, 178, 255, 0.16), transparent 40%);
-  --bg-radial-3: radial-gradient(ellipse at 20% 20%, rgba(245, 212, 140, 0.14), transparent 45%);
+  --bg-base: #11182e;
+  --bg-radial-1: radial-gradient(ellipse 70% 50% at 30% 0%,  rgba(255, 214, 153, 0.18), transparent);
+  --bg-radial-2: radial-gradient(ellipse 60% 45% at 80% 10%, rgba(116, 178, 255, 0.16), transparent);
+  --bg-radial-3: radial-gradient(ellipse 55% 45% at 20% 20%, rgba(245, 212, 140, 0.14), transparent);
 }
 
 * {
@@ -55,43 +47,39 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  background:
-    var(--bg-radial-1),
-    var(--bg-radial-2),
-    var(--bg-radial-3),
-    var(--bg-base),
-    var(--bg-texture);
+  /* Solid base — no background-attachment:fixed, no external image */
+  background: var(--bg-base);
   color: var(--text-main);
   position: relative;
   overflow-x: hidden;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
-/* Ambient glow + star field */
+/* Ambient colour washes — position:fixed so they sit outside scroll flow
+   and can be composited independently. No filter:blur — gradients naturally
+   feather without it. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(233, 216, 166, 0.25), transparent 45%),
-    radial-gradient(circle at 70% 20%, rgba(126, 210, 255, 0.18), transparent 42%);
-  filter: blur(140px);
-  opacity: 0.6;
+    var(--bg-radial-1),
+    var(--bg-radial-2),
+    var(--bg-radial-3);
   z-index: 0;
   pointer-events: none;
+  will-change: opacity;
 }
 
+/* Subtle grid texture — nearly invisible, static, no repaint cost */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(rgba(233, 216, 166, 0.1) 1px, transparent 0),
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 260px 260px, 160px 160px, 160px 160px;
-  opacity: 0.06;
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 160px 160px;
+  opacity: 0.5;
   z-index: 0;
   pointer-events: none;
 }
@@ -115,17 +103,13 @@ body > * {
 }
 
 @keyframes glow {
-  from {
-    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
-  }
-  to {
-    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
-  }
+  from { box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5); }
+  to   { box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1); }
 }
 
 .fade-in {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.35s ease-out;
 }
 
 .fade-in.show {
@@ -140,9 +124,7 @@ body > * {
 }
 
 @media (max-width: 768px) {
-  .scrollable-content {
-    max-height: 70vh;
-  }
+  .scrollable-content { max-height: 70vh; }
 }
 
 @layer components {
@@ -153,37 +135,33 @@ body > * {
     box-shadow: var(--glow);
   }
 
-  .section-title {
-    @apply text-2xl font-semibold tracking-tight text-white;
-  }
-
-  .section-subtitle {
-    @apply text-sm text-gray-300;
-  }
+  .section-title   { @apply text-2xl font-semibold tracking-tight text-white; }
+  .section-subtitle { @apply text-sm text-gray-300; }
 
   .pill-input {
-    @apply w-full px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent;
+    @apply w-full px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white
+           placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400
+           focus:border-transparent;
   }
 
   .primary-btn {
-    @apply bg-gradient-to-r from-[#d7b46a] via-[#b49bff] to-[#6ec0ff] text-slate-950 font-semibold py-3 px-4 rounded-xl shadow-lg transition-transform duration-300 ease-out;
+    @apply bg-gradient-to-r from-[#d7b46a] via-[#b49bff] to-[#6ec0ff]
+           text-slate-950 font-semibold py-3 px-4 rounded-xl shadow-lg
+           transition-transform duration-200 ease-out;
     box-shadow: var(--glow);
   }
-
-  .primary-btn:hover {
-    transform: translateY(-2px);
-  }
+  .primary-btn:hover { transform: translateY(-2px); }
 
   .ghost-btn {
-    @apply inline-flex items-center justify-center gap-2 border border-white/30 text-white rounded-xl py-3 px-4 hover:bg-white/5 transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 border border-white/30
+           text-white rounded-xl py-3 px-4 hover:bg-white/5 transition-colors duration-150;
   }
 
-  .card-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
-  }
+  .card-grid  { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
 
   .tag {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[11px] uppercase tracking-[0.2em] text-white;
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10
+           bg-white/5 text-[11px] uppercase tracking-[0.2em] text-white;
   }
 
   .eyebrow {
@@ -192,28 +170,29 @@ body > * {
   }
 
   .stat-chip {
-    @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-white/10 bg-white/5 text-sm text-white/90;
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-white/10
+           bg-white/5 text-sm text-white/90;
   }
 
   .trim-card {
     @apply rounded-2xl p-6 relative overflow-hidden;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
     border: 1px solid var(--card-border);
   }
-
   .trim-card::before {
     content: "";
     position: absolute;
     inset: -20%;
     background:
-      radial-gradient(circle at 20% 20%, rgba(180, 155, 255, 0.25), transparent 42%),
-      radial-gradient(circle at 80% 0%, rgba(98, 228, 255, 0.2), transparent 42%);
+      radial-gradient(circle at 20% 20%, rgba(180,155,255,0.25), transparent 42%),
+      radial-gradient(circle at 80% 0%,  rgba(98,228,255,0.2),   transparent 42%);
     opacity: 0.55;
     pointer-events: none;
   }
 
   .ribbon {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/10 border border-white/15 text-white;
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
+           bg-white/10 border border-white/15 text-white;
   }
 
   .stack-card {
@@ -221,71 +200,176 @@ body > * {
   }
 
   .tarot-card-frame {
-    @apply relative overflow-hidden rounded-3xl border shadow-xl transition duration-300 cursor-pointer;
+    @apply relative overflow-hidden rounded-3xl border shadow-xl transition-transform duration-200 cursor-pointer;
     border-color: rgba(233, 216, 166, 0.5);
-    background: radial-gradient(circle at 30% 20%, rgba(233, 216, 166, 0.15), transparent 50%), #0b122b;
-    box-shadow: 0 15px 50px -24px rgba(0, 0, 0, 0.8), 0 8px 30px -18px rgba(233, 216, 166, 0.5);
+    background: radial-gradient(circle at 30% 20%, rgba(233,216,166,0.15), transparent 50%), #0b122b;
+    box-shadow: 0 15px 50px -24px rgba(0,0,0,0.8), 0 8px 30px -18px rgba(233,216,166,0.5);
   }
-
-.tarot-card-frame::after {
-  content: "";
-  position: absolute;
-  inset: 12%;
-  border: 1px solid rgba(233, 216, 166, 0.5);
-  border-radius: 22px;
-  pointer-events: none;
-  box-shadow: inset 0 0 40px rgba(233, 216, 166, 0.08);
+  .tarot-card-frame:hover { transform: translateY(-2px); }
+  .tarot-card-frame::after {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border: 1px solid rgba(233, 216, 166, 0.5);
+    border-radius: 22px;
+    pointer-events: none;
+    box-shadow: inset 0 0 40px rgba(233, 216, 166, 0.08);
   }
-
-/* Starfield layers */
-.starfield {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.6), transparent),
-    radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.5), transparent),
-    radial-gradient(1px 1px at 200px 80px, rgba(255, 255, 255, 0.55), transparent),
-    radial-gradient(1px 1px at 320px 220px, rgba(255, 255, 255, 0.6), transparent);
-  background-size: 320px 320px;
-  animation: twinkle 9s linear infinite;
-  z-index: 0;
-}
-
-.starfield--near {
-  background-image: radial-gradient(1px 1px at 40px 60px, rgba(233, 216, 166, 0.8), transparent),
-    radial-gradient(1px 1px at 140px 200px, rgba(255, 255, 255, 0.8), transparent),
-    radial-gradient(2px 2px at 220px 140px, rgba(233, 216, 166, 0.6), transparent),
-    radial-gradient(1px 1px at 300px 40px, rgba(255, 255, 255, 0.7), transparent);
-  animation-duration: 12s;
-  mix-blend-mode: screen;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.25; transform: translate3d(0,0,0); }
-  50% { opacity: 0.65; transform: translate3d(0, -4px, 0); }
-}
 
   .modal-surface {
-    @apply bg-slate-950/85 border border-white/10 rounded-2xl shadow-2xl p-5 backdrop-blur-2xl;
+    @apply bg-slate-950/85 border border-white/10 rounded-2xl shadow-2xl p-5 backdrop-blur-xl;
   }
 
-  .muted-text {
-    @apply text-gray-300 text-sm;
-  }
+  .muted-text  { @apply text-gray-300 text-sm; }
 
-  /* Legacy helpers refreshed to match the new palette */
   .button-base {
-    @apply bg-white/10 border border-white/20 text-white font-semibold py-3 px-4 rounded-xl transition-transform duration-300 ease-out;
+    @apply bg-white/10 border border-white/20 text-white font-semibold py-3 px-4
+           rounded-xl transition-transform duration-200 ease-out;
     box-shadow: var(--glow);
   }
-
-  .button-base:hover {
-    transform: translateY(-2px);
-  }
+  .button-base:hover { transform: translateY(-2px); }
 
   .input-base,
   .input-date {
-    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent;
+    @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white
+           placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400
+           focus:border-transparent;
     font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   }
+}
+
+/* ─── Tarot card flip ───────────────────────────────────────────────────────
+   3D flip: back face is default, front reveals on .is-flipped.
+   Animations touch only opacity, so the compositor handles them cheaply.
+──────────────────────────────────────────────────────────────────────────── */
+.card-flip-wrapper {
+  perspective: 900px;
+}
+.card-flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-face--front {
+  transform: rotateY(180deg);
+}
+/* Staggered deal-in animation for drawn cards */
+@keyframes card-deal {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card-deal {
+  animation: card-deal 0.32s ease-out both;
+}
+
+/* Pure-CSS card back art — no image needed */
+.card-back-art {
+  position: absolute;
+  inset: 9px;
+  border-radius: 14px;
+  border: 1px solid rgba(233, 216, 166, 0.38);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(233,216,166,0.22), transparent 55%),
+    radial-gradient(circle at 22% 72%, rgba(180,155,255,0.16), transparent 44%),
+    radial-gradient(circle at 78% 75%, rgba(98,228,255,0.12),  transparent 40%);
+}
+
+/* ─── Starfield ─────────────────────────────────────────────────────────────
+   Three position:fixed layers, each promoted to its own compositor layer via
+   will-change:opacity.  Animations touch ONLY opacity — no transform — so the
+   browser never has to re-rasterize; it just blends pre-painted textures.
+   Gradient counts trimmed to keep rasterization fast.
+──────────────────────────────────────────────────────────────────────────── */
+.starfield--far,
+.starfield,
+.starfield--near {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  will-change: opacity;
+}
+
+/* Far — many tiny dim stars */
+.starfield--far {
+  background-image:
+    radial-gradient(1px 1px at  18px  42px, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at  74px  12px, rgba(255,255,255,0.20), transparent),
+    radial-gradient(1px 1px at 145px  88px, rgba(255,255,255,0.30), transparent),
+    radial-gradient(1px 1px at 268px 165px, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 388px 210px, rgba(255,255,255,0.30), transparent),
+    radial-gradient(1px 1px at 502px 130px, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at  32px 275px, rgba(255,255,255,0.30), transparent),
+    radial-gradient(1px 1px at 172px 415px, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 312px 378px, rgba(255,255,255,0.30), transparent),
+    radial-gradient(1px 1px at 448px 322px, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at  60px 538px, rgba(255,255,255,0.20), transparent),
+    radial-gradient(1px 1px at 298px 578px, rgba(255,255,255,0.20), transparent),
+    radial-gradient(1px 1px at 428px 548px, rgba(255,255,255,0.30), transparent),
+    radial-gradient(1px 1px at 572px 572px, rgba(255,255,255,0.20), transparent);
+  background-size: 600px 600px;
+  animation: twinkle-far 18s ease-in-out infinite;
+}
+
+/* Mid — main field */
+.starfield {
+  background-image:
+    radial-gradient(1px 1px at  22px  35px, rgba(255,255,255,0.65), transparent),
+    radial-gradient(1px 1px at  82px 125px, rgba(255,255,255,0.50), transparent),
+    radial-gradient(1px 1px at 158px  62px, rgba(255,255,255,0.60), transparent),
+    radial-gradient(1px 1px at 285px  95px, rgba(255,255,255,0.70), transparent),
+    radial-gradient(1px 1px at 415px  32px, rgba(255,255,255,0.65), transparent),
+    radial-gradient(1px 1px at 528px 278px, rgba(255,255,255,0.60), transparent),
+    radial-gradient(1px 1px at  45px 308px, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1px 1px at 192px 448px, rgba(255,255,255,0.50), transparent),
+    radial-gradient(1px 1px at 325px 498px, rgba(255,255,255,0.45), transparent),
+    radial-gradient(1px 1px at 458px 362px, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1px 1px at  65px 548px, rgba(255,255,255,0.60), transparent),
+    radial-gradient(1px 1px at 338px 562px, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1px 1px at 492px 555px, rgba(255,255,255,0.70), transparent);
+  background-size: 600px 600px;
+  animation: twinkle-mid 11s ease-in-out infinite;
+}
+
+/* Near — bright gold-accent stars */
+.starfield--near {
+  background-image:
+    radial-gradient(2px   2px   at  38px  68px, rgba(233,216,166,0.90), transparent),
+    radial-gradient(1.5px 1.5px at 132px 195px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(2px   2px   at 228px 118px, rgba(233,216,166,0.80), transparent),
+    radial-gradient(2px   2px   at 392px 258px, rgba(233,216,166,0.85), transparent),
+    radial-gradient(1.5px 1.5px at 468px 148px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(1.5px 1.5px at  92px 348px, rgba(255,255,255,0.90), transparent),
+    radial-gradient(2px   2px   at 198px 462px, rgba(233,216,166,0.85), transparent),
+    radial-gradient(2px   2px   at 418px 478px, rgba(233,216,166,0.80), transparent),
+    radial-gradient(2.5px 2.5px at 162px 302px, rgba(233,216,166,0.95), transparent),
+    radial-gradient(2.5px 2.5px at 488px  75px, rgba(255,255,255,1.00), transparent);
+  background-size: 600px 600px;
+  animation: twinkle-near 14s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* Opacity-only keyframes — compositor handles these with zero rasterization cost */
+@keyframes twinkle-far  {
+  0%, 100% { opacity: 0.20; }
+  50%      { opacity: 0.50; }
+}
+@keyframes twinkle-mid  {
+  0%, 100% { opacity: 0.30; }
+  40%      { opacity: 0.80; }
+  70%      { opacity: 0.45; }
+}
+@keyframes twinkle-near {
+  0%, 100% { opacity: 0.45; }
+  35%      { opacity: 1.00; }
+  65%      { opacity: 0.60; }
 }

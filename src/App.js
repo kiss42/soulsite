@@ -21,8 +21,9 @@ const App = () => {
     <UserProvider>
       <Router>
         <div className="relative min-h-screen overflow-hidden text-white">
+          <div className="starfield--far" aria-hidden />
           <div className="starfield" aria-hidden />
-          <div className="starfield starfield--near" aria-hidden />
+          <div className="starfield--near" aria-hidden />
           <Navbar theme={theme} onToggleTheme={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')} />
 
           <main className="relative z-10">

@@ -13,7 +13,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
   ];
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prev => !prev);
   };
 
   return (

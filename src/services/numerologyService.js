@@ -58,17 +58,4 @@ export const calculateLifePathNumber = (birthdate) => {
     }
     return sum;
   }
-
-  export const calculateKarmicLessonNumbers = (name) => {
-    const allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // All possible single-digit numbers
-    const nameNumbers = name.toUpperCase().replace(/[^A-Z]/g, '') // Remove non-alphabet characters
-      .split('')
-      .map(letter => (letter.charCodeAt(0) - 65) % 9 + 1) // Convert letters to numbers
-      .sort();
-  
-    const uniqueNumbers = [...new Set(nameNumbers)]; // Get unique numbers from name
-    const karmicLessonNumbers = allNumbers.filter(num => !uniqueNumbers.includes(num)); // Find missing numbers
-    
-    return karmicLessonNumbers.length > 0 ? karmicLessonNumbers : ["No Karmic Lessons"];
-  };
   

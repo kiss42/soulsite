@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import angelNumbers from '../data/angelNumbers.json';
+import { useAuth } from '../contexts/AuthContext';
+import { useUI } from '../contexts/UIContext';
+import { saveFavorite } from '../services/profileService';
 
 const POPULAR = ['111', '222', '333', '444', '555', '777', '888', '999', '1111', '1212', '1234', '717', '818', '919'];
 
 function AngelNumberSearch() {
+  const { user } = useAuth();
+  const { openLogin } = useUI();
+
   const [number, setNumber] = useState('');
   const [result, setResult] = useState(null);
   const [notFound, setNotFound] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false);
 
   const search = (num) => {
     const n = (num ?? number).trim();
@@ -21,7 +28,18 @@ function AngelNumberSearch() {
       setResult(null);
       setNotFound(true);
     }
+    setBookmarked(false);
     setShowModal(true);
+  };
+
+  const handleBookmark = async () => {
+    if (!user) { openLogin(); return; }
+    await saveFavorite(user.uid, {
+      number: result._number,
+      majorMessage: result.majorMessage,
+      description: result.description,
+    });
+    setBookmarked(true);
   };
 
   const handleRandom = () => {
@@ -98,13 +116,26 @@ function AngelNumberSearch() {
                       <h3 className="text-3xl font-bold text-[var(--accent)]">{result._number}</h3>
                     </div>
                   )}
-                  <button
-                    onClick={() => setShowModal(false)}
-                    className="ml-auto text-xl font-bold text-gray-400 hover:text-red-300 transition"
-                    aria-label="Close"
-                  >
-                    ✖
-                  </button>
+                  <div className="ml-auto flex items-center gap-2">
+                    {!notFound && result && (
+                      <button
+                        onClick={handleBookmark}
+                        disabled={bookmarked}
+                        className={`text-xl transition-colors ${bookmarked ? 'text-[var(--accent)]' : 'text-white/25 hover:text-[var(--accent)]/60'}`}
+                        title={bookmarked ? 'Saved to favorites' : 'Save to favorites'}
+                        aria-label="Bookmark"
+                      >
+                        {bookmarked ? '★' : '☆'}
+                      </button>
+                    )}
+                    <button
+                      onClick={() => setShowModal(false)}
+                      className="text-xl font-bold text-gray-400 hover:text-red-300 transition"
+                      aria-label="Close"
+                    >
+                      ✖
+                    </button>
+                  </div>
                 </div>
 
                 {notFound ? (

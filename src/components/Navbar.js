@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
-const Navbar = ({ theme = 'dark', onToggleTheme }) => {
+const Navbar = ({ theme = 'dark', onToggleTheme, onOpenLogin, onOpenProfile }) => {
+  const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false); // State to control mobile menu toggle
 
   const navItems = [
@@ -32,7 +34,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
               <Link to="/" className="hover:opacity-90 transition-opacity">SoulSite</Link>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <button
                 onClick={onToggleTheme}
                 className={`hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] rounded-full px-3 py-2 transition ${
@@ -44,6 +46,33 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
                 <span>{theme === 'dark' ? '🌞' : '🌙'}</span>
                 <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
               </button>
+
+              {user ? (
+                <button
+                  onClick={onOpenProfile}
+                  className="flex items-center gap-2 rounded-full border border-white/15 px-2 py-1.5 hover:bg-white/5 transition"
+                  title="Your profile"
+                >
+                  {user.photoURL ? (
+                    <img src={user.photoURL} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
+                  ) : (
+                    <div className="w-6 h-6 rounded-full bg-[var(--accent)]/20 border border-[var(--accent)]/30 flex items-center justify-center text-[var(--accent)] text-[10px] font-bold">
+                      {(user.displayName?.[0] ?? user.email?.[0] ?? '✺').toUpperCase()}
+                    </div>
+                  )}
+                  <span className="hidden md:block text-[10px] uppercase tracking-widest text-white/60 pr-1">
+                    {user.displayName?.split(' ')[0] ?? 'Profile'}
+                  </span>
+                </button>
+              ) : (
+                <button
+                  onClick={onOpenLogin}
+                  className="hidden md:inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-white/70 border border-white/15 rounded-full px-3 py-2 hover:bg-white/5 transition"
+                >
+                  <span>✺</span>
+                  <span>Sign in</span>
+                </button>
+              )}
 
               <div className="md:hidden">
                 <button onClick={toggleMenu} className="text-white focus:outline-none border border-white/20 rounded-lg p-2">
@@ -99,6 +128,25 @@ const Navbar = ({ theme = 'dark', onToggleTheme }) => {
                 <span>{theme === 'dark' ? '🌞' : '🌙'}</span>
                 <span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
               </button>
+            </li>
+            <li>
+              {user ? (
+                <button
+                  onClick={() => { onOpenProfile?.(); toggleMenu(); }}
+                  className="w-full flex items-center gap-3 text-white hover:text-[var(--accent)] uppercase tracking-[0.15em] border border-white/15 rounded-lg px-3 py-2"
+                >
+                  <span>✺</span>
+                  <span>My profile</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => { onOpenLogin?.(); toggleMenu(); }}
+                  className="w-full flex items-center gap-3 text-white hover:text-[var(--accent)] uppercase tracking-[0.15em] border border-white/15 rounded-lg px-3 py-2"
+                >
+                  <span>✺</span>
+                  <span>Sign in</span>
+                </button>
+              )}
             </li>
           </ul>
         </div>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import TarotCard from './TarotCard';
 import tarotData from '../../data/tarotDeck';
+import { useAuth } from '../../contexts/AuthContext';
+import { useUI } from '../../contexts/UIContext';
+import { saveReading } from '../../services/profileService';
 
 const SPREADS = {
   single: {
@@ -124,6 +127,9 @@ function drawCards(count) {
 }
 
 const TarotReading = () => {
+  const { user } = useAuth();
+  const { openLogin } = useUI();
+
   const [spreadType, setSpreadType] = useState('three');
   const [intention, setIntention] = useState('');
   const [drawnCards, setDrawnCards] = useState(null);
@@ -131,6 +137,7 @@ const TarotReading = () => {
   const [revealAll, setRevealAll] = useState(false);
   const [selected, setSelected] = useState(null);
   const [showStory, setShowStory] = useState(false);
+  const [readingSaved, setReadingSaved] = useState(false);
 
   const spread = SPREADS[spreadType];
 
@@ -140,6 +147,24 @@ const TarotReading = () => {
     setRevealAll(false);
     setSelected(null);
     setShowStory(false);
+    setReadingSaved(false);
+  };
+
+  const handleSaveReading = async () => {
+    if (!user) { openLogin(); return; }
+    await saveReading(user.uid, {
+      spreadLabel: spread.label,
+      spreadType,
+      intention: intention.trim(),
+      cards: drawnCards.map((c, i) => ({
+        name: c.name,
+        reversed: c.reversed,
+        positionLabel: spread.positions[i],
+        meaning: c.meaning,
+        reversedMeaning: c.reversedMeaning,
+      })),
+    });
+    setReadingSaved(true);
   };
 
   const handleSpreadChange = (key) => {
@@ -265,9 +290,22 @@ const TarotReading = () => {
 
             <div className="h-px bg-white/10" />
 
-            <p className="text-[10px] text-center text-white/25 tracking-widest uppercase">
-              The cards offer a mirror — the meaning is yours to hold
-            </p>
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <p className="text-[10px] text-white/25 tracking-widest uppercase">
+                The cards offer a mirror — the meaning is yours to hold
+              </p>
+              <button
+                onClick={handleSaveReading}
+                className={`text-xs border rounded-full px-3 py-1.5 transition-colors ${
+                  readingSaved
+                    ? 'border-[var(--accent)]/40 text-[var(--accent)]/60 cursor-default'
+                    : 'border-white/20 text-white/45 hover:border-[var(--accent)]/50 hover:text-[var(--accent)]'
+                }`}
+                disabled={readingSaved}
+              >
+                {readingSaved ? '✓ Saved' : '⊕ Save reading'}
+              </button>
+            </div>
           </div>
         </div>
       )}

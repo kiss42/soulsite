@@ -16,6 +16,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!auth) { setLoading(false); return; }
     const unsub = onAuthStateChanged(auth, u => {
       setUser(u);
       setLoading(false);
@@ -23,10 +24,10 @@ export function AuthProvider({ children }) {
     return unsub;
   }, []);
 
-  const signInWithGoogle = ()              => signInWithPopup(auth, googleProvider);
-  const signIn           = (email, pass)   => signInWithEmailAndPassword(auth, email, pass);
-  const signUp           = (email, pass)   => createUserWithEmailAndPassword(auth, email, pass);
-  const signOut          = ()              => fbSignOut(auth);
+  const signInWithGoogle = ()            => auth ? signInWithPopup(auth, googleProvider) : Promise.reject(new Error('Auth not configured'));
+  const signIn           = (email, pass) => auth ? signInWithEmailAndPassword(auth, email, pass) : Promise.reject(new Error('Auth not configured'));
+  const signUp           = (email, pass) => auth ? createUserWithEmailAndPassword(auth, email, pass) : Promise.reject(new Error('Auth not configured'));
+  const signOut          = ()            => auth ? fbSignOut(auth) : Promise.resolve();
 
   return (
     <AuthContext.Provider value={{ user, loading, signInWithGoogle, signIn, signUp, signOut }}>

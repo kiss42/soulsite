@@ -1,37 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { UserProvider, useUser } from './contexts/UserContext';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { Capacitor } from '@capacitor/core';
+import { UserProvider } from './contexts/UserContext';
+import { AuthProvider } from './contexts/AuthContext';
 import { UIProvider, useUI } from './contexts/UIContext';
 import NumerologyCalculator from './components/NumerologyCalculator';
 import KarmicLessonsComponent from './components/KarmicLessonsComponent';
 import AngelNumberSearch from './components/AngelNumberSearch';
 import TarotReading from './components/Tarots/TarotReading';
+import AstrologyProfile from './components/AstrologyProfile';
 import Navbar from './components/Navbar';
 import ShadowWorksJournal from './components/ShadowWorksJournal';
+import DreamInterpreter from './components/DreamInterpreter';
 import CelestialStatus from './components/CelestialStatus';
 import LoginModal from './components/Auth/LoginModal';
 import ProfileModal from './components/Profile/ProfileModal';
-import { getProfile } from './services/profileService';
+import NativeApp from './components/native/NativeApp';
+import { useProfilePrefill } from './hooks/useProfilePrefill';
 import './index.css';
 
 function AppInner({ theme, setTheme }) {
-  const { user } = useAuth();
-  const { setUserDetails } = useUser();
   const { loginOpen, setLoginOpen, profileOpen, setProfileOpen } = useUI();
-
-  // When user signs in, pre-fill name/birthdate from their saved profile
-  useEffect(() => {
-    if (!user) return;
-    getProfile(user.uid).then(profile => {
-      if (!profile) return;
-      setUserDetails(prev => ({
-        ...prev,
-        name:      profile.name      || prev.name,
-        birthdate: profile.birthdate || prev.birthdate,
-      }));
-    });
-  }, [user, setUserDetails]);
+  useProfilePrefill();
 
   return (
     <Router>
@@ -55,7 +45,7 @@ function AppInner({ theme, setTheme }) {
                   Psychic &amp; Tarot Readings
                 </h1>
                 <p className="text-gray-300 md:text-lg">
-                  A quiet altar for numerology, tarot, chakras, and shadow work. Enter, pull a thread of meaning, and slip back into your evening.
+                  A quiet altar for numerology, tarot, chakras, shadow work, and dreams. Enter, pull a thread of meaning, and slip back into your evening.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <a href="#numerology" className="primary-btn px-6 w-auto">Start your reading</a>
@@ -141,6 +131,30 @@ function AppInner({ theme, setTheme }) {
                 </div>
                 <AngelNumberSearch />
               </section>
+
+              <section id="dreams" className="stack-card h-full flex flex-col gap-3">
+                <div>
+                  <div className="eyebrow">Subconscious</div>
+                  <h3 className="section-title">Dream interpreter</h3>
+                  <p className="section-subtitle">
+                    Describe your dream and uncover the symbols hiding inside it.
+                  </p>
+                </div>
+                <DreamInterpreter />
+              </section>
+            </div>
+          </section>
+
+          <section className="container mx-auto px-4 pb-10">
+            <div id="astrology" className="stack-card flex flex-col gap-4">
+              <div>
+                <div className="eyebrow">Astrology</div>
+                <h3 className="section-title">Your Sun, Moon &amp; Rising</h3>
+                <p className="section-subtitle">
+                  Add a birth time to unlock your Rising sign alongside your Sun and Moon — woven into the tarot card, chakra, and life path number that share their energy.
+                </p>
+              </div>
+              <AstrologyProfile />
             </div>
           </section>
 
@@ -191,7 +205,9 @@ const App = () => {
     <AuthProvider>
       <UserProvider>
         <UIProvider>
-          <AppInner theme={theme} setTheme={setTheme} />
+          {Capacitor.isNativePlatform()
+            ? <NativeApp theme={theme} setTheme={setTheme} />
+            : <AppInner theme={theme} setTheme={setTheme} />}
         </UIProvider>
       </UserProvider>
     </AuthProvider>

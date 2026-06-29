@@ -1,0 +1,17 @@
+App/build
+App/build_device
+App/Pods
+App/output
+App/App/public
+DerivedData
+xcuserdata
+
+# Cordova plugins for Capacitor
+capacitor-cordova-ios-plugins
+
+# Generated Config files
+App/App/capacitor.config.json
+App/App/config.xml
+
+# Google Services (e.g. APIs or Firebase)
+GoogleService-Info.plist

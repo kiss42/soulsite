@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SoulSite</string>
+    <string name="title_activity_main">SoulSite</string>
+    <string name="package_name">com.soulsite.app</string>
+    <string name="custom_url_scheme">com.soulsite.app</string>
+</resources>

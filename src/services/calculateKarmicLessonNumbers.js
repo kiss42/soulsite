@@ -9,7 +9,7 @@ const calculateKarmicLessonNumbers = (name) => {
     const uniqueNumbers = [...new Set(nameNumbers)];
     const karmicLessonNumbers = allNumbers.filter(num => !uniqueNumbers.includes(num));
   
-    return karmicLessonNumbers.length > 0 ? karmicLessonNumbers : ["No Karmic Lessons"];
+    return karmicLessonNumbers;
   };
   
   export default calculateKarmicLessonNumbers;

@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import numerologyMeanings from '../data/numerologyMeanings.json';
-import { calculateLifePathNumber, calculatePersonalityNumber, calculateSoulUrgeNumber, calculateHiddenPassionNumber } from '../services/numerologyService';
+import {
+  calculateLifePathNumber, calculatePersonalityNumber, calculateSoulUrgeNumber, calculateHiddenPassionNumber,
+  calculatePersonalYearNumber, calculatePersonalMonthNumber,
+} from '../services/numerologyService';
 import { useUser } from '../contexts/UserContext';
 import { getChakraRecommendation } from '../services/chakraService';
 import Modal from '../utilities/modal';
+import BirthdateField from './BirthdateField';
 
 const NumerologyCalculator = () => {
   const { userDetails, setUserDetails } = useUser();
   const [results, setResults] = useState({});
   const [chakraRecommendations, setChakraRecommendations] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Personal Year/Month don't need the name field or a "Calculate" click —
+  // they're derived from birthdate + today's date, so show them immediately.
+  const phase = useMemo(() => {
+    if (!userDetails.birthdate) return null;
+    const year = calculatePersonalYearNumber(userDetails.birthdate);
+    const month = calculatePersonalMonthNumber(year);
+    return {
+      year,
+      month,
+      yearMeaning: numerologyMeanings.personalYear[year.toString()],
+      monthMeaning: numerologyMeanings.personalYear[month.toString()],
+    };
+  }, [userDetails.birthdate]);
 
   const handleCalculate = () => {
     const lifePathNumber = calculateLifePathNumber(userDetails.birthdate);
@@ -29,7 +47,7 @@ const NumerologyCalculator = () => {
   };
 
   const handleReset = () => {
-    setUserDetails({ name: '', birthdate: '' });
+    setUserDetails({ name: '', birthdate: '', birthtime: '', birthplace: '', birthCity: '', birthLat: '', birthLon: '' });
     setResults({});
     setChakraRecommendations([]);
     setIsModalOpen(false);
@@ -51,11 +69,9 @@ const NumerologyCalculator = () => {
         />
         <div className="flex flex-col gap-1">
           <label className="text-xs text-white/45 pl-4 uppercase tracking-[0.18em]">Date of birth</label>
-          <input
-            type="date"
+          <BirthdateField
             value={userDetails.birthdate}
-            onChange={e => setUserDetails({ ...userDetails, birthdate: e.target.value })}
-            className="pill-input"
+            onChange={birthdate => setUserDetails({ ...userDetails, birthdate })}
           />
         </div>
         <button
@@ -66,10 +82,27 @@ const NumerologyCalculator = () => {
         </button>
       </div>
 
+      {phase && (
+        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 space-y-3">
+          <p className="eyebrow">What phase you're in right now</p>
+          <div className="space-y-1.5">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-white/35">Personal Year {phase.year}</p>
+            <p className="text-sm text-white/75 leading-relaxed">{phase.yearMeaning}</p>
+          </div>
+          <div className="h-px bg-white/10" />
+          <div className="space-y-1.5">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-white/35">Personal Month {phase.month}</p>
+            <p className="text-sm text-white/75 leading-relaxed">{phase.monthMeaning}</p>
+          </div>
+          <p className="text-[10px] text-white/25 leading-relaxed">
+            Life Path is fixed at birth — Personal Year and Month are the cycle you're moving through right now, recalculated from today's date.
+          </p>
+        </div>
+      )}
+
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Numerology Results">
-          <div className="modal-surface fade-in show scrollable-content space-y-3 text-white">
-            <h3 className="text-xl font-bold">Numerology Results for {userDetails.name}:</h3>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={`Numerology Results for ${userDetails.name}`}>
+          <div className="space-y-3 text-white">
             <div className="space-y-2 text-gray-200">
               {Object.entries(results).map(([key, value]) => (
                 <p key={key} className="font-semibold">
@@ -81,7 +114,7 @@ const NumerologyCalculator = () => {
             <div className="space-y-1 text-gray-200">
               {chakraRecommendations.map((recommendation, index) => (
                 <p key={index}>
-                  {recommendation.name}: {recommendation.guidance}
+                  <span className="font-bold">{recommendation.name}</span> rules the {recommendation.bodyPart}: {recommendation.guidance}
                 </p>
               ))}
             </div>

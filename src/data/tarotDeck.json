@@ -2,13 +2,17 @@
     "tarotDeck": [
       {
         "name": "The Fool",
+        "number": 0,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/705/large/thiago-lehmann-the-fool01.jpg?1614713684",
         "meaning": "New beginnings, innocence, and a sense of adventure.",
         "reversedMeaning": "Recklessness, poor judgment, and taking unnecessary risks without considering the consequences.",
-        "story": "The Fool is about to step off a cliff into the unknown; representing the start of a new journey filled with unforeseen challenges and opportunities."
+        "story": "The Fool is about to step off a cliff into the unknown, representing the start of a new journey filled with unforeseen challenges and opportunities."
       },
       {
         "name": "The Magician",
+        "number": 1,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/756/large/thiago-lehmann-the-magician01.jpg?1614713752",
         "meaning": "Manifestation, resourcefulness, and power.",
         "reversedMeaning": "Manipulation, cunning, and using your talents for selfish ends rather than the greater good.",
@@ -16,6 +20,8 @@
       },
       {
         "name": "The High Priestess",
+        "number": 2,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/738/large/thiago-lehmann-the-high-priestess01.jpg?1614713720",
         "meaning": "Intuition, mystery, and understanding.",
         "reversedMeaning": "Repressed intuition, hidden agendas, and secrets being revealed against your will.",
@@ -23,6 +29,8 @@
       },
       {
         "name": "The Empress",
+        "number": 3,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/701/large/thiago-lehmann-the-empress01.jpg?1614713676",
         "meaning": "Femininity, nurturing, and abundance.",
         "reversedMeaning": "Dependence on others, creative block, and neglect of self-care or your natural environment.",
@@ -30,6 +38,8 @@
       },
       {
         "name": "The Emperor",
+        "number": 4,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/694/large/thiago-lehmann-the-emperor01.jpg?1614713667",
         "meaning": "Authority, structure, and control.",
         "reversedMeaning": "Domination, inflexibility, and a loss of control over situations or relationships you once commanded.",
@@ -37,6 +47,8 @@
       },
       {
         "name": "The Hierophant",
+        "number": 5,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/727/large/thiago-lehmann-the-hierophant01.jpg?1614713711",
         "meaning": "Tradition, conformity, and spiritual guidance.",
         "reversedMeaning": "Rebellion against convention, challenging dogma, and forging an unconventional path outside established belief.",
@@ -44,6 +56,8 @@
       },
       {
         "name": "The Lovers",
+        "number": 6,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/754/large/thiago-lehmann-the-lovers00.jpg?1614713743",
         "meaning": "Love, relationships, and choices.",
         "reversedMeaning": "Disharmony, misaligned values, and difficulty making an important choice that can no longer be deferred.",
@@ -51,6 +65,8 @@
       },
       {
         "name": "The Chariot",
+        "number": 7,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/675/large/thiago-lehmann-the-chariot01.jpg?1614713648",
         "meaning": "Determination, control, and victory.",
         "reversedMeaning": "Aggression, lack of direction, and allowing obstacles or emotions to derail you from your purpose.",
@@ -58,6 +74,8 @@
       },
       {
         "name": "Strength",
+        "number": 8,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/776/large/thiago-lehmann-the-strenght-copy.jpg?1614713777",
         "meaning": "Courage, inner strength, and resilience.",
         "reversedMeaning": "Self-doubt, weakness under pressure, and a loss of the inner courage that once carried you forward.",
@@ -65,6 +83,8 @@
       },
       {
         "name": "The Hermit",
+        "number": 9,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/719/large/thiago-lehmann-the-hermit-01.jpg?1614713702",
         "meaning": "Solitude, search for personal truth, and introspection.",
         "reversedMeaning": "Isolation that has become unhealthy, loneliness, and withdrawal from guidance you genuinely need.",
@@ -72,6 +92,8 @@
       },
       {
         "name": "Wheel of Fortune",
+        "number": 10,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/803/large/thiago-lehmann-wheel-of-fortune-01.jpg?1614713814",
         "meaning": "Cycles, change, and life's ups and downs.",
         "reversedMeaning": "Resistance to change, clinging to what is familiar, and difficulty breaking negative cycles that keep repeating.",
@@ -79,6 +101,8 @@
       },
       {
         "name": "Justice",
+        "number": 11,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/659/large/thiago-lehmann-justice-01.jpg?1614713632",
         "meaning": "Fairness, truth, and law.",
         "reversedMeaning": "Unfairness, avoiding accountability, and decisions being made without the full truth coming to light.",
@@ -86,6 +110,8 @@
       },
       {
         "name": "The Hanged Man",
+        "number": 12,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/714/large/thiago-lehmann-the-hanged-man01.jpg?1614713694",
         "meaning": "Pause, surrender, new perspectives.",
         "reversedMeaning": "Stalling, resistance to a necessary sacrifice, and delays brought on by clinging to an outdated point of view.",
@@ -93,6 +119,8 @@
       },
       {
         "name": "Death",
+        "number": 13,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/654/large/thiago-lehmann-death01.jpg?1614713623",
         "meaning": "Endings, beginnings, change, transformation.",
         "reversedMeaning": "Clinging to what must end, fear of transformation, and stagnation that prevents new life from taking root.",
@@ -100,6 +128,8 @@
       },
       {
         "name": "Temperance",
+        "number": 14,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/666/large/thiago-lehmann-temperance01.jpg?1614713641",
         "meaning": "Balance, moderation, purpose.",
         "reversedMeaning": "Excess, imbalance, and losing the long view in favour of immediate impulses or competing extremes.",
@@ -107,6 +137,8 @@
       },
       {
         "name": "The Devil",
+        "number": 15,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/683/large/thiago-lehmann-the-devil01.jpg?1614713657",
         "meaning": "Bondage, addiction, sexuality, materialism.",
         "reversedMeaning": "Reclaiming your freedom, breaking harmful bonds, and seeing through illusions that once held you captive.",
@@ -114,6 +146,8 @@
       },
       {
         "name": "The Tower",
+        "number": 16,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/789/large/thiago-lehmann-the-tower01.jpg?1614713796",
         "meaning": "Sudden upheaval, broken pride, disaster.",
         "reversedMeaning": "Narrowly averting disaster, or prolonging an inevitable collapse through fear of the change it would bring.",
@@ -121,6 +155,8 @@
       },
       {
         "name": "The Star",
+        "number": 17,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/772/large/thiago-lehmann-the-star01.jpg?1614713767",
         "meaning": "Hope, faith, rejuvenation.",
         "reversedMeaning": "Loss of hope, disillusionment, and a disconnection from faith in yourself or the universe's guiding hand.",
@@ -128,6 +164,8 @@
       },
       {
         "name": "The Moon",
+        "number": 18,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/764/large/thiago-lehmann-the-moon01.jpg?1614713759",
         "meaning": "Illusion, fear, anxiety, subconscious.",
         "reversedMeaning": "Confusion beginning to lift, suppressed fears surfacing, and the slow release of self-deception.",
@@ -135,6 +173,8 @@
       },
       {
         "name": "The Sun",
+        "number": 19,
+        "suit": "Major",
         "imageURL": "https://cdnb.artstation.com/p/assets/images/images/035/340/783/large/thiago-lehmann-the-sun01.jpg?1614713788",
         "meaning": "Success, vitality, joy.",
         "reversedMeaning": "Temporary setbacks, clouded optimism, and difficulty letting your inner light shine through.",
@@ -142,6 +182,8 @@
       },
       {
         "name": "Judgement",
+        "number": 20,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/748/large/thiago-lehmann-the-judgement-01.jpg?1614713734",
         "meaning": "Judgment, rebirth, inner calling.",
         "reversedMeaning": "Harsh self-judgment, ignoring a deeper calling, and a reluctance to accept the transformation being offered.",
@@ -149,6 +191,8 @@
       },
       {
         "name": "The World",
+        "number": 21,
+        "suit": "Major",
         "imageURL": "https://cdna.artstation.com/p/assets/images/images/035/340/800/large/thiago-lehmann-the-world01.jpg?1614713804",
         "meaning": "Completion, integration, accomplishment.",
         "reversedMeaning": "Incompletion, taking shortcuts, and missing the final steps needed to achieve true and lasting closure.",
@@ -156,6 +200,8 @@
       },
       {
         "name": "Ace of Wands",
+        "number": 1,
+        "suit": "Wands",
         "imageURL": "https://cdn.shopify.com/s/files/1/0561/8477/files/Divine-Feminine-Tarot-NOCTURNAL-65.png?v=1605877481",
         "meaning": "Inspiration, new opportunities, and potential.",
         "reversedMeaning": "Creative blocks, lack of motivation, and promising energy that fails to ignite into real momentum.",
@@ -163,6 +209,8 @@
       },
       {
         "name": "Two of Wands",
+        "number": 2,
+        "suit": "Wands",
         "imageURL": "https://cdn.shopify.com/s/files/1/0561/8477/files/AURORA-TAROT-GOLD-66.png?v=1696335156",
         "meaning": "Future planning, progress, decisions.",
         "reversedMeaning": "Fear of the unknown, poor planning, and reluctance to step beyond the safety of your current comfort zone.",
@@ -170,6 +218,8 @@
       },
       {
         "name": "Three of Wands",
+        "number": 3,
+        "suit": "Wands",
         "imageURL": "https://i.pinimg.com/564x/a7/d3/02/a7d302664d1b7b624c20138608719cfc.jpg",
         "meaning": "Preparation, foresight, expansion.",
         "reversedMeaning": "Delays in plans coming to fruition, setbacks from external forces, and opportunities that slip through your fingers.",
@@ -177,6 +227,8 @@
       },
       {
         "name": "Four of Wands",
+        "number": 4,
+        "suit": "Wands",
         "imageURL": "https://www.cocorrina.com/cdn/shop/articles/Divine-Feminine-Tarot-NOCTURNAL-68.png?v=1605877246",
         "meaning": "Community, homecoming, celebration.",
         "reversedMeaning": "Instability at home, fractured community, or a celebration that feels hollow without a deeper sense of belonging.",

@@ -1,0 +1,228 @@
+{
+  "symbols": [
+    {
+      "key": "water",
+      "label": "Water",
+      "emoji": "🌊",
+      "keywords": ["water", "ocean", "sea", "river", "lake", "wave", "waves", "swimming", "swim", "flood", "pool"],
+      "meaning": "Water in a dream almost always points to your emotional state — calm water suggests inner peace, while turbulent or murky water signals feelings you have not yet processed. The clearer the water, the clearer your relationship with what you are actually feeling; the murkier it is, the more your waking self may be avoiding something.",
+      "reflection": "What emotion have I been swimming in lately without naming it directly?"
+    },
+    {
+      "key": "flying",
+      "label": "Flying",
+      "emoji": "🕊️",
+      "keywords": ["fly", "flying", "flew", "soar", "soaring", "floating", "airborne"],
+      "meaning": "Flying dreams usually arrive when you have stepped, or want to step, outside a limitation that has been weighing on you — a relationship, a job, an old story about yourself. Effortless flight reflects real confidence; flying that feels shaky or hard to control often mirrors a fear that the freedom you have found is not fully yours yet.",
+      "reflection": "What would it feel like to trust the freedom I currently have, instead of bracing for it to be taken away?"
+    },
+    {
+      "key": "falling",
+      "label": "Falling",
+      "emoji": "🪂",
+      "keywords": ["fall", "falling", "fell", "plummet", "plummeting"],
+      "meaning": "Falling dreams are the mind's way of processing a loss of control — over a situation, a relationship, or your own footing in life. They are especially common during periods of major transition or insecurity. The dream is not a warning; it is your nervous system rehearsing what it feels like to lose grip, often as a way of preparing you to regain it.",
+      "reflection": "Where in my waking life do I feel like I am losing my footing right now?"
+    },
+    {
+      "key": "snake",
+      "label": "Snake",
+      "emoji": "🐍",
+      "keywords": ["snake", "snakes", "serpent"],
+      "meaning": "Few symbols carry as much cultural weight as the snake — transformation, hidden danger, sexuality, and healing all live in the same image, depending on the dream's tone. A snake that frightens you may point to a threat or deception you sense but have not named; a snake that sheds its skin or moves calmly often signals that you are in the middle of your own transformation, shedding an old identity.",
+      "reflection": "What part of myself is currently in the process of shedding an old skin?"
+    },
+    {
+      "key": "teeth",
+      "label": "Teeth Falling Out",
+      "emoji": "🦷",
+      "keywords": ["teeth", "tooth"],
+      "meaning": "Teeth falling out is one of the most universally reported dreams, and it almost always tracks back to anxiety about appearance, communication, or a fear of losing power in how others see you. It can surface around big decisions, public moments, or aging — anywhere you feel your usual confidence is at risk of slipping.",
+      "reflection": "Where have I felt unsure that I will be taken seriously lately?"
+    },
+    {
+      "key": "death",
+      "label": "Death",
+      "emoji": "💀",
+      "keywords": ["death", "dying", "died", "dead", "funeral"],
+      "meaning": "Death in a dream is rarely literal — it is almost always about an ending. Dreaming of your own death often points to the close of a chapter, identity, or way of living; dreaming of someone else's death can reflect a changing relationship to what they represent in your life, not a literal premonition. Some truths can only be reached by letting something finish.",
+      "reflection": "What identity, habit, or chapter is quietly ready to end?"
+    },
+    {
+      "key": "chased",
+      "label": "Being Chased",
+      "emoji": "🏃",
+      "keywords": ["chased", "chasing", "pursued", "pursuit", "being chased", "run away", "running away"],
+      "meaning": "Being chased is the dream-mind's most literal staging of avoidance — there is something (a feeling, a responsibility, a truth) that you have been running from in waking life, and the dream simply gives it legs. Who or what is chasing you often matters less than how you respond: do you keep running, hide, or finally turn around?",
+      "reflection": "What have I been running from instead of facing directly?"
+    },
+    {
+      "key": "naked",
+      "label": "Being Naked in Public",
+      "emoji": "🙈",
+      "keywords": ["naked", "nude", "undressed"],
+      "meaning": "Dreaming of being naked in public usually surfaces around a fear of being exposed — your flaws, a secret, or a part of yourself you have been carefully covering. How you feel in the dream matters: shame points to something you are still hiding from others; indifference or freedom suggests you are getting more comfortable being seen as you actually are.",
+      "reflection": "What part of myself do I most fear other people seeing clearly?"
+    },
+    {
+      "key": "fire",
+      "label": "Fire",
+      "emoji": "🔥",
+      "keywords": ["fire", "burning", "flames", "burn"],
+      "meaning": "Fire is double-edged in dream symbolism: it can represent destruction of something that needed to go, or the passionate, transformative spark of new desire and ambition. A fire that destroys without consuming you often signals release; a fire you are trying to control or escape may point to anger or passion you have been suppressing.",
+      "reflection": "Where in my life is there heat — anger, passion, or urgency — that I have been trying to keep contained?"
+    },
+    {
+      "key": "house",
+      "label": "House",
+      "emoji": "🏠",
+      "keywords": ["house", "home", "mansion"],
+      "meaning": "A house in a dream is almost always a map of the self — different rooms representing different parts of your identity, memory, or emotional life. A house in disrepair can mirror a part of yourself you have been neglecting; discovering a new room often signals an undiscovered capacity or memory coming into awareness.",
+      "reflection": "If my current life were a house, which room would most need my attention right now?"
+    },
+    {
+      "key": "baby",
+      "label": "Baby",
+      "emoji": "👶",
+      "keywords": ["baby", "infant", "newborn"],
+      "meaning": "Babies in dreams rarely refer to literal parenthood — they usually represent something newly born in your own life: a project, an idea, a relationship, or a fresh version of yourself that needs care and protection while it is still fragile. A baby that is neglected or lost in the dream often mirrors a new beginning you have not been tending to.",
+      "reflection": "What new beginning in my life is still fragile and needs more of my attention?"
+    },
+    {
+      "key": "pregnant",
+      "label": "Pregnancy",
+      "emoji": "🤰",
+      "keywords": ["pregnant", "pregnancy", "expecting"],
+      "meaning": "Pregnancy dreams, for any dreamer regardless of gender or life stage, almost always point to something growing within you that is not yet visible to the outside world — a decision, a creative project, or a shift in identity still developing before it is ready to be shared.",
+      "reflection": "What am I currently developing that does not feel ready to share with others yet?"
+    },
+    {
+      "key": "spider",
+      "label": "Spider",
+      "emoji": "🕷️",
+      "keywords": ["spider", "spiders", "web"],
+      "meaning": "Spiders weave a particularly loaded symbol: patience, creativity, and the intricate webs we build in our own lives, but also entrapment and things that feel like they are closing in. A spider that frightens you may point to a situation that feels stickier or more tangled than it first appeared; a spider calmly weaving can reflect your own quiet, persistent creative effort.",
+      "reflection": "Is there a situation in my life that feels more tangled the more I try to handle it?"
+    },
+    {
+      "key": "drowning",
+      "label": "Drowning",
+      "emoji": "🫧",
+      "keywords": ["drown", "drowning"],
+      "meaning": "Drowning dreams intensify water's emotional symbolism into something closer to crisis: they often surface when you feel genuinely overwhelmed by feelings or responsibilities, with no clear way to catch your breath. The dream is your mind flagging that you need real relief, not just resilience.",
+      "reflection": "What, specifically, do I feel like I am drowning in right now?"
+    },
+    {
+      "key": "carcrash",
+      "label": "Car Crash",
+      "emoji": "🚗",
+      "keywords": ["car crash", "crash", "car accident", "accident"],
+      "meaning": "Crashing a car in a dream often reflects a fear of losing control over the direction your life is heading — a decision, a relationship, or a pace of change that feels unsafe. Who is driving in the dream matters: if you are not behind the wheel, the dream may be pointing to a situation where someone else is steering your life right now.",
+      "reflection": "Where in my life do I feel like I am not the one steering?"
+    },
+    {
+      "key": "exam",
+      "label": "Exam or Test",
+      "emoji": "📝",
+      "keywords": ["exam", "test", "studying"],
+      "meaning": "Exam dreams — showing up unprepared, forgetting to study, failing a test you thought you had passed years ago — are almost universally about a fear of being judged or evaluated, often in a context that has nothing to do with school. They tend to spike before big evaluations: performance reviews, public moments, or decisions where you fear falling short.",
+      "reflection": "Where do I currently feel like I am being silently graded?"
+    },
+    {
+      "key": "maze",
+      "label": "Maze",
+      "emoji": "🌀",
+      "keywords": ["maze", "labyrinth", "lost in"],
+      "meaning": "Being lost in a maze mirrors a real situation in your waking life that feels like it has no clear way through — a decision with too many options, a relationship with no resolution, a project where every path seems to loop back on itself. The dream is not telling you to find the exit faster; it is reflecting how disorienting the situation genuinely feels.",
+      "reflection": "What decision in my life currently feels like it has no clear way through?"
+    },
+    {
+      "key": "mirror",
+      "label": "Mirror",
+      "emoji": "🪞",
+      "keywords": ["mirror", "reflection"],
+      "meaning": "Mirrors in dreams are almost always about self-perception — how you see yourself versus how you fear others see you. A mirror that shows a distorted or unfamiliar reflection often points to a gap between your inner sense of self and the version of you that the world currently meets.",
+      "reflection": "Where is there a gap between how I see myself and how I think others see me?"
+    },
+    {
+      "key": "door",
+      "label": "Door",
+      "emoji": "🚪",
+      "keywords": ["door", "doors", "doorway"],
+      "meaning": "Doors mark thresholds — decisions, opportunities, or transitions you are standing at the edge of. A door you cannot open often reflects an opportunity that feels blocked or not yet ready; a door opening onto somewhere unexpected can signal that the next chapter will look different than you planned.",
+      "reflection": "What threshold am I currently standing in front of, but haven't stepped through yet?"
+    },
+    {
+      "key": "key",
+      "label": "Key",
+      "emoji": "🔑",
+      "keywords": ["key", "keys", "locked"],
+      "meaning": "Keys represent access — to knowledge, to a relationship, to a part of yourself you have kept closed off. Losing a key in a dream often mirrors a fear of losing access to something important; finding one suggests you already hold the answer to a problem you have been treating as unsolvable.",
+      "reflection": "What do I already have the 'key' to, that I have been treating as out of reach?"
+    },
+    {
+      "key": "money",
+      "label": "Money",
+      "emoji": "💰",
+      "keywords": ["money", "cash", "coins"],
+      "meaning": "Money in dreams is rarely about literal finances — it is a stand-in for value, self-worth, and security. Finding money points to an underused resource or talent; losing it often mirrors anxiety about your own worth or stability, especially in a season where you feel you are not measuring up.",
+      "reflection": "Where do I currently doubt my own worth or value?"
+    },
+    {
+      "key": "wedding",
+      "label": "Wedding",
+      "emoji": "💍",
+      "keywords": ["wedding", "marry", "marriage", "bride", "groom"],
+      "meaning": "Wedding dreams, even when there is no romantic context in waking life, usually point to a commitment forming — to a relationship, a path, or a new version of yourself. Anxiety in the dream, like a wedding that goes wrong or cold feet, often mirrors real uncertainty about a commitment you are currently making or considering.",
+      "reflection": "What commitment am I currently making, or avoiding making, in my waking life?"
+    },
+    {
+      "key": "expartner",
+      "label": "An Ex-Partner",
+      "emoji": "💔",
+      "keywords": ["ex-boyfriend", "ex-girlfriend", "ex boyfriend", "ex girlfriend", "former partner", "old flame"],
+      "meaning": "Dreaming about an ex is almost never about wanting them back — it is your mind revisiting a quality, feeling, or unresolved pattern that the relationship represented. Pay attention to how the dream feels rather than who is in it: the emotional tone usually reveals what is actually unfinished.",
+      "reflection": "What did that relationship represent to me that might still be unresolved?"
+    },
+    {
+      "key": "crying",
+      "label": "Crying",
+      "emoji": "😢",
+      "keywords": ["cry", "crying", "tears", "sobbing"],
+      "meaning": "Crying in a dream is frequently a release valve for emotion you have been holding back during waking hours — grief, relief, or overwhelm that has not had a safe outlet yet. Waking up from a crying dream feeling lighter is common, because the dream did the processing your waking mind has been postponing.",
+      "reflection": "What emotion have I been holding back that might need a safer outlet?"
+    },
+    {
+      "key": "late",
+      "label": "Running Late / Missing It",
+      "emoji": "⏰",
+      "keywords": ["running late", "late for", "missed the flight", "missed the train", "missed the bus"],
+      "meaning": "Dreams of running late or missing a flight, train, or important event almost always reflect a fear of missing your moment — falling behind a timeline you believe you should be keeping, often one you set for yourself rather than one anyone actually imposed.",
+      "reflection": "Whose timeline am I actually measuring myself against right now?"
+    },
+    {
+      "key": "dog",
+      "label": "Dog",
+      "emoji": "🐕",
+      "keywords": ["dog", "dogs", "puppy"],
+      "meaning": "Dogs in dreams typically reflect loyalty, friendship, and protective instinct — both yours and others'. A friendly dog often points to trustworthy support nearby; an aggressive or frightened dog can mirror a loyalty that currently feels unstable or a protective instinct of your own that you have been suppressing.",
+      "reflection": "Who or what in my life represents real loyalty right now — and am I returning it?"
+    },
+    {
+      "key": "storm",
+      "label": "Storm",
+      "emoji": "⛈️",
+      "keywords": ["storm", "thunder", "lightning", "hurricane"],
+      "meaning": "A storm in a dream gives shape to emotional turbulence that has been building, often outside of your conscious awareness. Watching a storm from shelter suggests you feel equipped to weather what is coming; being caught directly in one suggests the turbulence already feels unmanageable.",
+      "reflection": "What has been building emotionally that I have not fully acknowledged yet?"
+    },
+    {
+      "key": "ghost",
+      "label": "Ghost",
+      "emoji": "👻",
+      "keywords": ["ghost", "ghosts", "haunted"],
+      "meaning": "Ghosts represent the unfinished — a person, relationship, or version of yourself from the past that has not been fully laid to rest. A ghost that frightens you often mirrors an unresolved memory still affecting you; a ghost that simply visits, without menace, can be your mind's way of processing grief or nostalgia.",
+      "reflection": "What from my past still feels unfinished, even though it 'ended' a while ago?"
+    }
+  ]
+}

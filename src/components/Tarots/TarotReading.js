@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import TarotCard from './TarotCard';
 import tarotData from '../../data/tarotDeck';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUI } from '../../contexts/UIContext';
+import { useUser } from '../../contexts/UserContext';
 import { saveReading } from '../../services/profileService';
+import { getZodiacSign, getSignByTarotCard } from '../../services/astrologyService';
+import { calculateLifePathNumber, reduceWithMasterNumbers } from '../../services/numerologyService';
 
 const SPREADS = {
   single: {
@@ -43,7 +46,73 @@ function orientation(card) {
   return card.reversed ? 'reversed' : 'upright';
 }
 
-function buildStory(cards, spreadType, intention) {
+// Deterministic per-draw pick so the same reading doesn't reshuffle its own
+// phrasing on re-render, but a fresh draw gets different wrapping language.
+function pickVariant(seed, variants) {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) | 0;
+  return variants[Math.abs(hash) % variants.length];
+}
+
+const SINGLE_CLOSERS = [
+  `The cards draw a single thread today and hand it directly to you. Notice where in your life this energy is already alive. Let it be your quiet lantern for the hours ahead.`,
+  `One card, one nudge. Carry this energy into your day rather than setting it aside — it tends to show up in small, unglamorous moments once you start looking for it.`,
+  `A single draw is rarely an accident. Sit with this one a little longer than feels necessary; today, that's exactly where the message is.`,
+];
+
+const THREE_TEMPLATES = {
+  past: [
+    (n, m, s) => `Your story opens in ${n}'s energy — ${m}. This is the ground you have walked. It shaped what you carry into the present, whether you named it clearly or not. ${s}`,
+    (n, m, s) => `Trace the root of this moment back to ${n}. ${m}. Nothing in the present arrived out of nowhere — this card marks the soil it grew from. ${s}`,
+    (n, m, s) => `Before the present took shape, ${n} was already moving underneath it. ${m}. Consider this less a memory and more a current that never fully stopped. ${s}`,
+  ],
+  present: [
+    (n, m) => `From that ground you arrive at ${n}. ${m}. This is the lens through which everything is currently being filtered — the feeling you wake with, the undercurrent in every room you enter. The past handed you a current, and this is the one you are swimming in now.`,
+    (n, m) => `Right now, ${n} is the air you're breathing. ${m}. It colors the small decisions you barely notice making, not just the big ones you're consciously weighing.`,
+    (n, m) => `${n} sits at the center of this moment. ${m}. Whatever else is happening around you, this is the energy quietly setting the tone underneath it.`,
+  ],
+  future: [
+    (n, m) => `What stirs at the horizon carries the energy of ${n}. ${m}. The future in a reading is not a sentence — it is a current the cards can see gathering. You still choose how you meet it.`,
+    (n, m) => `Ahead of you, ${n} is already taking shape. ${m}. Treat this less as a prediction and more as a weather report — useful for knowing what to bring with you.`,
+    (n, m) => `The path bends toward ${n}. ${m}. Nothing here is fixed; it's the direction things lean if nothing changes between now and then.`,
+  ],
+};
+
+const THREE_CLOSERS = [
+  `Three cards, one arc. The past set the scene, the present holds the tension, and the future offers a way through. The story is yours to finish.`,
+  `Read top to bottom and the arc is plain: what built this, what it feels like from inside, and where it's leaning next. The ending isn't written yet.`,
+  `These three rarely argue with each other — they're describing one continuous motion. Trust the thread between them more than any single card.`,
+];
+
+const FIVE_TEMPLATES = {
+  foundation: [
+    (n, m) => `Every reading has an unseen floor, and yours is ${n}. ${m}. This is the energy field you have been living inside — often unnoticed, always present beneath the surface of your choices and your restlessness.`,
+    (n, m) => `${n} is the floor this whole situation is standing on. ${m}. You may not think about it often, but it's been quietly shaping the terms of everything else in this spread.`,
+  ],
+  challenge: [
+    (n, m) => `Rising from that floor, ${n} stands across your path. ${m}. Challenges in a reading are rarely warnings — they are doors that look like walls from one angle. This card is asking: what would shift if you stopped pushing and started listening?`,
+    (n, m) => `${n} is the friction point — the part of this that hasn't been easy. ${m}. Resistance like this usually isn't there to stop you; it's there to make you slow down enough to actually see it.`,
+  ],
+  subconscious: [
+    (n, m) => `Beneath what you have been saying out loud, ${n} stirs quietly. ${m}. The cards see what you have not yet put into words. This is the quiet driver behind much of what you have been feeling without being able to name it.`,
+    (n, m) => `Underneath the surface, ${n} has been doing most of the real work. ${m}. It rarely announces itself directly — it shows up sideways, in the mood you can't quite explain.`,
+  ],
+  advice: [
+    (n, m) => `Into this moment, ${n} arrives with a clear instruction: ${m}. Not a command — more like something a clear-eyed friend would say when they see the situation more plainly than you can from inside it. This is the pivot the reading is pointing toward.`,
+    (n, m) => `If the reading has a single piece of advice, it's ${n}. ${m}. Take it as a nudge in a specific direction, not a demand — but a nudge worth following.`,
+  ],
+  outcome: [
+    (n, m) => `Follow that thread, and ${n} waits. ${m}. This is the current the reading is pointing toward. Tend to what the advice card is asking of you, and you move closer to this resolution — one honest step at a time.`,
+    (n, m) => `If things continue on this path, ${n} is where they land. ${m}. Outcomes in a reading describe momentum, not destiny — there's still time to adjust the angle.`,
+  ],
+};
+
+const FIVE_CLOSERS = [
+  `Five positions, one story. Foundation to outcome is rarely a straight line — but there is a line. Trace it slowly and you find the shape of what you are moving through right now.`,
+  `Read this less like five separate fortunes and more like five frames of the same scene. Step back and the throughline is usually obvious.`,
+];
+
+function buildStory(cards, spreadType, intention, drawId) {
   const intentionClose = intention?.trim()
     ? `You came to this reading holding the question: "${intention.trim()}". Read the arc of these cards as the answer forming — not a prescription, but a map of the energy already in motion around that question.`
     : null;
@@ -56,7 +125,7 @@ function buildStory(cards, spreadType, intention) {
         body: `${meaning(c)} — ${c.story}`,
       },
       {
-        body: intentionClose ?? `The cards draw a single thread today and hand it directly to you. Notice where in your life this energy is already alive. Let it be your quiet lantern for the hours ahead.`,
+        body: intentionClose ?? pickVariant(`${drawId}-single`, SINGLE_CLOSERS),
       },
     ];
   }
@@ -66,18 +135,18 @@ function buildStory(cards, spreadType, intention) {
     return [
       {
         label: `Past · ${past.name}${past.reversed ? ' · reversed' : ''}`,
-        body: `Your story opens in ${past.name}'s energy — ${meaning(past)}. This is the ground you have walked. It shaped what you carry into the present, whether you named it clearly or not. ${past.story}`,
+        body: pickVariant(`${drawId}-past`, THREE_TEMPLATES.past)(past.name, meaning(past), past.story),
       },
       {
         label: `Present · ${present.name}${present.reversed ? ' · reversed' : ''}`,
-        body: `From that ground you arrive at ${present.name}. ${meaning(present)}. This is the lens through which everything is currently being filtered — the feeling you wake with, the undercurrent in every room you enter. The past handed you a current, and this is the one you are swimming in now.`,
+        body: pickVariant(`${drawId}-present`, THREE_TEMPLATES.present)(present.name, meaning(present)),
       },
       {
         label: `Future · ${future.name}${future.reversed ? ' · reversed' : ''}`,
-        body: `What stirs at the horizon carries the energy of ${future.name}. ${meaning(future)}. The future in a reading is not a sentence — it is a current the cards can see gathering. You still choose how you meet it.`,
+        body: pickVariant(`${drawId}-future`, THREE_TEMPLATES.future)(future.name, meaning(future)),
       },
       {
-        body: intentionClose ?? `Three cards, one arc. The past set the scene, the present holds the tension, and the future offers a way through. The story is yours to finish.`,
+        body: intentionClose ?? pickVariant(`${drawId}-three-close`, THREE_CLOSERS),
       },
     ];
   }
@@ -87,26 +156,26 @@ function buildStory(cards, spreadType, intention) {
     return [
       {
         label: `Foundation · ${foundation.name}${foundation.reversed ? ' · reversed' : ''}`,
-        body: `Every reading has an unseen floor, and yours is ${foundation.name}. ${meaning(foundation)}. This is the energy field you have been living inside — often unnoticed, always present beneath the surface of your choices and your restlessness.`,
+        body: pickVariant(`${drawId}-foundation`, FIVE_TEMPLATES.foundation)(foundation.name, meaning(foundation)),
       },
       {
         label: `Challenge · ${challenge.name}${challenge.reversed ? ' · reversed' : ''}`,
-        body: `Rising from that floor, ${challenge.name} stands across your path. ${meaning(challenge)}. Challenges in a reading are rarely warnings — they are doors that look like walls from one angle. This card is asking: what would shift if you stopped pushing and started listening?`,
+        body: pickVariant(`${drawId}-challenge`, FIVE_TEMPLATES.challenge)(challenge.name, meaning(challenge)),
       },
       {
         label: `Subconscious · ${subconscious.name}${subconscious.reversed ? ' · reversed' : ''}`,
-        body: `Beneath what you have been saying out loud, ${subconscious.name} stirs quietly. ${meaning(subconscious)}. The cards see what you have not yet put into words. This is the quiet driver behind much of what you have been feeling without being able to name it.`,
+        body: pickVariant(`${drawId}-subconscious`, FIVE_TEMPLATES.subconscious)(subconscious.name, meaning(subconscious)),
       },
       {
         label: `Advice · ${advice.name}${advice.reversed ? ' · reversed' : ''}`,
-        body: `Into this moment, ${advice.name} arrives with a clear instruction: ${meaning(advice)}. Not a command — more like something a clear-eyed friend would say when they see the situation more plainly than you can from inside it. This is the pivot the reading is pointing toward.`,
+        body: pickVariant(`${drawId}-advice`, FIVE_TEMPLATES.advice)(advice.name, meaning(advice)),
       },
       {
         label: `Outcome · ${outcome.name}${outcome.reversed ? ' · reversed' : ''}`,
-        body: `Follow that thread, and ${outcome.name} waits. ${meaning(outcome)}. This is the current the reading is pointing toward. Tend to what the advice card is asking of you, and you move closer to this resolution — one honest step at a time.`,
+        body: pickVariant(`${drawId}-outcome`, FIVE_TEMPLATES.outcome)(outcome.name, meaning(outcome)),
       },
       {
-        body: intentionClose ?? `Five positions, one story. Foundation to outcome is rarely a straight line — but there is a line. Trace it slowly and you find the shape of what you are moving through right now.`,
+        body: intentionClose ?? pickVariant(`${drawId}-five-close`, FIVE_CLOSERS),
       },
     ];
   }
@@ -126,9 +195,37 @@ function drawCards(count) {
   }));
 }
 
+// Real, checkable correspondences between a drawn card and the querent's own
+// birth data — surfaced only when one genuinely exists, never a generic
+// filler line. Two independent checks, either or both can fire.
+function getChartEchoes(card, sunSign, lifePathNumber) {
+  if (!card) return null;
+  const echoes = [];
+
+  if (sunSign && getSignByTarotCard(card.name)?.name === sunSign.name) {
+    echoes.push(`${card.name} is your ${sunSign.name} Sun's own card — when it shows up, it's not background noise.`);
+  }
+
+  if (lifePathNumber != null && card.number != null) {
+    const cardNumber = reduceWithMasterNumbers(card.number);
+    if (cardNumber === lifePathNumber) {
+      echoes.push(`This card's number (${card.number}) echoes your Life Path ${lifePathNumber}.`);
+    }
+  }
+
+  return echoes.length ? echoes : null;
+}
+
 const TarotReading = () => {
   const { user } = useAuth();
   const { openLogin } = useUI();
+  const { userDetails } = useUser();
+
+  const sunSign = useMemo(() => getZodiacSign(userDetails.birthdate), [userDetails.birthdate]);
+  const lifePathNumber = useMemo(
+    () => userDetails.birthdate ? calculateLifePathNumber(userDetails.birthdate) : null,
+    [userDetails.birthdate]
+  );
 
   const [spreadType, setSpreadType] = useState('three');
   const [intention, setIntention] = useState('');
@@ -175,7 +272,7 @@ const TarotReading = () => {
     setShowStory(false);
   };
 
-  const story = drawnCards ? buildStory(drawnCards, spreadType, intention) : [];
+  const story = drawnCards ? buildStory(drawnCards, spreadType, intention, drawId) : [];
 
   return (
     <div className="space-y-5">
@@ -362,6 +459,18 @@ const TarotReading = () => {
                 <p className="text-xs text-white/60 leading-relaxed">{selected.story}</p>
               </div>
             </div>
+
+            {(() => {
+              const echoes = getChartEchoes(selected, sunSign, lifePathNumber);
+              return echoes && (
+                <div className="rounded-xl px-3 py-2.5 border border-[var(--accent)]/40 bg-[var(--accent)]/10 space-y-1">
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-[var(--accent)]/70">✦ Echo in your chart</p>
+                  {echoes.map((line, i) => (
+                    <p key={i} className="text-xs text-white/75 leading-relaxed">{line}</p>
+                  ))}
+                </div>
+              );
+            })()}
 
             {selected.positionLabel && POSITION_PROMPTS[selected.positionLabel] && (
               <div className="border-t border-white/10 pt-3">

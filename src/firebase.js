@@ -16,6 +16,9 @@ if (process.env.REACT_APP_FIREBASE_API_KEY) {
     appId:             process.env.REACT_APP_FIREBASE_APP_ID,
   });
   auth           = getAuth(app);
+  // Firestore on native goes through the @capacitor-firebase/firestore plugin
+  // instead (see profileService.js) — the WebView can't sustain the JS SDK's
+  // transport for writes. This `db` instance is only ever used on web now.
   db             = getFirestore(app);
   googleProvider = new GoogleAuthProvider();
 }

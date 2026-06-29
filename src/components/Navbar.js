@@ -9,9 +9,11 @@ const Navbar = ({ theme = 'dark', onToggleTheme, onOpenLogin, onOpenProfile }) =
   const navItems = [
     { href: '#tarot', label: 'Tarot', icon: '🔮' },
     { href: '#numerology', label: 'Numerology', icon: '🔢' },
+    { href: '#astrology', label: 'Astrology', icon: '♈' },
     { href: '#chakra', label: 'Chakra', icon: '🧘' },
     { href: '#angel-number', label: 'Angels', icon: '✨' },
     { href: '#journal', label: 'Shadow', icon: '📖' },
+    { href: '#dreams', label: 'Dreams', icon: '💭' },
   ];
 
   const toggleMenu = () => {

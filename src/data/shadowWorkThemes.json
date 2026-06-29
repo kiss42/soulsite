@@ -1,0 +1,282 @@
+{
+  "themes": [
+    {
+      "key": "mercury",
+      "label": "Mind & Words",
+      "planet": "Mercury",
+      "symbol": "☿",
+      "color": "#94a3b8",
+      "blurb": "Where you talk yourself out of feeling, or talk over what's true.",
+      "karmicLesson": 3,
+      "signs": ["Gemini", "Virgo"],
+      "prompts": [
+        {
+          "id": 1,
+          "prompt": "What truth about myself do I avoid saying out loud, even to people I trust?",
+          "followUp": "If I said it anyway, right now, what's the worst thing I imagine would happen — and how likely is that, really?"
+        },
+        {
+          "id": 2,
+          "prompt": "Which emotions do I find hardest to put into words?",
+          "followUp": "When I can't name what I'm feeling, what do I do instead — go quiet, get sarcastic, change the subject, overexplain?"
+        },
+        {
+          "id": 3,
+          "prompt": "How do I use overthinking to avoid actually feeling something?",
+          "followUp": "What would happen if, just once, I let the feeling move through me before I tried to analyze it?"
+        }
+      ]
+    },
+    {
+      "key": "venus",
+      "label": "Worth & Love",
+      "planet": "Venus",
+      "symbol": "♀",
+      "color": "#f9a8d4",
+      "blurb": "Where love, money, and self-worth get tangled into one fear.",
+      "karmicLesson": 2,
+      "signs": ["Taurus", "Libra"],
+      "prompts": [
+        {
+          "id": 4,
+          "prompt": "What fears stop me from fully letting someone love me?",
+          "followUp": "Whose love, growing up, came with conditions — and am I still meeting those same conditions for people now?"
+        },
+        {
+          "id": 5,
+          "prompt": "How do I seek validation from others, and what would it take to give that to myself instead?",
+          "followUp": "What's one thing I did well this week that I haven't told anyone, because I was waiting for someone else to notice first?"
+        },
+        {
+          "id": 6,
+          "prompt": "How do I handle rejection, and what does my reaction say about how I see my own worth?",
+          "followUp": "If a friend described being rejected the way I just described it, would I tell them it meant the same thing about their worth?"
+        }
+      ]
+    },
+    {
+      "key": "mars",
+      "label": "Anger & Drive",
+      "planet": "Mars",
+      "symbol": "♂",
+      "color": "#f87171",
+      "blurb": "Where action turns into self-sabotage, or anger turns inward.",
+      "karmicLesson": 1,
+      "signs": ["Aries"],
+      "prompts": [
+        {
+          "id": 7,
+          "prompt": "How do I sabotage my own success, and why might I be doing this?",
+          "followUp": "What would I have to risk losing if I actually let myself succeed without sabotaging it?"
+        },
+        {
+          "id": 8,
+          "prompt": "What tends to trigger my temper fastest, and what is usually underneath the anger?",
+          "followUp": "The last time I snapped at someone, what was I actually afraid of in that moment?"
+        },
+        {
+          "id": 9,
+          "prompt": "How do I tend to avoid discomfort, and what might happen if I moved straight through it instead of around it?",
+          "followUp": "What's one uncomfortable conversation or task I've been circling for weeks — and what's the smallest first step toward it?"
+        }
+      ]
+    },
+    {
+      "key": "jupiter",
+      "label": "Belief & Expansion",
+      "planet": "Jupiter",
+      "symbol": "♃",
+      "color": "#fbbf24",
+      "blurb": "Where limiting beliefs and overpromising both come from the same fear of not enough.",
+      "karmicLesson": 5,
+      "signs": ["Sagittarius"],
+      "prompts": [
+        {
+          "id": 10,
+          "prompt": "What limiting beliefs are holding me back from the life I actually want?",
+          "followUp": "Where did I first learn to believe that — and whose voice does it sound like?"
+        },
+        {
+          "id": 11,
+          "prompt": "Where in my life do I overpromise or overcommit, and what am I trying to prove when I do?",
+          "followUp": "What would it feel like to disappoint someone by simply telling them the truth up front?"
+        },
+        {
+          "id": 12,
+          "prompt": "When I think about my future, what fears come up most frequently?",
+          "followUp": "If that fear came true tomorrow, what is the very first thing I would actually do?"
+        }
+      ]
+    },
+    {
+      "key": "saturn",
+      "label": "Inner Critic & Limits",
+      "planet": "Saturn",
+      "symbol": "♄",
+      "color": "#a78bfa",
+      "blurb": "Where the inner critic enforces rules that were never really yours to keep.",
+      "karmicLesson": 4,
+      "signs": ["Capricorn"],
+      "prompts": [
+        {
+          "id": 13,
+          "prompt": "What does my inner critic say to me most often, and whose voice does it actually sound like?",
+          "followUp": "If I spoke to myself the way I speak to someone I love, what would today's inner monologue sound like instead?"
+        },
+        {
+          "id": 14,
+          "prompt": "What boundaries do I struggle to maintain, and what am I afraid will happen if I hold them?",
+          "followUp": "Who in my life reacts the worst when I do hold a boundary — and what does their reaction usually talk me into doing?"
+        },
+        {
+          "id": 15,
+          "prompt": "How do I react when someone criticizes me, and what does that reaction protect?",
+          "followUp": "What's the difference between criticism that's actually useful and criticism that just confirms what I already feared about myself?"
+        }
+      ]
+    },
+    {
+      "key": "uranus",
+      "label": "Detachment & Independence",
+      "planet": "Uranus",
+      "symbol": "♅",
+      "color": "#67e8f9",
+      "blurb": "Where independence turns into a wall instead of a strength.",
+      "karmicLesson": 7,
+      "signs": ["Aquarius"],
+      "prompts": [
+        {
+          "id": 16,
+          "prompt": "Which of my personality traits do I try to hide from others, and what would happen if I didn't?",
+          "followUp": "Who has earned the right to see the version of me I usually keep hidden — and have I let them?"
+        },
+        {
+          "id": 17,
+          "prompt": "Do I use independence to avoid needing people, and if so, what am I protecting myself from?",
+          "followUp": "What's one small thing I could ask for help with this week, just to practice being needed without it costing me anything?"
+        },
+        {
+          "id": 18,
+          "prompt": "When do I retreat into logic or distance instead of staying present with how I actually feel?",
+          "followUp": "What feeling was I avoiding the last time I told myself 'it's fine, it doesn't matter'?"
+        }
+      ]
+    },
+    {
+      "key": "neptune",
+      "label": "Illusion & Letting Go",
+      "planet": "Neptune",
+      "symbol": "♆",
+      "color": "#818cf8",
+      "blurb": "Where denial, escapism, and old grudges all serve the same purpose: avoiding what's real.",
+      "karmicLesson": 9,
+      "signs": ["Pisces"],
+      "prompts": [
+        {
+          "id": 19,
+          "prompt": "What aspects of myself am I in denial about, and how can I start to confront them honestly?",
+          "followUp": "If a close friend named this thing about me out loud, would I feel exposed, relieved, or both — and why?"
+        },
+        {
+          "id": 20,
+          "prompt": "What grudges am I still holding onto, and how are they actually serving me?",
+          "followUp": "What would I lose, besides the grudge itself, if I let this one go today?"
+        },
+        {
+          "id": 21,
+          "prompt": "How do I escape from feelings I don't want to deal with — distraction, fantasy, substances, scrolling?",
+          "followUp": "What is usually waiting underneath, in the ten minutes right before I reach for the escape?"
+        }
+      ]
+    },
+    {
+      "key": "pluto",
+      "label": "Power & the Unconscious",
+      "planet": "Pluto",
+      "symbol": "♇",
+      "color": "#c084fc",
+      "blurb": "Where control, secrecy, and shame guard the parts of you that feel most dangerous to show.",
+      "karmicLesson": 8,
+      "signs": ["Scorpio"],
+      "prompts": [
+        {
+          "id": 22,
+          "prompt": "What part of myself am I most ashamed of, and how can I learn to accept it?",
+          "followUp": "If that part of me were a person, what would it need to hear to finally feel safe?"
+        },
+        {
+          "id": 23,
+          "prompt": "In which areas of my life do I feel powerless, and what would it look like to reclaim even a small piece of that power?",
+          "followUp": "Who or what currently holds the power I wish I had in that area — and how did they end up holding it?"
+        },
+        {
+          "id": 24,
+          "prompt": "How does my shadow self show up when I'm under stress — controlling, secretive, jealous, withdrawn?",
+          "followUp": "What was the very first situation, even far back in childhood, where that reaction kept me safe?"
+        }
+      ]
+    },
+    {
+      "key": "moon",
+      "label": "Feeling & Roots",
+      "planet": "Moon",
+      "symbol": "☽",
+      "color": "#cbd5e1",
+      "blurb": "Where childhood patterns still decide how safe vulnerability feels today.",
+      "karmicLesson": 6,
+      "signs": ["Cancer"],
+      "prompts": [
+        {
+          "id": 25,
+          "prompt": "What childhood wounds am I still carrying, and how do they show up in my closest relationships today?",
+          "followUp": "What did I need to hear back then that nobody said — and could I say it to myself now?"
+        },
+        {
+          "id": 26,
+          "prompt": "When was the last time I felt truly vulnerable, and what did that moment teach me?",
+          "followUp": "Did I let anyone see that vulnerability, or did I process it entirely alone — and why?"
+        },
+        {
+          "id": 27,
+          "prompt": "Where do I over-give or over-protect the people I love, and what am I afraid would happen if I stopped?",
+          "followUp": "What does it cost me, physically and emotionally, to keep giving past the point I actually have left to give?"
+        }
+      ]
+    },
+    {
+      "key": "sun",
+      "label": "Pride & Visibility",
+      "planet": "Sun",
+      "symbol": "☉",
+      "color": "#fcd34d",
+      "blurb": "Where the need to be admired covers for the fear of being ordinary, or wrong.",
+      "karmicLesson": null,
+      "signs": ["Leo"],
+      "prompts": [
+        {
+          "id": 28,
+          "prompt": "How do I react when I'm not the center of attention, and what does that reaction protect?",
+          "followUp": "What would it feel like to do something well and tell absolutely no one?"
+        },
+        {
+          "id": 29,
+          "prompt": "What is something I find almost impossible to admit I was wrong about?",
+          "followUp": "What do I imagine people would think of me if I admitted that mistake out loud?"
+        },
+        {
+          "id": 30,
+          "prompt": "Where in my life am I performing confidence instead of actually feeling it?",
+          "followUp": "Who in my life has earned the right to see me uncertain, and when did I last let them?"
+        }
+      ]
+    }
+  ],
+  "integrationPrompts": [
+    "Where do I feel this in my body right now — tight chest, clenched jaw, heavy stomach? Just notice, no need to fix it.",
+    "If I spoke to this part of myself with the same compassion I'd offer a close friend, what would I say?",
+    "What is one small, low-stakes way I could respond differently the next time this exact pattern shows up?",
+    "What would it cost me to keep carrying this — and what might it free up if I set it down, even partially?",
+    "Whose voice does the harshest part of this story sound like — and is it actually mine?",
+    "What's one tiny act of self-trust I can offer myself today, in spite of all of this?"
+  ]
+}

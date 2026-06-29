@@ -16,7 +16,7 @@ const KarmicLessonsComponent = () => {
   };
 
   const handleReset = () => {
-    setUserDetails({ name: '', birthdate: '', birthtime: '', birthplace: '' });
+    setUserDetails({ name: '', birthdate: '', birthtime: '', birthplace: '', birthCity: '', birthLat: '', birthLon: '' });
     setKarmicLessons([]);
     setIsModalOpen(false);
   };
@@ -44,16 +44,7 @@ const KarmicLessonsComponent = () => {
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={`Karmic Lessons for ${userDetails.name}`}>
-        <div className="modal-surface text-white scroll-smooth">
-          <div className="flex justify-between items-center mb-4 gap-4">
-            <h3 className="text-xl font-bold leading-tight">{`Karmic Lessons for ${userDetails.name}`}</h3>
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="text-red-500 text-xl font-bold hover:text-red-700"
-            >
-              X
-            </button>
-          </div>
+        <div className="text-white scroll-smooth">
           <div className="space-y-3 max-h-[60vh] overflow-y-auto scroll-smooth">
             {karmicLessons.length > 0 ? (
               <ul className="list-disc pl-5 text-sm text-gray-100">

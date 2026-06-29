@@ -4,6 +4,11 @@
   "private": true,
   "homepage": "https://kiss42.github.io/soulsite/",
   "dependencies": {
+    "@capacitor-firebase/authentication": "^8.3.0",
+    "@capacitor-firebase/firestore": "^8.3.0",
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,13 +18,18 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
+    "tz-lookup": "^6.1.25",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "build:android": "PUBLIC_URL=./ react-scripts build && npx cap copy android",
+    "android": "npm run build:android && npx cap open android",
+    "build:ios": "PUBLIC_URL=./ react-scripts build && npx cap copy ios",
+    "ios": "npm run build:ios && npx cap open ios"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +50,8 @@
     ]
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.4.1",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.1.1",
     "postcss": "^8.4.47",

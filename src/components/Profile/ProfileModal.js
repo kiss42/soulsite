@@ -9,13 +9,25 @@ import {
   getJournalEntries, deleteJournalEntry,
   getFavorites, deleteFavorite,
   getDreams, deleteDream,
+  deleteAllUserData,
 } from '../../services/profileService';
 import { getAllThemes } from '../../services/shadowWorkService';
 import { getAllSymbols } from '../../services/dreamService';
+import angelNumbersData from '../../data/angelNumbers.json';
 
 const TABS = ['Profile', 'Readings', 'Journal', 'Dreams', 'Favorites'];
 const SHADOW_THEME_BY_KEY = Object.fromEntries(getAllThemes().map(t => [t.key, t]));
 const DREAM_SYMBOL_BY_KEY = Object.fromEntries(getAllSymbols().map(s => [s.key, s]));
+
+// Shared "you keep coming back to this" pattern: count occurrences of some key
+// across a list of saved items, return the top one if it repeats at least twice.
+function findRecurring(items, extractKeys) {
+  if (!items?.length) return null;
+  const counts = {};
+  items.forEach(item => extractKeys(item).forEach(key => { counts[key] = (counts[key] || 0) + 1; }));
+  const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+  return top && top[1] >= 2 ? { key: top[0], count: top[1] } : null;
+}
 
 function EmptyState({ emoji, text }) {
   return (
@@ -178,7 +190,7 @@ function FavoriteItem({ item, onDelete }) {
 }
 
 export default function ProfileModal({ onClose }) {
-  const { user, signOut } = useAuth();
+  const { user, signOut, deleteAccount } = useAuth();
   const { userDetails, setUserDetails } = useUser();
 
   const [tab, setTab]           = useState('Profile');
@@ -191,6 +203,9 @@ export default function ProfileModal({ onClose }) {
   const [saved, setSaved]       = useState(false);
   const [saving, setSaving]     = useState(false);
   const [saveError, setSaveError] = useState('');
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
 
   const [readings,  setReadings]  = useState(null);
   const [journal,   setJournal]   = useState(null);
@@ -198,14 +213,30 @@ export default function ProfileModal({ onClose }) {
   const [favorites, setFavorites] = useState(null);
 
   const recurringTheme = useMemo(() => {
-    if (!journal?.length) return null;
-    const counts = {};
-    journal.forEach(j => { if (j.themeKey) counts[j.themeKey] = (counts[j.themeKey] || 0) + 1; });
-    const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
-    if (!top || top[1] < 2) return null;
-    const theme = SHADOW_THEME_BY_KEY[top[0]];
-    return theme ? { theme, count: top[1] } : null;
+    const top = findRecurring(journal, j => j.themeKey ? [j.themeKey] : []);
+    if (!top) return null;
+    const theme = SHADOW_THEME_BY_KEY[top.key];
+    return theme ? { theme, count: top.count } : null;
   }, [journal]);
+
+  const recurringCard = useMemo(
+    () => findRecurring(readings, r => (r.cards || []).map(c => c.name)),
+    [readings]
+  );
+
+  const recurringSymbol = useMemo(() => {
+    const top = findRecurring(dreams, d => d.symbols || []);
+    if (!top) return null;
+    const symbol = DREAM_SYMBOL_BY_KEY[top.key];
+    return symbol ? { symbol, count: top.count } : null;
+  }, [dreams]);
+
+  const recurringDigit = useMemo(() => {
+    const top = findRecurring(favorites, f => (f.number || '').split('').filter(ch => /[0-9]/.test(ch)));
+    if (!top) return null;
+    const entry = angelNumbersData[top.key];
+    return entry ? { digit: top.key, majorMessage: entry.majorMessage, count: top.count } : null;
+  }, [favorites]);
 
   // Load profile on mount
   useEffect(() => {
@@ -279,6 +310,26 @@ export default function ProfileModal({ onClose }) {
   const handleSignOut = async () => {
     await signOut();
     onClose();
+  };
+
+  const handleDeleteAccount = async () => {
+    setDeleting(true);
+    setDeleteError('');
+    try {
+      // Firestore data must go first — deleting the Auth account invalidates
+      // the session these deletes are authorized under.
+      await deleteAllUserData(user.uid);
+      await deleteAccount();
+      onClose();
+    } catch (err) {
+      if (err.code === 'auth/requires-recent-login') {
+        setDeleteError('For security, please sign out and sign back in, then try deleting your account again.');
+      } else {
+        setDeleteError(err.message.replace('Firebase: ', '').replace(/ \(auth\/.*\)\.?/, ''));
+      }
+    } finally {
+      setDeleting(false);
+    }
   };
 
   const avatar = user?.photoURL
@@ -394,13 +445,55 @@ export default function ProfileModal({ onClose }) {
             >
               {saved ? '✓ Saved' : saving ? 'Saving…' : 'Save profile'}
             </button>
-            <div className="pt-2 border-t border-white/10">
+            <div className="pt-2 border-t border-white/10 flex items-center justify-between">
               <button
                 onClick={handleSignOut}
                 className="text-xs text-white/30 hover:text-red-400 transition-colors"
               >
                 Sign out
               </button>
+              <a
+                href="privacy-policy.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white/30 hover:text-white/60 transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </div>
+
+            <div className="pt-3 border-t border-white/10 space-y-2">
+              {!confirmingDelete ? (
+                <button
+                  onClick={() => setConfirmingDelete(true)}
+                  className="text-[10px] text-red-400/40 hover:text-red-400 transition-colors"
+                >
+                  Delete account
+                </button>
+              ) : (
+                <div className="rounded-lg border border-red-400/30 bg-red-500/5 p-3 space-y-2">
+                  <p className="text-xs text-red-300/80 leading-relaxed">
+                    This permanently deletes your account and every saved reading, journal entry, dream, and favorite. This cannot be undone.
+                  </p>
+                  {deleteError && <p className="text-xs text-red-300/80">{deleteError}</p>}
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => { setConfirmingDelete(false); setDeleteError(''); }}
+                      className="ghost-btn flex-1 text-xs py-2"
+                      disabled={deleting}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleDeleteAccount}
+                      disabled={deleting}
+                      className="flex-1 text-xs py-2 rounded-xl border border-red-400/50 text-red-300 hover:bg-red-500/10 transition-colors disabled:opacity-50"
+                    >
+                      {deleting ? 'Deleting…' : 'Yes, delete everything'}
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -410,6 +503,13 @@ export default function ProfileModal({ onClose }) {
           <div className="space-y-3">
             {readings === null && <p className="text-xs text-white/30 text-center py-6">Loading…</p>}
             {readings?.length === 0 && <EmptyState emoji="🃏" text="No saved readings yet — draw a spread and save it." />}
+            {recurringCard && (
+              <div className="rounded-xl px-3 py-2.5 bg-[var(--accent)]/10 border-l-2 border-[var(--accent)]/60">
+                <p className="text-xs text-white/60">
+                  You keep drawing <span className="font-medium text-[var(--accent)]">{recurringCard.key}</span> — {recurringCard.count} times so far.
+                </p>
+              </div>
+            )}
             {readings?.map(r => (
               <ReadingItem key={r.id} item={r} onDelete={handleDeleteReading} />
             ))}
@@ -443,6 +543,14 @@ export default function ProfileModal({ onClose }) {
           <div className="space-y-3">
             {dreams === null && <p className="text-xs text-white/30 text-center py-6">Loading…</p>}
             {dreams?.length === 0 && <EmptyState emoji="💭" text="No dreams saved yet — describe one and interpret it." />}
+            {recurringSymbol && (
+              <div className="rounded-xl px-3 py-2.5 bg-white/[0.03] border-l-2 border-white/30 flex items-center gap-2">
+                <span className="text-base">{recurringSymbol.symbol.emoji}</span>
+                <p className="text-xs text-white/60">
+                  <span className="font-medium text-white/80">{recurringSymbol.symbol.label}</span> keeps appearing in your dreams — {recurringSymbol.count} times so far.
+                </p>
+              </div>
+            )}
             {dreams?.map(d => (
               <DreamItem key={d.id} item={d} onDelete={handleDeleteDream} />
             ))}
@@ -454,6 +562,13 @@ export default function ProfileModal({ onClose }) {
           <div className="space-y-3">
             {favorites === null && <p className="text-xs text-white/30 text-center py-6">Loading…</p>}
             {favorites?.length === 0 && <EmptyState emoji="✨" text="No favorite numbers yet — bookmark angel numbers you resonate with." />}
+            {recurringDigit && (
+              <div className="rounded-xl px-3 py-2.5 bg-white/[0.03] border-l-2 border-white/30">
+                <p className="text-xs text-white/60">
+                  <span className="font-medium text-white/80">'{recurringDigit.digit}' energy</span> shows up across {recurringDigit.count} of your saved numbers — {recurringDigit.majorMessage}
+                </p>
+              </div>
+            )}
             {favorites?.map(f => (
               <FavoriteItem key={f.id} item={f} onDelete={handleDeleteFavorite} />
             ))}

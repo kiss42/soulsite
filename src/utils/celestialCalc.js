@@ -159,6 +159,22 @@ export function getRetrogradeStatus(date = new Date()) {
   return { active, shadow, upcoming };
 }
 
+// The retrograde calendar in celestialData.json is a finite, hand-maintained
+// dataset (not computed from orbital mechanics) — once `date` passes this,
+// getRetrogradeStatus() silently returns empty arrays with no indication why.
+// Callers should check this and show a "data needs refreshing" notice instead
+// of a bare "no retrogrades right now" message.
+export function getRetrogradeDataCoverageEnd() {
+  let latest = 0;
+  for (const planet of celestialData.retrogrades) {
+    for (const period of planet.periods) {
+      const end = new Date(period.end).getTime();
+      if (end > latest) latest = end;
+    }
+  }
+  return new Date(latest);
+}
+
 export function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }

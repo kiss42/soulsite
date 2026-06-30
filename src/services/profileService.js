@@ -94,3 +94,19 @@ export const deleteFavorite     = (uid, id)      => deleteDocument(`users/${uid}
 export const saveDream          = (uid, dream)   => addDocument(`users/${uid}/dreams`, dream);
 export const getDreams          = (uid)          => getOrderedCollection(`users/${uid}/dreams`);
 export const deleteDream        = (uid, id)      => deleteDocument(`users/${uid}/dreams/${id}`);
+
+// ── Account deletion ─────────────────────────────────────────────────────
+// Firestore has no "delete collection" call from the client SDKs — each
+// subcollection's documents have to be fetched and removed individually.
+// Must run to completion *before* the Auth account is deleted, since the
+// security rules that authorize these deletes require request.auth.uid to
+// still match this user.
+const SUBCOLLECTIONS = ['readings', 'journal', 'dreams', 'favorites'];
+
+export async function deleteAllUserData(uid) {
+  for (const sub of SUBCOLLECTIONS) {
+    const docs = await getOrderedCollection(`users/${uid}/${sub}`);
+    await Promise.all(docs.map(d => deleteDocument(`users/${uid}/${sub}/${d.id}`)));
+  }
+  await deleteDocument(`users/${uid}`);
+}

@@ -7,6 +7,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme, onOpenLogin, onOpenProfile }) =
   const [isOpen, setIsOpen] = useState(false); // State to control mobile menu toggle
 
   const navItems = [
+    { href: '#today', label: 'Today', icon: '☉' },
     { href: '#tarot', label: 'Tarot', icon: '🔮' },
     { href: '#numerology', label: 'Numerology', icon: '🔢' },
     { href: '#astrology', label: 'Astrology', icon: '♈' },

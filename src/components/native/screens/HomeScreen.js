@@ -1,8 +1,11 @@
 import React from 'react';
+import DailyForecast from '../../DailyForecast';
 
 export default function HomeScreen({ onNavigate }) {
   return (
     <div className="px-4 pt-6 pb-8 space-y-6">
+      <DailyForecast />
+
       <div className="space-y-3 text-center">
         <div className="eyebrow justify-center">Soul OS · lunar mode</div>
         <h1 className="text-3xl font-semibold leading-tight" style={{ fontFamily: "'Cinzel Decorative', serif" }}>

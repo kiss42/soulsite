@@ -12,6 +12,7 @@ import AstrologyProfile from './components/AstrologyProfile';
 import Navbar from './components/Navbar';
 import ShadowWorksJournal from './components/ShadowWorksJournal';
 import DreamInterpreter from './components/DreamInterpreter';
+import DailyForecast from './components/DailyForecast';
 import CelestialStatus from './components/CelestialStatus';
 import LoginModal from './components/Auth/LoginModal';
 import ProfileModal from './components/Profile/ProfileModal';
@@ -83,6 +84,19 @@ function AppInner({ theme, setTheme }) {
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
+
+          <section className="container mx-auto px-4 pb-10">
+            <div id="today" className="stack-card flex flex-col gap-4 max-w-2xl mx-auto">
+              <div>
+                <div className="eyebrow">Today</div>
+                <h3 className="section-title">Your day at a glance</h3>
+                <p className="section-subtitle">
+                  Moon, card, and number — where today's threads happen to meet.
+                </p>
+              </div>
+              <DailyForecast />
             </div>
           </section>
 

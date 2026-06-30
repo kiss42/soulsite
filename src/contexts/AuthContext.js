@@ -7,7 +7,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithCredential,
   GoogleAuthProvider,
+  OAuthProvider,
   signOut as fbSignOut,
+  deleteUser as fbDeleteUser,
   onAuthStateChanged,
 } from 'firebase/auth';
 import { auth, googleProvider } from '../firebase';
@@ -62,6 +64,19 @@ export function AuthProvider({ children }) {
     const { credential } = await FirebaseAuthentication.signInWithGoogle();
     return signInWithCredential(auth, GoogleAuthProvider.credential(credential?.idToken));
   };
+  // Same shape as Google above, but Apple's ID token is bound to a one-time
+  // nonce (anti-replay) that has to be forwarded as `rawNonce`, or the JS SDK
+  // rejects the credential — the native plugin exposes it as `credential.nonce`.
+  const signInWithApple = async () => {
+    if (!auth) throw new Error('Auth not configured');
+    const appleProvider = new OAuthProvider('apple.com');
+    if (!Capacitor.isNativePlatform()) return signInWithPopup(auth, appleProvider);
+    const { credential } = await FirebaseAuthentication.signInWithApple();
+    return signInWithCredential(auth, appleProvider.credential({
+      idToken: credential?.idToken,
+      rawNonce: credential?.nonce,
+    }));
+  };
   const signIn           = (email, pass) => auth ? signInWithEmailAndPassword(auth, email, pass) : Promise.reject(new Error('Auth not configured'));
   const signUp           = (email, pass) => auth ? createUserWithEmailAndPassword(auth, email, pass) : Promise.reject(new Error('Auth not configured'));
   const signOut          = async () => {
@@ -69,9 +84,18 @@ export function AuthProvider({ children }) {
     if (Capacitor.isNativePlatform()) await FirebaseAuthentication.signOut();
     return fbSignOut(auth);
   };
+  // Deletes the Auth account itself — callers must delete the user's
+  // Firestore data first (deleteAllUserData), since this invalidates the
+  // session those deletes are authorized under. Throws auth/requires-recent-login
+  // if the session is stale; the caller should prompt a fresh sign-in and retry.
+  const deleteAccount    = async () => {
+    if (!auth) return;
+    if (Capacitor.isNativePlatform()) return FirebaseAuthentication.deleteUser();
+    return fbDeleteUser(auth.currentUser);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, loading, signInWithGoogle, signIn, signUp, signOut }}>
+    <AuthContext.Provider value={{ user, loading, signInWithGoogle, signInWithApple, signIn, signUp, signOut, deleteAccount }}>
       {!loading && children}
     </AuthContext.Provider>
   );

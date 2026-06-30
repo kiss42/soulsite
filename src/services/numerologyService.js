@@ -80,3 +80,10 @@ export const calculatePersonalMonthNumber = (personalYearNumber, today = new Dat
   const sum = personalYearNumber + (today.getMonth() + 1);
   return reduceToSingleDigit(sum);
 };
+
+// Personal Day: reduces (Personal Month + today's day-of-month) to 1-9.
+// The finest-grained cycle in this chain — what's active specifically today.
+export const calculatePersonalDayNumber = (personalMonthNumber, today = new Date()) => {
+  const sum = personalMonthNumber + today.getDate();
+  return reduceToSingleDigit(sum);
+};

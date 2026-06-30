@@ -16,6 +16,22 @@ export const getChakraByElement = (element) => {
   return { key, ...chakraGuidance[key] };
 };
 
+// Numbers 1-7 mirror the seven chakras in ascending order (root through
+// crown); 8 and 9 sit beyond that ladder, so they loop back to the chakras
+// that match their own established meaning elsewhere in this app — 8's
+// "material mastery" to root (security/survival), 9's "unconditional
+// compassion" to crown (unity/transcendence).
+const NUMBER_CHAKRA = {
+  1: 'root', 2: 'sacral', 3: 'solarPlexus', 4: 'heart',
+  5: 'throat', 6: 'thirdEye', 7: 'crown', 8: 'root', 9: 'crown',
+};
+
+export const getChakraForNumber = (number) => {
+  const key = NUMBER_CHAKRA[number];
+  if (!key) return null;
+  return { key, ...chakraGuidance[key] };
+};
+
 export const getChakraRecommendation = (numerologyResults) => {
     const { LifePath } = numerologyResults; // Only destructure LifePath as it's the only used variable
 

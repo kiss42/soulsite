@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { getMoonPhaseInfo, getMoonSign, getRetrogradeStatus, formatDate } from '../utils/celestialCalc';
+import { getMoonPhaseInfo, getMoonSign, getRetrogradeStatus, getRetrogradeDataCoverageEnd, formatDate } from '../utils/celestialCalc';
 
 const ELEMENT_COLORS = {
   Fire:  'text-orange-300',
@@ -108,6 +108,8 @@ export default function CelestialStatus() {
   const moon = useMemo(() => getMoonPhaseInfo(now), [now]);
   const moonSign = useMemo(() => getMoonSign(now), [now]);
   const { active, shadow, upcoming } = useMemo(() => getRetrogradeStatus(now), [now]);
+  const coverageEnd = useMemo(() => getRetrogradeDataCoverageEnd(), []);
+  const isDataStale = now > coverageEnd;
 
   const toggle = (planet) => setExpandedPlanet(p => (p === planet ? null : planet));
 
@@ -170,7 +172,14 @@ export default function CelestialStatus() {
         </div>
       )}
 
-      {active.length === 0 && (
+      {active.length === 0 && isDataStale && (
+        <div className="rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-4 text-center">
+          <p className="text-sm text-amber-200/80">Our planetary calendar is due for a refresh.</p>
+          <p className="text-xs text-amber-200/50 mt-1">We've mapped transits through {formatDate(coverageEnd.toISOString().slice(0, 10))} — check back soon for the next stretch of sky.</p>
+        </div>
+      )}
+
+      {active.length === 0 && !isDataStale && (
         <div className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 text-center">
           <p className="text-sm text-white/50">No major planets in retrograde right now.</p>
           <p className="text-xs text-white/30 mt-1">A rare window — good time to move forward on important decisions.</p>

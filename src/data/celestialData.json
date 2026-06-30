@@ -16,7 +16,10 @@
         { "start": "2026-09-18", "end": "2026-10-10", "sign": "Libra" },
         { "start": "2027-01-06", "end": "2027-01-27", "sign": "Capricorn" },
         { "start": "2027-05-01", "end": "2027-05-25", "sign": "Taurus" },
-        { "start": "2027-08-31", "end": "2027-09-21", "sign": "Virgo" }
+        { "start": "2027-08-31", "end": "2027-09-21", "sign": "Virgo" },
+        { "start": "2028-01-24", "end": "2028-02-14", "sign": "Aquarius" },
+        { "start": "2028-05-21", "end": "2028-06-14", "sign": "Gemini" },
+        { "start": "2028-09-19", "end": "2028-10-11", "sign": "Libra" }
       ]
     },
     {
@@ -28,7 +31,8 @@
       "advice": "Revisit what you value in relationships. Let go of beauty standards that were never yours. Nurture existing bonds over chasing new ones.",
       "periods": [
         { "start": "2025-03-01", "end": "2025-04-12", "sign": "Aries" },
-        { "start": "2026-10-03", "end": "2026-11-14", "sign": "Virgo" }
+        { "start": "2026-10-03", "end": "2026-11-14", "sign": "Virgo" },
+        { "start": "2028-05-10", "end": "2028-06-22", "sign": "Gemini" }
       ]
     },
     {
@@ -53,7 +57,8 @@
       "periods": [
         { "start": "2025-02-07", "end": "2025-06-02", "sign": "Gemini" },
         { "start": "2025-10-23", "end": "2026-02-27", "sign": "Gemini" },
-        { "start": "2026-11-10", "end": "2027-03-10", "sign": "Cancer" }
+        { "start": "2026-11-10", "end": "2027-03-10", "sign": "Cancer" },
+        { "start": "2028-01-12", "end": "2028-05-13", "sign": "Virgo" }
       ]
     },
     {
@@ -66,7 +71,8 @@
       "periods": [
         { "start": "2025-06-29", "end": "2025-11-15", "sign": "Pisces" },
         { "start": "2026-06-06", "end": "2026-10-14", "sign": "Aries" },
-        { "start": "2027-06-18", "end": "2027-10-27", "sign": "Aries" }
+        { "start": "2027-06-18", "end": "2027-10-27", "sign": "Aries" },
+        { "start": "2028-08-22", "end": "2029-01-05", "sign": "Taurus" }
       ]
     },
     {
@@ -78,7 +84,9 @@
       "advice": "Notice what feels genuinely free versus what just looks free from the outside. The disruptions Uranus brings are invitations to live more honestly.",
       "periods": [
         { "start": "2025-09-06", "end": "2026-01-26", "sign": "Gemini" },
-        { "start": "2026-09-17", "end": "2027-02-04", "sign": "Gemini" }
+        { "start": "2026-09-17", "end": "2027-02-04", "sign": "Gemini" },
+        { "start": "2027-09-15", "end": "2028-02-12", "sign": "Gemini" },
+        { "start": "2028-09-19", "end": "2029-02-16", "sign": "Gemini" }
       ]
     },
     {
@@ -91,7 +99,8 @@
       "periods": [
         { "start": "2025-07-04", "end": "2025-12-10", "sign": "Aries" },
         { "start": "2026-06-16", "end": "2026-11-21", "sign": "Aries" },
-        { "start": "2027-06-28", "end": "2027-12-02", "sign": "Aries" }
+        { "start": "2027-06-28", "end": "2027-12-02", "sign": "Aries" },
+        { "start": "2028-07-11", "end": "2028-12-16", "sign": "Aries" }
       ]
     },
     {
@@ -104,7 +113,8 @@
       "periods": [
         { "start": "2025-05-04", "end": "2025-10-13", "sign": "Aquarius" },
         { "start": "2026-04-23", "end": "2026-10-05", "sign": "Aquarius" },
-        { "start": "2027-05-08", "end": "2027-10-17", "sign": "Aquarius" }
+        { "start": "2027-05-08", "end": "2027-10-17", "sign": "Aquarius" },
+        { "start": "2028-05-09", "end": "2028-10-19", "sign": "Aquarius" }
       ]
     }
   ],

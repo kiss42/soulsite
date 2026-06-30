@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function LoginModal({ onClose }) {
-  const { signInWithGoogle, signIn, signUp } = useAuth();
+  const { signInWithGoogle, signInWithApple, signIn, signUp } = useAuth();
   const [mode, setMode]       = useState('signin'); // 'signin' | 'signup'
   const [email, setEmail]     = useState('');
   const [password, setPassword] = useState('');
@@ -14,6 +14,19 @@ export default function LoginModal({ onClose }) {
     setBusy(true);
     try {
       await signInWithGoogle();
+      onClose();
+    } catch (e) {
+      setError(e.message.replace('Firebase: ', '').replace(/ \(auth\/.*\)\.?/, ''));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleApple = async () => {
+    setError('');
+    setBusy(true);
+    try {
+      await signInWithApple();
       onClose();
     } catch (e) {
       setError(e.message.replace('Firebase: ', '').replace(/ \(auth\/.*\)\.?/, ''));
@@ -57,6 +70,18 @@ export default function LoginModal({ onClose }) {
             {mode === 'signin' ? 'Sign in to access your saved readings & journal.' : 'Create an account to save your readings & journal.'}
           </p>
         </div>
+
+        {/* Apple button */}
+        <button
+          onClick={handleApple}
+          disabled={busy}
+          className="w-full flex items-center justify-center gap-3 rounded-xl py-3 px-4 bg-black text-white font-semibold text-sm hover:bg-gray-900 transition-colors disabled:opacity-50 border border-white/10"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.365 1.43c0 1.14-.42 2.06-1.27 2.86-.93.87-2.02 1.34-3.16 1.25-.04-1.1.45-2.18 1.27-2.95.91-.88 2.1-1.4 3.16-1.16zM20.86 17.34c-.46 1.05-.99 2.01-1.62 2.9-.85 1.21-1.55 2.05-2.1 2.52-.85.78-1.76 1.18-2.74 1.2-.71 0-1.55-.2-2.5-.62-.96-.41-1.84-.62-2.65-.62-.85 0-1.75.21-2.71.62-.97.42-1.74.64-2.34.66-.93.04-1.86-.37-2.78-1.24-.6-.5-1.34-1.38-2.2-2.64-.93-1.36-1.7-2.95-2.3-4.78-.65-1.96-.98-3.86-.98-5.7 0-2.1.45-3.91 1.36-5.43.71-1.22 1.66-2.18 2.84-2.88 1.18-.7 2.45-1.06 3.82-1.08.87 0 1.93.27 3.18.81 1.25.55 2.05.82 2.42.82.27 0 1.05-.32 2.33-.96 1.21-.59 2.23-.84 3.06-.77 2.26.18 3.96 1.07 5.08 2.68-2.02 1.22-3.02 2.94-3.01 5.14.01 1.72.62 3.15 1.85 4.28.55.53 1.17.94 1.85 1.23-.15.43-.31.84-.49 1.24z"/>
+          </svg>
+          Continue with Apple
+        </button>
 
         {/* Google button */}
         <button
@@ -125,6 +150,13 @@ export default function LoginModal({ onClose }) {
 
         <p className="text-center text-[10px] text-white/20 tracking-wide">
           Login is optional — everything works without an account.
+        </p>
+
+        <p className="text-center text-[10px] text-white/20 tracking-wide">
+          By continuing you agree to our{' '}
+          <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/40">
+            Privacy Policy
+          </a>.
         </p>
 
         <button

@@ -342,15 +342,15 @@ export default function ProfileModal({ onClose }) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 flex justify-center items-start p-4 pt-16 z-50 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 flex justify-center items-center p-4 z-50"
       onClick={onClose}
     >
       <div
-        className="modal-surface w-full max-w-md space-y-5 relative"
+        className="modal-surface w-full max-w-md relative flex flex-col gap-5 max-h-[calc(100dvh-2rem)]"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           {avatar}
           <div className="min-w-0">
             <p className="text-sm font-semibold text-white/90 truncate">{user?.displayName || user?.email}</p>
@@ -364,7 +364,7 @@ export default function ProfileModal({ onClose }) {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 border-b border-white/10 pb-0">
+        <div className="flex gap-1 border-b border-white/10 pb-0 shrink-0 overflow-x-auto">
           {TABS.map(t => (
             <button
               key={t}
@@ -380,6 +380,9 @@ export default function ProfileModal({ onClose }) {
           ))}
         </div>
 
+        {/* Only this region scrolls; the negative margin keeps the scrollbar
+            off the content instead of inset from the panel edge. */}
+        <div className="flex-1 min-h-0 overflow-y-auto -mr-2 pr-2">
         {/* ── Profile tab ── */}
         {tab === 'Profile' && (
           <div className="space-y-4">
@@ -574,6 +577,7 @@ export default function ProfileModal({ onClose }) {
             ))}
           </div>
         )}
+        </div>
       </div>
     </div>
   );

@@ -8,22 +8,64 @@
       "color": "#94a3b8",
       "blurb": "Where you talk yourself out of feeling, or talk over what's true.",
       "karmicLesson": 3,
-      "signs": ["Gemini", "Virgo"],
+      "signs": [
+        "Gemini",
+        "Virgo"
+      ],
       "prompts": [
-        {
-          "id": 1,
-          "prompt": "What truth about myself do I avoid saying out loud, even to people I trust?",
-          "followUp": "If I said it anyway, right now, what's the worst thing I imagine would happen — and how likely is that, really?"
-        },
         {
           "id": 2,
           "prompt": "Which emotions do I find hardest to put into words?",
-          "followUp": "When I can't name what I'm feeling, what do I do instead — go quiet, get sarcastic, change the subject, overexplain?"
+          "followUp": "When I can't name what I'm feeling, what do I do instead — go quiet, get sarcastic, change the subject, overexplain?",
+          "depth": 1
+        },
+        {
+          "id": 31,
+          "depth": 1,
+          "prompt": "What did I say today that I didn't mean?",
+          "followUp": "Was it to spare someone, or to spare myself the conversation honesty would have started?"
+        },
+        {
+          "id": 32,
+          "depth": 1,
+          "prompt": "Which subject do I reliably change when it comes up?",
+          "followUp": "What happens in my body in the half-second before I change it?"
+        },
+        {
+          "id": 1,
+          "prompt": "What truth about myself do I avoid saying out loud, even to people I trust?",
+          "followUp": "If I said it anyway, right now, what's the worst thing I imagine would happen — and how likely is that, really?",
+          "depth": 2
         },
         {
           "id": 3,
           "prompt": "How do I use overthinking to avoid actually feeling something?",
-          "followUp": "What would happen if, just once, I let the feeling move through me before I tried to analyze it?"
+          "followUp": "What would happen if, just once, I let the feeling move through me before I tried to analyze it?",
+          "depth": 2
+        },
+        {
+          "id": 33,
+          "depth": 2,
+          "prompt": "Whose voice is narrating when I talk to myself about my own failures?",
+          "followUp": "Would I let that person speak that way to someone I love, in front of me?"
+        },
+        {
+          "id": 34,
+          "depth": 3,
+          "prompt": "What story about my life have I told so often, and so well, that I no longer know how much of it is true?",
+          "followUp": "Who does that version protect — and what would I have to admit if I stopped telling it?"
+        },
+        {
+          "id": 35,
+          "depth": 3,
+          "prompt": "Where do I use being articulate as a weapon — winning the conversation instead of being honest in it?",
+          "followUp": "Name the last person I out-talked rather than listened to. What were they actually trying to say?"
+        },
+        {
+          "id": 36,
+          "depth": 3,
+          "prompt": "What am I lying about right now, in a way I've decided doesn't count?",
+          "followUp": "What makes it not count — and would I accept that same reasoning from someone who lied to me that way?"
         }
       ]
     },
@@ -35,22 +77,64 @@
       "color": "#f9a8d4",
       "blurb": "Where love, money, and self-worth get tangled into one fear.",
       "karmicLesson": 2,
-      "signs": ["Taurus", "Libra"],
+      "signs": [
+        "Taurus",
+        "Libra"
+      ],
       "prompts": [
-        {
-          "id": 4,
-          "prompt": "What fears stop me from fully letting someone love me?",
-          "followUp": "Whose love, growing up, came with conditions — and am I still meeting those same conditions for people now?"
-        },
         {
           "id": 5,
           "prompt": "How do I seek validation from others, and what would it take to give that to myself instead?",
-          "followUp": "What's one thing I did well this week that I haven't told anyone, because I was waiting for someone else to notice first?"
+          "followUp": "What's one thing I did well this week that I haven't told anyone, because I was waiting for someone else to notice first?",
+          "depth": 1
         },
         {
           "id": 6,
           "prompt": "How do I handle rejection, and what does my reaction say about how I see my own worth?",
-          "followUp": "If a friend described being rejected the way I just described it, would I tell them it meant the same thing about their worth?"
+          "followUp": "If a friend described being rejected the way I just described it, would I tell them it meant the same thing about their worth?",
+          "depth": 1
+        },
+        {
+          "id": 37,
+          "depth": 1,
+          "prompt": "What do I do with my body and my face when someone compliments me?",
+          "followUp": "What would it take to just say thank you and let it land?"
+        },
+        {
+          "id": 4,
+          "prompt": "What fears stop me from fully letting someone love me?",
+          "followUp": "Whose love, growing up, came with conditions — and am I still meeting those same conditions for people now?",
+          "depth": 2
+        },
+        {
+          "id": 38,
+          "depth": 2,
+          "prompt": "What am I still doing to earn love that I was never supposed to have to earn?",
+          "followUp": "Who set that price — and have I ever tested whether anyone still charges it?"
+        },
+        {
+          "id": 39,
+          "depth": 2,
+          "prompt": "Who gets the version of me that's easiest to love, rather than the real one?",
+          "followUp": "What do I believe would happen to us if I stopped managing their impression of me?"
+        },
+        {
+          "id": 40,
+          "depth": 3,
+          "prompt": "Who do I keep in my life because being needed by them is easier than being known by anyone?",
+          "followUp": "What would I have to feel, in the quiet, if that relationship ended tomorrow?"
+        },
+        {
+          "id": 41,
+          "depth": 3,
+          "prompt": "What have I accepted from someone because I decided, somewhere along the way, that it was the most I deserved?",
+          "followUp": "When did I decide that — and what would it cost me to find out I was wrong?"
+        },
+        {
+          "id": 42,
+          "depth": 3,
+          "prompt": "Where am I withholding love as a form of control, and calling it something more respectable?",
+          "followUp": "What am I actually trying to make them understand — and why won't I just say it?"
         }
       ]
     },
@@ -62,22 +146,63 @@
       "color": "#f87171",
       "blurb": "Where action turns into self-sabotage, or anger turns inward.",
       "karmicLesson": 1,
-      "signs": ["Aries"],
+      "signs": [
+        "Aries"
+      ],
       "prompts": [
-        {
-          "id": 7,
-          "prompt": "How do I sabotage my own success, and why might I be doing this?",
-          "followUp": "What would I have to risk losing if I actually let myself succeed without sabotaging it?"
-        },
         {
           "id": 8,
           "prompt": "What tends to trigger my temper fastest, and what is usually underneath the anger?",
-          "followUp": "The last time I snapped at someone, what was I actually afraid of in that moment?"
+          "followUp": "The last time I snapped at someone, what was I actually afraid of in that moment?",
+          "depth": 1
         },
         {
           "id": 9,
           "prompt": "How do I tend to avoid discomfort, and what might happen if I moved straight through it instead of around it?",
-          "followUp": "What's one uncomfortable conversation or task I've been circling for weeks — and what's the smallest first step toward it?"
+          "followUp": "What's one uncomfortable conversation or task I've been circling for weeks — and what's the smallest first step toward it?",
+          "depth": 1
+        },
+        {
+          "id": 43,
+          "depth": 1,
+          "prompt": "What irritated me today that was, objectively, very small?",
+          "followUp": "What was already sitting in me before that thing happened?"
+        },
+        {
+          "id": 7,
+          "prompt": "How do I sabotage my own success, and why might I be doing this?",
+          "followUp": "What would I have to risk losing if I actually let myself succeed without sabotaging it?",
+          "depth": 2
+        },
+        {
+          "id": 44,
+          "depth": 2,
+          "prompt": "Who am I angry at that I have never told?",
+          "followUp": "What do I do with that anger instead — and who tends to catch it in their place?"
+        },
+        {
+          "id": 45,
+          "depth": 2,
+          "prompt": "What am I punishing myself for in ways I'd call discipline if anyone asked?",
+          "followUp": "If someone else set those same rules for me, would I call it discipline or cruelty?"
+        },
+        {
+          "id": 46,
+          "depth": 3,
+          "prompt": "Who have I hurt and never made right, because apologising would mean admitting I'm capable of that?",
+          "followUp": "What has my silence cost them, in all the time I've spent protecting my own self-image?"
+        },
+        {
+          "id": 47,
+          "depth": 3,
+          "prompt": "What am I refusing to do — right now, this month — that I know would change things?",
+          "followUp": "Is it easier to be someone with potential than someone with results? Answer that honestly."
+        },
+        {
+          "id": 48,
+          "depth": 3,
+          "prompt": "Where is my anger actually correct, and what would I have to change if I let myself take it seriously?",
+          "followUp": "What have I dismissed as overreacting that was really just accurate?"
         }
       ]
     },
@@ -89,22 +214,63 @@
       "color": "#fbbf24",
       "blurb": "Where limiting beliefs and overpromising both come from the same fear of not enough.",
       "karmicLesson": 5,
-      "signs": ["Sagittarius"],
+      "signs": [
+        "Sagittarius"
+      ],
       "prompts": [
+        {
+          "id": 12,
+          "prompt": "When I think about my future, what fears come up most frequently?",
+          "followUp": "If that fear came true tomorrow, what is the very first thing I would actually do?",
+          "depth": 1
+        },
+        {
+          "id": 49,
+          "depth": 1,
+          "prompt": "What did I say yes to this week that I wanted to decline?",
+          "followUp": "What did I imagine would happen if I'd simply said no?"
+        },
+        {
+          "id": 50,
+          "depth": 1,
+          "prompt": "What am I waiting for before I let my real life start?",
+          "followUp": "What would today look like if that thing never arrives?"
+        },
         {
           "id": 10,
           "prompt": "What limiting beliefs are holding me back from the life I actually want?",
-          "followUp": "Where did I first learn to believe that — and whose voice does it sound like?"
+          "followUp": "Where did I first learn to believe that — and whose voice does it sound like?",
+          "depth": 2
         },
         {
           "id": 11,
           "prompt": "Where in my life do I overpromise or overcommit, and what am I trying to prove when I do?",
-          "followUp": "What would it feel like to disappoint someone by simply telling them the truth up front?"
+          "followUp": "What would it feel like to disappoint someone by simply telling them the truth up front?",
+          "depth": 2
         },
         {
-          "id": 12,
-          "prompt": "When I think about my future, what fears come up most frequently?",
-          "followUp": "If that fear came true tomorrow, what is the very first thing I would actually do?"
+          "id": 51,
+          "depth": 2,
+          "prompt": "What do I believe about how the world works that I have never once tested?",
+          "followUp": "Who benefits from me continuing to believe it?"
+        },
+        {
+          "id": 52,
+          "depth": 3,
+          "prompt": "What have I been calling faith, or timing, or optimism, that is actually avoidance of one specific decision?",
+          "followUp": "What is the decision — and what has not making it already cost me?"
+        },
+        {
+          "id": 53,
+          "depth": 3,
+          "prompt": "If I never become the person I keep saying I'm going to become, what will I have spent this life doing instead?",
+          "followUp": "Is that sentence uncomfortable because it's unfair, or because it's accurate?"
+        },
+        {
+          "id": 54,
+          "depth": 3,
+          "prompt": "Whose life am I quietly measuring mine against?",
+          "followUp": "What would I have to feel if I admitted I want what they have — and what does wanting it say about me that I've decided is unacceptable?"
         }
       ]
     },
@@ -116,22 +282,63 @@
       "color": "#a78bfa",
       "blurb": "Where the inner critic enforces rules that were never really yours to keep.",
       "karmicLesson": 4,
-      "signs": ["Capricorn"],
+      "signs": [
+        "Capricorn"
+      ],
       "prompts": [
+        {
+          "id": 15,
+          "prompt": "How do I react when someone criticizes me, and what does that reaction protect?",
+          "followUp": "What's the difference between criticism that's actually useful and criticism that just confirms what I already feared about myself?",
+          "depth": 1
+        },
+        {
+          "id": 55,
+          "depth": 1,
+          "prompt": "What did I criticise myself for today?",
+          "followUp": "Would I even have noticed if someone else had done the same thing?"
+        },
+        {
+          "id": 56,
+          "depth": 1,
+          "prompt": "What rule am I following today that nobody actually gave me?",
+          "followUp": "What do I imagine happens if I break it once?"
+        },
         {
           "id": 13,
           "prompt": "What does my inner critic say to me most often, and whose voice does it actually sound like?",
-          "followUp": "If I spoke to myself the way I speak to someone I love, what would today's inner monologue sound like instead?"
+          "followUp": "If I spoke to myself the way I speak to someone I love, what would today's inner monologue sound like instead?",
+          "depth": 2
         },
         {
           "id": 14,
           "prompt": "What boundaries do I struggle to maintain, and what am I afraid will happen if I hold them?",
-          "followUp": "Who in my life reacts the worst when I do hold a boundary — and what does their reaction usually talk me into doing?"
+          "followUp": "Who in my life reacts the worst when I do hold a boundary — and what does their reaction usually talk me into doing?",
+          "depth": 2
         },
         {
-          "id": 15,
-          "prompt": "How do I react when someone criticizes me, and what does that reaction protect?",
-          "followUp": "What's the difference between criticism that's actually useful and criticism that just confirms what I already feared about myself?"
+          "id": 57,
+          "depth": 2,
+          "prompt": "What am I proud of that I've never let myself enjoy?",
+          "followUp": "What did I move on to before the feeling could land — and why does resting feel unsafe?"
+        },
+        {
+          "id": 58,
+          "depth": 3,
+          "prompt": "Whose approval am I still working for — including people who are gone, or who were never going to give it?",
+          "followUp": "What would I do with the hours and the energy if I stopped?"
+        },
+        {
+          "id": 59,
+          "depth": 3,
+          "prompt": "What have I not forgiven myself for, and what does holding onto it let me avoid doing next?",
+          "followUp": "If I set it down, what would I no longer have an excuse not to attempt?"
+        },
+        {
+          "id": 60,
+          "depth": 3,
+          "prompt": "Where have I mistaken self-punishment for self-improvement, and how many years have I spent inside that mistake?",
+          "followUp": "Measured honestly: what has it actually produced, and what has it cost?"
         }
       ]
     },
@@ -143,22 +350,63 @@
       "color": "#67e8f9",
       "blurb": "Where independence turns into a wall instead of a strength.",
       "karmicLesson": 7,
-      "signs": ["Aquarius"],
+      "signs": [
+        "Aquarius"
+      ],
       "prompts": [
         {
           "id": 16,
           "prompt": "Which of my personality traits do I try to hide from others, and what would happen if I didn't?",
-          "followUp": "Who has earned the right to see the version of me I usually keep hidden — and have I let them?"
+          "followUp": "Who has earned the right to see the version of me I usually keep hidden — and have I let them?",
+          "depth": 1
+        },
+        {
+          "id": 61,
+          "depth": 1,
+          "prompt": "When did I last say “I'm fine” and not mean it?",
+          "followUp": "What would I have said instead, if the person had asked twice?"
+        },
+        {
+          "id": 62,
+          "depth": 1,
+          "prompt": "What did I turn down this week that I actually wanted?",
+          "followUp": "What reason did I give, and what was the real one?"
         },
         {
           "id": 17,
           "prompt": "Do I use independence to avoid needing people, and if so, what am I protecting myself from?",
-          "followUp": "What's one small thing I could ask for help with this week, just to practice being needed without it costing me anything?"
+          "followUp": "What's one small thing I could ask for help with this week, just to practice being needed without it costing me anything?",
+          "depth": 2
         },
         {
           "id": 18,
           "prompt": "When do I retreat into logic or distance instead of staying present with how I actually feel?",
-          "followUp": "What feeling was I avoiding the last time I told myself 'it's fine, it doesn't matter'?"
+          "followUp": "What feeling was I avoiding the last time I told myself 'it's fine, it doesn't matter'?",
+          "depth": 2
+        },
+        {
+          "id": 63,
+          "depth": 2,
+          "prompt": "What do I get out of being the one who doesn't need anyone?",
+          "followUp": "What would I have to feel if I let someone close enough to disappoint me?"
+        },
+        {
+          "id": 64,
+          "depth": 3,
+          "prompt": "Who have I left before they could leave me, and told myself it was because I'd outgrown them?",
+          "followUp": "What did I actually feel in the week after — and did I let myself feel it, or did I get busy?"
+        },
+        {
+          "id": 65,
+          "depth": 3,
+          "prompt": "Which relationships have I ended by simply going quiet, rather than saying the true thing?",
+          "followUp": "What did that leave them holding — and do I know, or have I made a point of never finding out?"
+        },
+        {
+          "id": 66,
+          "depth": 3,
+          "prompt": "If I'm so independent, why does being genuinely known still feel more dangerous than being alone?",
+          "followUp": "What do I believe someone would find, if they got all the way in?"
         }
       ]
     },
@@ -170,22 +418,63 @@
       "color": "#818cf8",
       "blurb": "Where denial, escapism, and old grudges all serve the same purpose: avoiding what's real.",
       "karmicLesson": 9,
-      "signs": ["Pisces"],
+      "signs": [
+        "Pisces"
+      ],
       "prompts": [
+        {
+          "id": 21,
+          "prompt": "How do I escape from feelings I don't want to deal with — distraction, fantasy, substances, scrolling?",
+          "followUp": "What is usually waiting underneath, in the ten minutes right before I reach for the escape?",
+          "depth": 1
+        },
+        {
+          "id": 67,
+          "depth": 1,
+          "prompt": "What did I reach for tonight — the phone, the drink, the next episode — and what was happening right before?",
+          "followUp": "What was the feeling I was about ten minutes away from having?"
+        },
+        {
+          "id": 68,
+          "depth": 1,
+          "prompt": "What am I pretending not to know?",
+          "followUp": "How long have I known it?"
+        },
         {
           "id": 19,
           "prompt": "What aspects of myself am I in denial about, and how can I start to confront them honestly?",
-          "followUp": "If a close friend named this thing about me out loud, would I feel exposed, relieved, or both — and why?"
+          "followUp": "If a close friend named this thing about me out loud, would I feel exposed, relieved, or both — and why?",
+          "depth": 2
         },
         {
           "id": 20,
           "prompt": "What grudges am I still holding onto, and how are they actually serving me?",
-          "followUp": "What would I lose, besides the grudge itself, if I let this one go today?"
+          "followUp": "What would I lose, besides the grudge itself, if I let this one go today?",
+          "depth": 2
         },
         {
-          "id": 21,
-          "prompt": "How do I escape from feelings I don't want to deal with — distraction, fantasy, substances, scrolling?",
-          "followUp": "What is usually waiting underneath, in the ten minutes right before I reach for the escape?"
+          "id": 69,
+          "depth": 2,
+          "prompt": "Which version of a person am I actually in a relationship with — them, or my idea of them?",
+          "followUp": "What do I do with the evidence that doesn't fit the idea?"
+        },
+        {
+          "id": 70,
+          "depth": 3,
+          "prompt": "What have I dressed up as forgiveness that is really just my unwillingness to have the conversation?",
+          "followUp": "Who does that protect — and what is still unsaid between us?"
+        },
+        {
+          "id": 71,
+          "depth": 3,
+          "prompt": "What am I grieving that I have never once called grief?",
+          "followUp": "What have I called it instead, and how has that name kept me from putting it down?"
+        },
+        {
+          "id": 72,
+          "depth": 3,
+          "prompt": "Where am I the villain in someone else's honest account of what happened?",
+          "followUp": "Write their version, in their words, without defending myself once. What's hardest to leave in?"
         }
       ]
     },
@@ -197,22 +486,63 @@
       "color": "#c084fc",
       "blurb": "Where control, secrecy, and shame guard the parts of you that feel most dangerous to show.",
       "karmicLesson": 8,
-      "signs": ["Scorpio"],
+      "signs": [
+        "Scorpio"
+      ],
       "prompts": [
+        {
+          "id": 73,
+          "depth": 1,
+          "prompt": "What am I keeping private today that isn't really a secret?",
+          "followUp": "What would change if exactly one person knew it?"
+        },
+        {
+          "id": 74,
+          "depth": 1,
+          "prompt": "Where did I try to control something small today?",
+          "followUp": "What was the uncertainty underneath it?"
+        },
+        {
+          "id": 75,
+          "depth": 1,
+          "prompt": "Who am I envious of right now?",
+          "followUp": "What does the envy tell me I want, but haven't admitted to wanting?"
+        },
         {
           "id": 22,
           "prompt": "What part of myself am I most ashamed of, and how can I learn to accept it?",
-          "followUp": "If that part of me were a person, what would it need to hear to finally feel safe?"
+          "followUp": "If that part of me were a person, what would it need to hear to finally feel safe?",
+          "depth": 2
         },
         {
           "id": 23,
           "prompt": "In which areas of my life do I feel powerless, and what would it look like to reclaim even a small piece of that power?",
-          "followUp": "Who or what currently holds the power I wish I had in that area — and how did they end up holding it?"
+          "followUp": "Who or what currently holds the power I wish I had in that area — and how did they end up holding it?",
+          "depth": 2
         },
         {
           "id": 24,
           "prompt": "How does my shadow self show up when I'm under stress — controlling, secretive, jealous, withdrawn?",
-          "followUp": "What was the very first situation, even far back in childhood, where that reaction kept me safe?"
+          "followUp": "What was the very first situation, even far back in childhood, where that reaction kept me safe?",
+          "depth": 2
+        },
+        {
+          "id": 76,
+          "depth": 3,
+          "prompt": "What do I get out of the situation I keep describing as something being done to me?",
+          "followUp": "What would I have to give up if it resolved tomorrow — and is any part of me relieved that it hasn't?"
+        },
+        {
+          "id": 77,
+          "depth": 3,
+          "prompt": "What is the thing about me that I believe would end how people see me, if it were widely known?",
+          "followUp": "Is it genuinely unforgivable, or has it just never been examined in daylight?"
+        },
+        {
+          "id": 78,
+          "depth": 3,
+          "prompt": "Where do I use other people's need for me as leverage, without ever calling it leverage?",
+          "followUp": "What am I afraid would happen if they stopped needing me?"
         }
       ]
     },
@@ -224,22 +554,63 @@
       "color": "#cbd5e1",
       "blurb": "Where childhood patterns still decide how safe vulnerability feels today.",
       "karmicLesson": 6,
-      "signs": ["Cancer"],
+      "signs": [
+        "Cancer"
+      ],
       "prompts": [
-        {
-          "id": 25,
-          "prompt": "What childhood wounds am I still carrying, and how do they show up in my closest relationships today?",
-          "followUp": "What did I need to hear back then that nobody said — and could I say it to myself now?"
-        },
         {
           "id": 26,
           "prompt": "When was the last time I felt truly vulnerable, and what did that moment teach me?",
-          "followUp": "Did I let anyone see that vulnerability, or did I process it entirely alone — and why?"
+          "followUp": "Did I let anyone see that vulnerability, or did I process it entirely alone — and why?",
+          "depth": 1
+        },
+        {
+          "id": 79,
+          "depth": 1,
+          "prompt": "What did I feel today that I didn't have time for?",
+          "followUp": "Where did it go?"
+        },
+        {
+          "id": 80,
+          "depth": 1,
+          "prompt": "Who did I want to reach out to today, and didn't?",
+          "followUp": "What stopped me?"
+        },
+        {
+          "id": 25,
+          "prompt": "What childhood wounds am I still carrying, and how do they show up in my closest relationships today?",
+          "followUp": "What did I need to hear back then that nobody said — and could I say it to myself now?",
+          "depth": 2
         },
         {
           "id": 27,
           "prompt": "Where do I over-give or over-protect the people I love, and what am I afraid would happen if I stopped?",
-          "followUp": "What does it cost me, physically and emotionally, to keep giving past the point I actually have left to give?"
+          "followUp": "What does it cost me, physically and emotionally, to keep giving past the point I actually have left to give?",
+          "depth": 2
+        },
+        {
+          "id": 81,
+          "depth": 2,
+          "prompt": "What role did I play in my family, and who am I when I'm not playing it?",
+          "followUp": "When did I last get to find out?"
+        },
+        {
+          "id": 82,
+          "depth": 3,
+          "prompt": "What did my parents do that I swore I would never do — and where have I done it anyway?",
+          "followUp": "Who has been on the receiving end, and have I ever acknowledged it to them?"
+        },
+        {
+          "id": 83,
+          "depth": 3,
+          "prompt": "What did I need as a child that I am still, at this age, trying to get from people who cannot give it?",
+          "followUp": "What would it mean to stop asking them, and to grieve that instead of continuing the campaign?"
+        },
+        {
+          "id": 84,
+          "depth": 3,
+          "prompt": "Whose love have I been performing for in a way that has quietly shaped every major decision I've made?",
+          "followUp": "Which decision would look different if I had made it purely for myself?"
         }
       ]
     },
@@ -251,32 +622,103 @@
       "color": "#fcd34d",
       "blurb": "Where the need to be admired covers for the fear of being ordinary, or wrong.",
       "karmicLesson": null,
-      "signs": ["Leo"],
+      "signs": [
+        "Leo"
+      ],
       "prompts": [
         {
           "id": 28,
           "prompt": "How do I react when I'm not the center of attention, and what does that reaction protect?",
-          "followUp": "What would it feel like to do something well and tell absolutely no one?"
+          "followUp": "What would it feel like to do something well and tell absolutely no one?",
+          "depth": 1
+        },
+        {
+          "id": 85,
+          "depth": 1,
+          "prompt": "What did I do today mainly so that someone would see it?",
+          "followUp": "Would I have done it at all if no one could?"
+        },
+        {
+          "id": 86,
+          "depth": 1,
+          "prompt": "When was I last genuinely happy for someone whose win I wanted?",
+          "followUp": "What did I say out loud, and what did I actually feel?"
         },
         {
           "id": 29,
           "prompt": "What is something I find almost impossible to admit I was wrong about?",
-          "followUp": "What do I imagine people would think of me if I admitted that mistake out loud?"
+          "followUp": "What do I imagine people would think of me if I admitted that mistake out loud?",
+          "depth": 2
         },
         {
           "id": 30,
           "prompt": "Where in my life am I performing confidence instead of actually feeling it?",
-          "followUp": "Who in my life has earned the right to see me uncertain, and when did I last let them?"
+          "followUp": "Who in my life has earned the right to see me uncertain, and when did I last let them?",
+          "depth": 2
+        },
+        {
+          "id": 87,
+          "depth": 2,
+          "prompt": "What do I want to be known for — and what am I actually known for?",
+          "followUp": "What is the gap made of?"
+        },
+        {
+          "id": 88,
+          "depth": 3,
+          "prompt": "What am I still doing purely because stopping would mean admitting the last several years went into the wrong thing?",
+          "followUp": "How much longer am I willing to pay that, just to avoid saying it out loud?"
+        },
+        {
+          "id": 89,
+          "depth": 3,
+          "prompt": "Who have I made smaller so that I could feel large — and would they recognise my account of it?",
+          "followUp": "What would I have to feel about myself to put that right?"
+        },
+        {
+          "id": 90,
+          "depth": 3,
+          "prompt": "If nobody ever found out about anything I achieve from here on, would I still want the life I'm building?",
+          "followUp": "Which parts fall away in that version — and what does that tell me about who I've been building it for?"
         }
       ]
     }
   ],
-  "integrationPrompts": [
-    "Where do I feel this in my body right now — tight chest, clenched jaw, heavy stomach? Just notice, no need to fix it.",
-    "If I spoke to this part of myself with the same compassion I'd offer a close friend, what would I say?",
-    "What is one small, low-stakes way I could respond differently the next time this exact pattern shows up?",
-    "What would it cost me to keep carrying this — and what might it free up if I set it down, even partially?",
-    "Whose voice does the harshest part of this story sound like — and is it actually mine?",
-    "What's one tiny act of self-trust I can offer myself today, in spite of all of this?"
+  "integrationPrompts": {
+    "1": [
+      "Where do I feel this in my body right now — tight chest, clenched jaw, heavy stomach? Just notice, no need to fix it.",
+      "What is one small, low-stakes way I could respond differently the next time this exact pattern shows up?",
+      "What's one tiny act of self-trust I can offer myself today, in spite of all of this?"
+    ],
+    "2": [
+      "If I spoke to this part of myself with the same compassion I'd offer a close friend, what would I say?",
+      "What would it cost me to keep carrying this — and what might it free up if I set it down, even partially?",
+      "Whose voice does the harshest part of this story sound like — and is it actually mine?",
+      "What part of this is genuinely mine to carry, and what part did I pick up from someone else and never put down?"
+    ],
+    "3": [
+      "Read back what I just wrote as though a friend had handed it to me. What is the first thing I'd want them to know?",
+      "Where did I stop writing? That stopping point is usually the actual thing — what is sitting just past it?",
+      "If this is true, what does it ask of me — and just as importantly, what does it not ask of me? Separating those keeps this from becoming one more way to punish myself.",
+      "What is the smallest true thing here that I could act on this week — not solve, not fix, just act on?",
+      "Who would have to know this for it to stop being a private weight? Do I want that yet? “Not yet” is a real answer.",
+      "Nothing I found here is news to the part of me that has been carrying it. What would it mean to stop making that part carry it alone?"
+    ]
+  },
+  "depths": [
+    {
+      "level": 1,
+      "label": "Opening",
+      "blurb": "A way in. Answerable in a few minutes, on an ordinary day."
+    },
+    {
+      "level": 2,
+      "label": "Deeper",
+      "blurb": "Asks you to name a pattern rather than an incident."
+    },
+    {
+      "level": 3,
+      "label": "Unflinching",
+      "blurb": "Hard questions with no comfortable exit. Give these time, and privacy."
+    }
   ]
 }

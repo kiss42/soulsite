@@ -37,6 +37,19 @@ const Navbar = ({ theme = 'dark', onToggleTheme, onOpenLogin, onOpenProfile }) =
               <Link to="/" className="hover:opacity-90 transition-opacity">SoulSite</Link>
             </div>
 
+            <ul className={`hidden md:flex items-center gap-6 text-sm ${theme === 'light' ? 'text-purple-950' : 'text-white'}`}>
+              {navItems.map(item => (
+                <li key={item.label} className="group">
+                  <a
+                    href={item.href}
+                    className="flex flex-col items-center gap-1 px-3 py-1 rounded-xl border border-transparent hover:border-white/15 hover:bg-white/5 transition"
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    <span className={`text-xs uppercase tracking-[0.2em] group-hover:text-[var(--accent)] ${theme === 'light' ? 'text-purple-900/65' : 'text-white/80'}`}>{item.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
             <div className="flex items-center gap-2">
               <button
                 onClick={onToggleTheme}
@@ -85,20 +98,6 @@ const Navbar = ({ theme = 'dark', onToggleTheme, onOpenLogin, onOpenProfile }) =
                 </button>
               </div>
             </div>
-
-            <ul className={`hidden md:flex items-center gap-6 text-sm ${theme === 'light' ? 'text-purple-950' : 'text-white'}`}>
-              {navItems.map(item => (
-                <li key={item.label} className="group">
-                  <a
-                    href={item.href}
-                    className="flex flex-col items-center gap-1 px-3 py-1 rounded-xl border border-transparent hover:border-white/15 hover:bg-white/5 transition"
-                  >
-                    <span className="text-lg">{item.icon}</span>
-                    <span className={`text-xs uppercase tracking-[0.2em] group-hover:text-[var(--accent)] ${theme === 'light' ? 'text-purple-900/65' : 'text-white/80'}`}>{item.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

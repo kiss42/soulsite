@@ -1,0 +1,347 @@
+{
+  "planets": {
+    "Sun": {
+      "symbol": "☉",
+      "color": "#fbbf24",
+      "title": "Core self",
+      "rules": "identity, vitality, the thing you're here to become",
+      "kind": "luminary",
+      "signs": {}
+    },
+    "Moon": {
+      "symbol": "☽",
+      "color": "#cbd5e1",
+      "title": "Inner world",
+      "rules": "emotion, instinct, what makes you feel safe",
+      "kind": "luminary",
+      "signs": {
+        "Aries": "Your feelings arrive fast and loud, then leave just as quickly. When you're upset you need action, not comforting.",
+        "Taurus": "You steady easily and need physical comfort — food, warmth, familiar things — before you can feel genuinely safe.",
+        "Gemini": "You process emotion by talking it out. Sitting still with a feeling makes you restless; you have to name it to feel it.",
+        "Cancer": "The Moon rules this sign, so it runs at full strength — you absorb the whole room, and you need a shell to retreat into.",
+        "Leo": "You need warmth and recognition to feel secure. Your feelings are generous and theatrical, and being ignored cuts deepest.",
+        "Virgo": "You soothe yourself by fixing things. Low-grade worry is your emotional weather, and being useful is how you feel loved.",
+        "Libra": "You need harmony to feel settled. Conflict genuinely destabilizes you, and you'll bend a long way to keep the peace.",
+        "Scorpio": "You feel with an intensity you show almost none of. Trust arrives slowly and then completely, and betrayal is permanent.",
+        "Sagittarius": "You need room and a horizon. Feeling trapped is your version of drowning, and optimism is how you rescue yourself.",
+        "Capricorn": "You handle feelings by managing them. You learned early to be the competent one, and softness still reads as unsafe.",
+        "Aquarius": "You watch your own emotions from a slight distance. You need independence to feel secure, and intimacy on your terms.",
+        "Pisces": "You feel everyone else's feelings, often before your own. Boundaries are the work; water, art, and solitude are the medicine."
+      }
+    },
+    "Mercury": {
+      "symbol": "☿",
+      "color": "#94a3b8",
+      "title": "Mind & voice",
+      "rules": "thinking, speech, learning, how you process information",
+      "kind": "personal",
+      "signs": {
+        "Aries": "You think in sparks and say it before the thought is finished. Fast, blunt, allergic to preamble.",
+        "Taurus": "Your mind moves slowly on purpose. You turn an idea over in your hands before speaking — and once decided, you don't move.",
+        "Gemini": "Mercury rules this sign, so your mind is at full power: tangents, footnotes, and a genuine ability to talk to anyone.",
+        "Cancer": "You think in feelings first and translate to words after. Your memory is emotional — you keep how it felt, not the transcript.",
+        "Leo": "You speak in headlines. Ideas don't feel real to you until you've said them out loud, with some flourish.",
+        "Virgo": "Mercury rules this sign too. You catch the loose thread, the typo, the thing that doesn't add up — a mind built for editing.",
+        "Libra": "You think in both columns at once. Every position has a counter-position, which makes you fair, persuasive, and slow to order lunch.",
+        "Scorpio": "You don't do small talk. Your mind goes straight underneath — to the motive, the subtext, the thing nobody actually said.",
+        "Sagittarius": "You think in big arcs and skip the details. Blunt to the point of comedy, three tangents deep, and usually aimed at something true.",
+        "Capricorn": "Your mind is structural. You want the plan, the timeline, and the point — and you deliberately say less than you know.",
+        "Aquarius": "You think sideways. The obvious answer bores you, so you find the one nobody tried and explain it as if it were self-evident.",
+        "Pisces": "You think in images and impressions. Linear argument loses you; metaphor and hunch get you there faster than logic does."
+      }
+    },
+    "Venus": {
+      "symbol": "♀",
+      "color": "#f472b6",
+      "title": "Love & values",
+      "rules": "attraction, pleasure, beauty, what you find worth having",
+      "kind": "personal",
+      "signs": {
+        "Aries": "You love at full speed. The chase thrills you, directness is romance, and a relationship that stops being exciting stops.",
+        "Taurus": "Venus rules this sign. You love with your senses — good food, warm hands, someone who stays. Slow to give, near-impossible to reclaim.",
+        "Gemini": "You fall for a mind. Conversation is the seduction, boredom is the dealbreaker, and you want the most interesting person in the room.",
+        "Cancer": "You love by taking care — feeding people, remembering things, building somewhere safe enough to be soft in. You need it back.",
+        "Leo": "You love generously and out loud. You want to be adored and you adore with your whole chest; indifference wounds worse than fighting.",
+        "Virgo": "You love through usefulness. You show up, you fix it, you remember the appointment — devotion in a hundred acts you'd never call romantic.",
+        "Libra": "Venus rules this sign. You're built for partnership — charm and fairness come naturally, though you'd rather keep peace than say the hard thing.",
+        "Scorpio": "You love completely or not at all. Halfway is worse than nothing; you want intimacy with no exit and no polite version.",
+        "Sagittarius": "You love freedom first and people second — and the right person knows that isn't rejection. Give you room and you'll keep coming back.",
+        "Capricorn": "You love seriously. Grand gestures embarrass you; showing up for ten years does not. You're building something, not performing it.",
+        "Aquarius": "You love unconventionally. Friendship is the foundation, possessiveness is the poison, and you want a partner, not an owner.",
+        "Pisces": "Venus is exalted here — love without edges. Romantic and forgiving, and prone to loving someone's potential over the actual person."
+      }
+    },
+    "Mars": {
+      "symbol": "♂",
+      "color": "#f87171",
+      "title": "Drive & anger",
+      "rules": "desire, aggression, how you pursue and how you fight",
+      "kind": "personal",
+      "signs": {
+        "Aries": "Mars rules this sign. You act first. Anger arrives fast, burns clean, and is gone — grudges genuinely baffle you.",
+        "Taurus": "You're almost impossible to provoke, and once provoked, almost impossible to stop. A slow, immovable force.",
+        "Gemini": "Your fight is verbal — you win with words. Energy scatters across six projects, and novelty is the fuel.",
+        "Cancer": "You fight sideways: silences, sulks, and sudden fierce protection of whoever you've decided is yours.",
+        "Leo": "You act with flair and need it witnessed. Anger is loud, theatrical, and quickly over — pride is the button, and it's findable.",
+        "Virgo": "You channel drive into precision and craft. Your anger comes out as criticism — of others, and far more harshly of yourself.",
+        "Libra": "You hate conflict and are therefore strangely good at it: passive resistance, charm as a weapon, and a fuse that does eventually run out.",
+        "Scorpio": "Mars rules this sign traditionally. Your will is relentless and mostly invisible — you don't announce a move, you make it.",
+        "Sagittarius": "You act on conviction and momentum. Blunt, restless, happiest aimed at something bigger than yourself. Boredom is the real enemy.",
+        "Capricorn": "Mars is exalted here. Your ambition is patient and structural — you don't rage, you outlast. You were always playing the long game.",
+        "Aquarius": "You fight for the principle, not the person. Cool-headed, contrary by reflex, immovable once you've judged something simply wrong.",
+        "Pisces": "Your drive is tidal — enormous when inspired, absent when not. You'd rather dissolve a conflict than win it."
+      }
+    },
+    "Jupiter": {
+      "symbol": "♃",
+      "color": "#fb923c",
+      "title": "Growth & luck",
+      "rules": "expansion, belief, opportunity, where life is generous with you",
+      "kind": "social",
+      "signs": {
+        "Aries": "You grow by starting things. Luck shows up when you move first and ask permission never.",
+        "Taurus": "You grow through steadiness and pleasure. Abundance builds slowly and then, quite suddenly, is simply there.",
+        "Gemini": "You grow through curiosity and conversation. Your luck lives in the network — the person who knows the person.",
+        "Cancer": "Jupiter is exalted here. You grow through care, home, and belonging, and generosity comes back to you multiplied.",
+        "Leo": "You grow by being seen. Confidence is the engine, and fortune tends to find you mid-performance.",
+        "Virgo": "You grow by mastering the small thing. Your luck looks like preparation meeting an opening nobody else noticed.",
+        "Libra": "You grow through partnership. The right people open the right doors, and your fairness is what keeps them open.",
+        "Scorpio": "You grow through depth and crisis. What nearly ruins you tends to become the source of your power.",
+        "Sagittarius": "Jupiter rules this sign. You grow through travel, philosophy, and faith — you're the one people call lucky, and mostly you are.",
+        "Capricorn": "You grow through discipline. Your good fortune is unglamorous, slow, and permanent once it finally arrives.",
+        "Aquarius": "You grow through community and ideas ahead of their time. Luck comes from the strange project nobody else backed.",
+        "Pisces": "Jupiter rules this sign traditionally. You grow through compassion and imagination, and you're rescued, repeatedly, by things you can't explain."
+      }
+    },
+    "Saturn": {
+      "symbol": "♄",
+      "color": "#a8a29e",
+      "title": "Limits & mastery",
+      "rules": "discipline, fear, time, the lesson you're here to actually learn",
+      "kind": "social",
+      "signs": {
+        "Aries": "Your lesson is patience — learning, slowly, that starting is not finishing, and that your anger needs somewhere to go.",
+        "Taurus": "Your lesson is enough. Fear of scarcity makes you hold too tightly; mastery is working out what actually needs keeping.",
+        "Gemini": "Your lesson is depth. A mind this quick learns the hard way that knowing a little about everything isn't knowing something.",
+        "Cancer": "Saturn sits uneasily here. Your lesson is safety — you had to build your own, and learning to need people is a life's work.",
+        "Leo": "Your lesson is worth without applause: valuing yourself when nobody is clapping, which is the only version that holds.",
+        "Virgo": "Your lesson is sufficiency in your work. The standard you hold was never reachable; mastery is setting a real one.",
+        "Libra": "Saturn is exalted here. Your lesson is fairness with teeth — real commitment, real boundaries, and the conversation you keep postponing.",
+        "Scorpio": "Your lesson is control: learning what you actually get to hold, and what must be surrendered before it takes you with it.",
+        "Sagittarius": "Your lesson is conviction that survives contact with reality. Your faith gets tested, and what's left is genuinely yours.",
+        "Capricorn": "Saturn rules this sign. Your lesson is authority — becoming the adult you kept waiting for, and forgiving how long it took.",
+        "Aquarius": "Saturn rules this sign traditionally. Your lesson is belonging without disappearing: the group matters, and so does the part that won't conform.",
+        "Pisces": "Your lesson is boundaries — where you end and everyone else begins, and that compassion without limits drowns you both."
+      }
+    },
+    "Uranus": {
+      "symbol": "♅",
+      "color": "#22d3ee",
+      "title": "Disruption",
+      "rules": "rebellion, invention, the sudden break with what came before",
+      "kind": "generational",
+      "signs": {
+        "Aries": "A generation that broke things open by force — new selfhood, new conflicts, new beginnings.",
+        "Taurus": "A generation rewriting money, land, food, and what security is even supposed to mean.",
+        "Gemini": "A generation reinventing how information moves — and discovering how fast a lie travels with it.",
+        "Cancer": "A generation that redefined family, home, and who gets to count as kin.",
+        "Leo": "A generation that broke the rules of fame and self-expression, and of who gets to be a star.",
+        "Virgo": "A generation that overhauled work, health, and the systems quietly running daily life.",
+        "Libra": "A generation that rewrote marriage, partnership, and the terms of fairness between people.",
+        "Scorpio": "A generation that dragged sex, death, power, and secrets into the open.",
+        "Sagittarius": "A generation that upended belief — religion, education, and who gets to say what's true.",
+        "Capricorn": "A generation that cracked institutions, governments, and inherited authority.",
+        "Aquarius": "Uranus rules this sign. A generation built for radical reinvention of the collective itself.",
+        "Pisces": "A generation that dissolved boundaries — spiritual, artistic, chemical, and digital."
+      }
+    },
+    "Neptune": {
+      "symbol": "♆",
+      "color": "#818cf8",
+      "title": "Dream & illusion",
+      "rules": "imagination, longing, spirituality, and the blind spot that comes with it",
+      "kind": "generational",
+      "signs": {
+        "Aries": "A generation dreaming of the heroic self — and vulnerable to believing its own myth.",
+        "Taurus": "A generation idealizing the earth and the simple life, and unclear about what wealth is actually for.",
+        "Gemini": "A generation enchanted by information, and unable to separate the story from its source.",
+        "Cancer": "A generation nostalgic for a home that may never have existed.",
+        "Leo": "A generation that made idols of performers and mistook glamour for meaning.",
+        "Virgo": "A generation that dreamed of purity and usefulness, and made a religion of self-improvement.",
+        "Libra": "A generation idealizing love itself, and slow to see a partner as an actual person.",
+        "Scorpio": "A generation drawn to the taboo and the transformative, fascinated by what it also fears.",
+        "Sagittarius": "A generation searching for meaning everywhere and allergic to any single answer.",
+        "Capricorn": "A generation that dreamed of building something solid while watching the structures dissolve.",
+        "Aquarius": "A generation dreaming collectively — utopian, networked, and easily swept up together.",
+        "Pisces": "Neptune rules this sign. A generation soaked in imagination and compassion, and challenged to tell vision from illusion."
+      }
+    },
+    "Pluto": {
+      "symbol": "♇",
+      "color": "#c084fc",
+      "title": "Power & rebirth",
+      "rules": "transformation, obsession, what must be destroyed to be remade",
+      "kind": "generational",
+      "signs": {
+        "Aries": "A generation transformed through raw will and the assertion of the individual.",
+        "Taurus": "A generation that will tear down and rebuild money, ownership, and the land itself.",
+        "Gemini": "A generation that transformed thought and language — and lived through their weaponization.",
+        "Cancer": "A generation reshaped by upheaval in the home: war, displacement, and the family remade.",
+        "Leo": "A generation that seized personal power and put the self at the center of the story.",
+        "Virgo": "A generation that overturned work, medicine, and the machinery of ordinary life.",
+        "Libra": "A generation that rebuilt relationships and equality from the ground up.",
+        "Scorpio": "Pluto rules this sign. A generation intimate with power, death, and everything kept hidden.",
+        "Sagittarius": "A generation that blew open belief, borders, and the global story.",
+        "Capricorn": "A generation dismantling institutions and inherited power structures.",
+        "Aquarius": "A generation transforming the collective — technology, networks, and who holds power in a crowd.",
+        "Pisces": "A generation dissolving the old order to find what's sacred underneath."
+      }
+    }
+  },
+  "points": {
+    "Ascendant": {
+      "symbol": "↗",
+      "color": "#e2e8f0",
+      "title": "Rising sign",
+      "rules": "the mask you meet the world in",
+      "note": "The exact degree rising on the eastern horizon at your birth. Needs birth time and place."
+    },
+    "Midheaven": {
+      "symbol": "MC",
+      "color": "#facc15",
+      "title": "Public role",
+      "rules": "career, reputation, what you're known for",
+      "note": "The highest point of the ecliptic at your birth — the cusp of the 10th house."
+    },
+    "North Node": {
+      "symbol": "☊",
+      "color": "#4ade80",
+      "title": "Growth direction",
+      "rules": "the unfamiliar direction you're being pulled toward",
+      "note": "Where the Moon's orbit crosses the ecliptic going north. Always moves backwards through the zodiac."
+    },
+    "South Node": {
+      "symbol": "☋",
+      "color": "#94a3b8",
+      "title": "Comfort zone",
+      "rules": "what already comes easily — and what you over-rely on",
+      "note": "Exactly opposite the North Node."
+    },
+    "Part of Fortune": {
+      "symbol": "⊗",
+      "color": "#fcd34d",
+      "title": "Ease & flourishing",
+      "rules": "where things click without forcing them",
+      "note": "An Arabic Part built from your Sun, Moon and Ascendant — the formula flips between day and night births."
+    }
+  },
+  "houses": [
+    {
+      "number": 1,
+      "name": "Self & body",
+      "meaning": "How you show up before you've said a word — appearance, instinct, the opening impression."
+    },
+    {
+      "number": 2,
+      "name": "Money & worth",
+      "meaning": "What you own, what you earn, and the quieter question of what you believe you're worth."
+    },
+    {
+      "number": 3,
+      "name": "Mind & siblings",
+      "meaning": "Everyday thinking, talking, writing, short trips, and the people you grew up alongside."
+    },
+    {
+      "number": 4,
+      "name": "Home & roots",
+      "meaning": "Family, ancestry, the private self, and the place you go when the door closes."
+    },
+    {
+      "number": 5,
+      "name": "Creativity & romance",
+      "meaning": "Play, art, flirtation, children, and anything you make purely because you wanted to."
+    },
+    {
+      "number": 6,
+      "name": "Work & health",
+      "meaning": "Routine, craft, service, the body's maintenance — the unglamorous engine of a life."
+    },
+    {
+      "number": 7,
+      "name": "Partnership",
+      "meaning": "One-to-one relationships: marriage, close collaborators, and open rivals."
+    },
+    {
+      "number": 8,
+      "name": "Depth & shared resources",
+      "meaning": "Intimacy, other people's money, death, debt, and everything genuinely transformative."
+    },
+    {
+      "number": 9,
+      "name": "Belief & horizon",
+      "meaning": "Philosophy, long journeys, higher study, and the search for what it all means."
+    },
+    {
+      "number": 10,
+      "name": "Career & reputation",
+      "meaning": "Your public role, ambition, and what strangers know you for."
+    },
+    {
+      "number": 11,
+      "name": "Community & hopes",
+      "meaning": "Friends, groups, causes, and the future you're building toward with other people."
+    },
+    {
+      "number": 12,
+      "name": "The hidden",
+      "meaning": "Solitude, the unconscious, what's behind you, and what undoes you when unexamined."
+    }
+  ],
+  "aspects": [
+    {
+      "name": "Conjunction",
+      "symbol": "☌",
+      "angle": 0,
+      "orb": 8,
+      "tone": "fusion",
+      "color": "#fbbf24",
+      "meaning": "Two forces sharing the same degree of sky. They amplify and contaminate each other — from here neither one ever acts alone."
+    },
+    {
+      "name": "Sextile",
+      "symbol": "⚹",
+      "angle": 60,
+      "orb": 5,
+      "tone": "opportunity",
+      "color": "#4ade80",
+      "meaning": "An easy channel between two parts of you — but one that stays shut unless you actually use it."
+    },
+    {
+      "name": "Square",
+      "symbol": "□",
+      "angle": 90,
+      "orb": 7,
+      "tone": "friction",
+      "color": "#f87171",
+      "meaning": "Two drives pulling at right angles. It's uncomfortable, and it's also the engine — squares are where the work gets done."
+    },
+    {
+      "name": "Trine",
+      "symbol": "△",
+      "angle": 120,
+      "orb": 7,
+      "tone": "flow",
+      "color": "#38bdf8",
+      "meaning": "A talent that costs you nothing, which is exactly why it's the easiest thing in the chart to waste."
+    },
+    {
+      "name": "Opposition",
+      "symbol": "☍",
+      "angle": 180,
+      "orb": 8,
+      "tone": "polarity",
+      "color": "#c084fc",
+      "meaning": "Two forces facing each other across the wheel. You swing between them until you learn to hold both at once."
+    }
+  ]
+}

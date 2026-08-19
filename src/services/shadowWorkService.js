@@ -1,9 +1,13 @@
 import shadowWorkData from '../data/shadowWorkThemes.json';
 import { getZodiacSign } from './astrologyService';
 import { getRetrogradeStatus } from '../utils/celestialCalc';
-import calculateKarmicLessonNumbers from './calculateKarmicLessonNumbers';
+import { calculateKarmicLessonNumbers } from './numerologyService';
 
-const { themes, integrationPrompts } = shadowWorkData;
+const { themes, integrationPrompts, depths } = shadowWorkData;
+
+export const DEFAULT_DEPTH = 1;
+export const getDepths = () => depths;
+export const getDepth = level => depths.find(d => d.level === level) ?? depths[0];
 
 const themeForPlanet = (planet) => themes.find(t => t.planet === planet) ?? null;
 const themeForSign = (signName) => themes.find(t => t.signs.includes(signName)) ?? null;
@@ -53,12 +57,28 @@ export function chooseShadowTheme({ birthdate, name } = {}) {
   return { theme, reason: 'Add your birthdate and name in your profile to connect this to your chart and numerology.' };
 }
 
-export function pickPromptFromTheme(theme) {
-  return theme.prompts[Math.floor(Math.random() * theme.prompts.length)];
+const sample = list => list[Math.floor(Math.random() * list.length)];
+
+/**
+ * Picks a prompt at the requested depth.
+ *
+ * `excludeId` lets the journal hand back a genuinely different question when
+ * someone asks for another one — without it, a three-prompt pool re-serves the
+ * same prompt about a third of the time, which reads as the button being broken.
+ * It's only dropped if it would leave nothing to choose from.
+ */
+export function pickPromptFromTheme(theme, depth = DEFAULT_DEPTH, excludeId = null) {
+  const atDepth = theme.prompts.filter(p => p.depth === depth);
+  const pool = atDepth.length ? atDepth : theme.prompts;
+  const withoutCurrent = pool.filter(p => p.id !== excludeId);
+  return sample(withoutCurrent.length ? withoutCurrent : pool);
 }
 
-export function pickIntegrationPrompt() {
-  return integrationPrompts[Math.floor(Math.random() * integrationPrompts.length)];
+// Integration prompts are tiered alongside the questions. After an unflinching
+// prompt the closing question has to help metabolise what came up rather than
+// simply dig further, so the deep tier is written to land differently.
+export function pickIntegrationPrompt(depth = DEFAULT_DEPTH) {
+  return sample(integrationPrompts[String(depth)] ?? integrationPrompts['1']);
 }
 
 export function getAllThemes() {

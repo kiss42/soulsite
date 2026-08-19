@@ -11,9 +11,15 @@
   a { color: #6ec0ff; }
   .updated { color: #999; font-size: 0.85rem; }
   ul { padding-left: 1.3em; }
+  .backbar { position: sticky; top: 0; background: #0b0a14; padding: 14px 0 10px; margin-bottom: 6px; }
+  .back { display: inline-block; color: #b49bff; text-decoration: none; font-size: 0.95rem;
+          border: 1px solid rgba(180,155,255,.35); border-radius: 999px; padding: 8px 16px; }
+  .back:hover { background: rgba(180,155,255,.12); }
+  .back-bottom { display: block; margin-top: 3em; }
 </style>
 </head>
 <body>
+  <div class="backbar"><a class="back" href="./index.html" onclick="return goBack()">&larr; Back to SoulSite</a></div>
   <h1>SoulSite Privacy Policy</h1>
   <p class="updated">Last updated: June 25, 2026</p>
 
@@ -66,5 +72,15 @@
 
   <h2>Contact</h2>
   <p>Questions or data deletion requests: <a href="mailto:kisspierre42@gmail.com">kisspierre42@gmail.com</a></p>
+  <a class="back back-bottom" href="./index.html" onclick="return goBack()">&larr; Back to SoulSite</a>
+<script>
+  // In the Capacitor WebView there is no tab UI or address bar to escape with,
+  // so this link is the only way out. Prefer history.back() when we arrived from
+  // the app; fall back to a hard nav to index.html when opened directly.
+  function goBack() {
+    if (document.referrer && history.length > 1) { history.back(); return false; }
+    return true;
+  }
+</script>
 </body>
 </html>

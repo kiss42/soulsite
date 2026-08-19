@@ -4,4 +4,5 @@
     <string name="title_activity_main">SoulSite</string>
     <string name="package_name">com.soulsite.app</string>
     <string name="custom_url_scheme">com.soulsite.app</string>
+    <string name="soulsite_widget_description">Card of the day and moon phase</string>
 </resources>

@@ -24,7 +24,6 @@ import './index.css';
 function AppInner({ theme, setTheme }) {
   const { loginOpen, setLoginOpen, profileOpen, setProfileOpen } = useUI();
   useProfilePrefill();
-  useAndroidBackButton();
 
   return (
     <Router>
@@ -211,6 +210,9 @@ function AppInner({ theme, setTheme }) {
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
+  // Lives here rather than in AppInner: AppInner is the web branch, and the
+  // hardware back button only exists on the native one.
+  useAndroidBackButton();
 
   useEffect(() => {
     document.body.classList.remove('theme-dark', 'theme-light');

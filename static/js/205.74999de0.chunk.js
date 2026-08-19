@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksoulsite=self.webpackChunksoulsite||[]).push([[205],{2205:(e,s,p)=>{p.r(s),p.d(s,{App:()=>n});const n=(0,p(5403).F3)("App",{web:()=>p.e(551).then(p.bind(p,6551)).then((e=>new e.AppWeb))})}}]);
+//# sourceMappingURL=205.74999de0.chunk.js.map

@@ -442,3 +442,27 @@ body > * {
 
 /* Subtle borders that vanish on cream — nudge them visible */
 .theme-light [class*="border-white\/"] { border-color: rgba(140, 100, 200, 0.15) !important; }
+
+/* ── Natal chart wheel ─────────────────────────────────────────────────────
+   The wheel is SVG, so the blanket .theme-light [class*="text-white"] rule
+   can't reach it — its strokes and labels carry their own tokens instead.
+
+   It also keeps its night-sky presentation in light mode, sitting on its own
+   dark disc. The planet glyphs are coloured per body (a near-white Moon, a
+   pale Ascendant, a gold Sun) and those hues are chosen to sit on a dark
+   background; re-tinting eleven of them for a pale page would either wash out
+   here or dull the primary dark theme. Giving the wheel its own ground keeps
+   one palette that works everywhere. */
+.natal-wheel .wheel-line { stroke: rgba(255, 255, 255, 0.16); }
+.natal-wheel .wheel-muted { fill: rgba(255, 255, 255, 0.38); }
+
+.theme-light .natal-wheel {
+  background: radial-gradient(circle at 50% 45%, #171232 0%, #0d0a1e 100%);
+  border-radius: 9999px;
+}
+
+/* Body, sign and aspect glyphs carry an inline colour picked for the dark
+   theme, so the greys (Moon, Mercury, Saturn) all but vanish on a pale card.
+   Darkening them as a group keeps one palette in the data instead of a second
+   light-mode set that would have to be kept in sync. */
+.theme-light .natal-glyph { filter: brightness(0.55) saturate(1.3); }

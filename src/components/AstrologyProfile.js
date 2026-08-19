@@ -8,6 +8,8 @@ import { getMoonSign, getRetrogradeStatus } from '../utils/celestialCalc';
 import { getChakraByElement } from '../services/chakraService';
 import { calculateLifePathNumber } from '../services/numerologyService';
 import { isValidLat, isValidLon } from '../utils/birthTime';
+import { buildNatalChart } from '../services/natalChartService';
+import NatalChart from './NatalChart';
 import numerologyMeanings from '../data/numerologyMeanings.json';
 import BirthdateField from './BirthdateField';
 import CityPicker from './CityPicker';
@@ -61,12 +63,21 @@ export default function AstrologyProfile() {
     [sign, userDetails.birthtime]
   );
   const risingSign = trueRising || approxRising;
+  // The full chart — every planet, the angles, houses and aspects. Degrades
+  // on its own as birth data gets thinner, so it can be built unconditionally.
+  const { birthdate, birthtime, birthLat, birthLon } = userDetails;
+  const natalChart = useMemo(
+    () => buildNatalChart({ birthdate, birthtime, birthLat, birthLon }),
+    [birthdate, birthtime, birthLat, birthLon]
+  );
+
   const tarotCard = useMemo(() => sign && getZodiacTarotCard(sign.name), [sign]);
   const chakra = useMemo(() => sign && getChakraByElement(sign.element), [sign]);
 
   const lifePath = useMemo(() => {
     if (!sign || !userDetails.birthdate) return null;
     const number = calculateLifePathNumber(userDetails.birthdate);
+    if (number == null) return null;
     return { number, keyword: numerologyMeanings.lifePath[number.toString()] };
   }, [sign, userDetails.birthdate]);
 
@@ -265,6 +276,8 @@ export default function AstrologyProfile() {
               <p className="text-xs text-white/40">Add your time of birth above to reveal an estimated Rising sign.</p>
             </div>
           )}
+
+          {natalChart && <NatalChart chart={natalChart} />}
 
           {/* Threads across practices */}
           <div className="space-y-2">

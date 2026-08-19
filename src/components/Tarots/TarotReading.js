@@ -8,6 +8,7 @@ import { saveReading } from '../../services/profileService';
 import { getZodiacSign, getSignByTarotCard } from '../../services/astrologyService';
 import { calculateLifePathNumber, reduceWithMasterNumbers } from '../../services/numerologyService';
 import { useEscapeToClose } from '../../hooks/useEscapeToClose';
+import ModalPortal from '../../utilities/ModalPortal';
 
 const SPREADS = {
   single: {
@@ -40,7 +41,10 @@ const POSITION_PROMPTS = {
 };
 
 function meaning(card) {
-  return card.reversed ? card.reversedMeaning : card.meaning;
+  const m = card.reversed ? card.reversedMeaning : card.meaning;
+  // Every template supplies its own punctuation after this, and the deck's
+  // meanings already end in a period — which read as "joy..", "celebration..".
+  return (m || '').trim().replace(/\.+$/, '');
 }
 
 function orientation(card) {
@@ -351,6 +355,7 @@ const TarotReading = () => {
 
       {/* ── Story modal ───────────────────────────────────────────────── */}
       {showStory && (
+        <ModalPortal>
         <div
           className="fixed inset-0 bg-black/80 flex justify-center items-center p-4 z-50"
           onClick={() => setShowStory(false)}
@@ -409,10 +414,12 @@ const TarotReading = () => {
             </div>
           </div>
         </div>
+        </ModalPortal>
       )}
 
       {/* ── Interpretation modal ──────────────────────────────────────── */}
       {selected && (
+        <ModalPortal>
         <div
           className="fixed inset-0 bg-black/75 flex justify-center items-center p-4 z-50"
           onClick={() => setSelected(null)}
@@ -491,6 +498,7 @@ const TarotReading = () => {
             )}
           </div>
         </div>
+        </ModalPortal>
       )}
 
     </div>

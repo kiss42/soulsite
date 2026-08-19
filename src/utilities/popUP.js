@@ -1,11 +1,13 @@
 import React from 'react';
 import { useEscapeToClose } from '../hooks/useEscapeToClose';
+import ModalPortal from './ModalPortal';
 
 const Popup = ({ isOpen, onClose, title, children }) => {
   useEscapeToClose(isOpen ? onClose : null);
   if (!isOpen) return null;
 
   return (
+    <ModalPortal>
     <div 
       className="fixed inset-0 z-50 flex justify-center items-center bg-black/70 p-4"
       onClick={onClose} // Allow clicking the background to close the popup
@@ -29,6 +31,7 @@ const Popup = ({ isOpen, onClose, title, children }) => {
         </div>
       </div>
     </div>
+    </ModalPortal>
   );
 };
 

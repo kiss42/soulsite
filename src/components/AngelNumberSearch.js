@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useUI } from '../contexts/UIContext';
 import { saveFavorite } from '../services/profileService';
 import { useEscapeToClose } from '../hooks/useEscapeToClose';
+import ModalPortal from '../utilities/ModalPortal';
 
 const POPULAR = ['111', '123', '222', '333', '444', '555', '777', '888', '911', '999', '1111', '1212', '1234', '717', '818', '919'];
 
@@ -103,6 +104,7 @@ function AngelNumberSearch() {
           </div>
 
           {showModal && (
+            <ModalPortal>
             <div
               className="fixed inset-0 bg-black/70 flex justify-center items-center p-4 fade-in show z-50"
               onClick={() => setShowModal(false)}
@@ -188,6 +190,7 @@ function AngelNumberSearch() {
                 )}
               </div>
             </div>
+            </ModalPortal>
           )}
         </>
       )}

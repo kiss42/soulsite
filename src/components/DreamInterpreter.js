@@ -5,6 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useUI } from '../contexts/UIContext';
 import { saveDream } from '../services/profileService';
 import { useEscapeToClose } from '../hooks/useEscapeToClose';
+import ModalPortal from '../utilities/ModalPortal';
 
 const COMMON_SYMBOLS = ['water', 'flying', 'falling', 'snake', 'teeth', 'death', 'chased', 'naked', 'fire', 'spider'];
 
@@ -90,6 +91,7 @@ function DreamInterpreter() {
       </div>
 
       {showModal && (
+        <ModalPortal>
         <div
           className="fixed inset-0 bg-black/70 flex justify-center items-center p-4 fade-in show z-50"
           onClick={() => setShowModal(false)}
@@ -150,6 +152,7 @@ function DreamInterpreter() {
             </div>
           </div>
         </div>
+        </ModalPortal>
       )}
     </div>
   );

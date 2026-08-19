@@ -18,11 +18,13 @@ import LoginModal from './components/Auth/LoginModal';
 import ProfileModal from './components/Profile/ProfileModal';
 import NativeApp from './components/native/NativeApp';
 import { useProfilePrefill } from './hooks/useProfilePrefill';
+import { useAndroidBackButton } from './hooks/useAndroidBackButton';
 import './index.css';
 
 function AppInner({ theme, setTheme }) {
   const { loginOpen, setLoginOpen, profileOpen, setProfileOpen } = useUI();
   useProfilePrefill();
+  useAndroidBackButton();
 
   return (
     <Router>

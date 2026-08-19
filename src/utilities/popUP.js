@@ -1,6 +1,8 @@
 import React from 'react';
+import { useEscapeToClose } from '../hooks/useEscapeToClose';
 
 const Popup = ({ isOpen, onClose, title, children }) => {
+  useEscapeToClose(isOpen ? onClose : null);
   if (!isOpen) return null;
 
   return (

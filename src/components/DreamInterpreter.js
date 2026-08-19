@@ -4,6 +4,7 @@ import { generatePDF } from '../services/pdfService';
 import { useAuth } from '../contexts/AuthContext';
 import { useUI } from '../contexts/UIContext';
 import { saveDream } from '../services/profileService';
+import { useEscapeToClose } from '../hooks/useEscapeToClose';
 
 const COMMON_SYMBOLS = ['water', 'flying', 'falling', 'snake', 'teeth', 'death', 'chased', 'naked', 'fire', 'spider'];
 
@@ -14,6 +15,7 @@ function DreamInterpreter() {
   const [text, setText] = useState('');
   const [matches, setMatches] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  useEscapeToClose(showModal ? () => setShowModal(false) : null);
   const [saved, setSaved] = useState(false);
 
   const interpret = (dreamText) => {

@@ -3,6 +3,7 @@ import angelNumbers from '../data/angelNumbers.json';
 import { useAuth } from '../contexts/AuthContext';
 import { useUI } from '../contexts/UIContext';
 import { saveFavorite } from '../services/profileService';
+import { useEscapeToClose } from '../hooks/useEscapeToClose';
 
 const POPULAR = ['111', '123', '222', '333', '444', '555', '777', '888', '911', '999', '1111', '1212', '1234', '717', '818', '919'];
 
@@ -15,6 +16,7 @@ function AngelNumberSearch() {
   const [notFound, setNotFound] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  useEscapeToClose(showModal ? () => setShowModal(false) : null);
   const [bookmarked, setBookmarked] = useState(false);
 
   const search = (num) => {

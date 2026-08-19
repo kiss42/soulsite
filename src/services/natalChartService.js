@@ -53,6 +53,23 @@ function aspectPhase(aLon, aSpeed, bLon, bSpeed, angle) {
   return later < now ? 'applying' : 'separating';
 }
 
+// The `meaning` on an aspect describes the angle, not the pair — so every
+// sextile in a chart carried the identical sentence, which reads as a bug once
+// you have three of them stacked up. This names which two areas of the chart
+// the angle actually runs between, composed from the `rules` copy each body
+// already carries rather than from per-pair interpretations we don't have.
+function bodyRules(name) {
+  const src = natalData.planets[name] || natalData.points[name];
+  return src?.rules || null;
+}
+
+function describePair(aName, bName) {
+  const a = bodyRules(aName);
+  const b = bodyRules(bName);
+  if (!a || !b) return null;
+  return `Between ${a} (${aName}) and ${b} (${bName}).`;
+}
+
 function findAspect(a, b) {
   for (const aspect of natalData.aspects) {
     // Luminaries get a wider orb — a long-standing convention, on the logic
@@ -70,6 +87,7 @@ function findAspect(a, b) {
         orb: delta,
         exact: delta < 1,
         phase: aspectPhase(a.longitude, a.speed ?? 0, b.longitude, b.speed ?? 0, aspect.angle),
+        pairing: describePair(a.name, b.name),
         generational: Boolean(a.generational && b.generational),
       };
     }

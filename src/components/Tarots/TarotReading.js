@@ -7,6 +7,7 @@ import { useUser } from '../../contexts/UserContext';
 import { saveReading } from '../../services/profileService';
 import { getZodiacSign, getSignByTarotCard } from '../../services/astrologyService';
 import { calculateLifePathNumber, reduceWithMasterNumbers } from '../../services/numerologyService';
+import { useEscapeToClose } from '../../hooks/useEscapeToClose';
 
 const SPREADS = {
   single: {
@@ -234,6 +235,9 @@ const TarotReading = () => {
   const [revealAll, setRevealAll] = useState(false);
   const [selected, setSelected] = useState(null);
   const [showStory, setShowStory] = useState(false);
+  // Innermost first: the card detail sits on top of the story modal.
+  useEscapeToClose(showStory ? () => setShowStory(false) : null);
+  useEscapeToClose(selected ? () => setSelected(null) : null);
   const [readingSaved, setReadingSaved] = useState(false);
 
   const spread = SPREADS[spreadType];

@@ -206,6 +206,9 @@ export default function NatalChart({ chart }) {
                   )}
                 </div>
                 <p className="text-[11px] text-white/55 leading-relaxed mt-1">{a.meaning}</p>
+                {a.pairing && (
+                  <p className="text-[11px] text-white/35 leading-relaxed mt-1">{a.pairing}</p>
+                )}
               </div>
             ))}
           </div>

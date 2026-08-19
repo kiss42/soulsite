@@ -37,11 +37,11 @@ export default function BirthdateField({ value, onChange, className = '' }) {
   const dayOptions = Array.from({ length: daysInMonth(parts.month, parts.year) }, (_, i) => i + 1);
 
   return (
-    <div className={`grid grid-cols-[2fr_1fr_1.3fr] gap-2 ${className}`}>
+    <div className={`grid grid-cols-[1.3fr_1fr_1.5fr] gap-2 ${className}`}>
       <select
         value={parts.month}
         onChange={e => update({ month: Number(e.target.value) })}
-        className="pill-input"
+        className="pill-input px-3"
         aria-label="Month"
       >
         <option value="">Month</option>
@@ -52,7 +52,7 @@ export default function BirthdateField({ value, onChange, className = '' }) {
       <select
         value={parts.day}
         onChange={e => update({ day: Number(e.target.value) })}
-        className="pill-input"
+        className="pill-input px-3"
         aria-label="Day"
       >
         <option value="">Day</option>
@@ -63,7 +63,7 @@ export default function BirthdateField({ value, onChange, className = '' }) {
       <select
         value={parts.year}
         onChange={e => update({ year: Number(e.target.value) })}
-        className="pill-input"
+        className="pill-input px-3"
         aria-label="Year"
       >
         <option value="">Year</option>

@@ -3,3 +3,6 @@ node_modules
 .env
 /build
 .idea
+
+# Local agent/editor settings — machine-specific permission grants, not project config
+.claude/settings.local.json

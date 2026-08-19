@@ -1,6 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { getMoonPhaseInfo, getMoonSign, getRetrogradeStatus, getRetrogradeDataCoverageEnd, formatDate } from '../utils/celestialCalc';
 
+// A long retrograde can walk the planet back into the previous sign — Mars
+// stations in Leo in Dec 2024 and finishes in Cancer. The generated calendar
+// records both, so say both rather than only the sign it started in.
+const signLabel = period => (period.endSign ? `${period.sign} → ${period.endSign}` : period.sign);
+
 const ELEMENT_COLORS = {
   Fire:  'text-orange-300',
   Earth: 'text-emerald-300',
@@ -42,7 +47,7 @@ function RetrogradeCard({ item, expanded, onToggle }) {
                 Active
               </span>
             </div>
-            <p className="text-[10px] text-white/40 mt-0.5">in {period.sign} · {daysLeft}d remaining · ends {formatDate(period.end)}</p>
+            <p className="text-[10px] text-white/40 mt-0.5">in {signLabel(period)} · {daysLeft}d remaining · ends {formatDate(period.end)}</p>
           </div>
         </div>
         <span className="text-white/30 text-sm shrink-0">{expanded ? '▲' : '▼'}</span>
@@ -94,7 +99,7 @@ function UpcomingRow({ item }) {
   return (
     <div className="flex items-center gap-3 py-2 border-b border-white/5 last:border-0">
       <span className="text-base" style={{ color, opacity: 0.7 }}>{symbol}</span>
-      <p className="text-xs text-white/60 flex-1">{planet} in {period.sign}</p>
+      <p className="text-xs text-white/60 flex-1">{planet} in {signLabel(period)}</p>
       <p className="text-[10px] text-white/35">in {daysUntil}d · {formatDate(period.start)}</p>
     </div>
   );
@@ -175,7 +180,7 @@ export default function CelestialStatus() {
       {active.length === 0 && isDataStale && (
         <div className="rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-4 text-center">
           <p className="text-sm text-amber-200/80">Our planetary calendar is due for a refresh.</p>
-          <p className="text-xs text-amber-200/50 mt-1">We've mapped transits through {formatDate(coverageEnd.toISOString().slice(0, 10))} — check back soon for the next stretch of sky.</p>
+          <p className="text-xs text-amber-200/50 mt-1">We've mapped transits through {coverageEnd.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} — re-run <code>scripts/generate-retrogrades.mjs</code> to extend the calendar.</p>
         </div>
       )}
 
@@ -219,7 +224,7 @@ export default function CelestialStatus() {
       )}
 
       <p className="text-[9px] text-center text-white/20 tracking-widest uppercase">
-        Moon phase and sign calculated in real-time · Retrograde dates are approximate
+        Moon phase and sign calculated in real-time · Retrograde dates computed from orbital positions, accurate to about a day
       </p>
     </div>
   );

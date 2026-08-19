@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useEscapeToClose } from '../../hooks/useEscapeToClose';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUser } from '../../contexts/UserContext';
 import BirthdateField from '../BirthdateField';
@@ -190,6 +191,7 @@ function FavoriteItem({ item, onDelete }) {
 }
 
 export default function ProfileModal({ onClose }) {
+  useEscapeToClose(onClose);
   const { user, signOut, deleteAccount } = useAuth();
   const { userDetails, setUserDetails } = useUser();
 

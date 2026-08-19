@@ -144,7 +144,7 @@ function ShadowWorksJournal() {
               <button
                 key={d.level}
                 onClick={() => setDepth(d.level)}
-                className={`rounded-xl border px-2 py-2 text-[11px] uppercase tracking-[0.12em] transition-colors ${
+                className={`rounded-xl border px-1.5 py-2 text-[11px] uppercase tracking-[0.05em] transition-colors ${
                   depth === d.level
                     ? 'border-[var(--accent)]/60 bg-[var(--accent)]/10 text-[var(--accent)]'
                     : 'border-white/12 text-white/45 hover:bg-white/5'

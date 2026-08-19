@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useEscapeToClose } from '../../hooks/useEscapeToClose';
 
 export default function LoginModal({ onClose }) {
   const { signInWithGoogle, signInWithApple, signIn, signUp } = useAuth();
@@ -8,6 +9,7 @@ export default function LoginModal({ onClose }) {
   const [password, setPassword] = useState('');
   const [error, setError]     = useState('');
   const [busy, setBusy]       = useState(false);
+  useEscapeToClose(onClose);
 
   const handleGoogle = async () => {
     setError('');

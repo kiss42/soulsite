@@ -299,7 +299,7 @@ const TarotReading = () => {
         type="text"
         value={intention}
         onChange={e => setIntention(e.target.value)}
-        placeholder="Set your intention — what do you seek guidance on? (optional)"
+        placeholder="Set your intention (optional)"
         className="pill-input text-sm"
       />
 

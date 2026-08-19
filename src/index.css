@@ -217,7 +217,7 @@ body > * {
   }
 
   .modal-surface {
-    @apply bg-slate-950/85 border border-white/10 rounded-2xl shadow-2xl p-5 backdrop-blur-xl;
+    @apply bg-slate-950/95 border border-white/10 rounded-2xl shadow-2xl p-5 backdrop-blur-xl;
   }
 
   .muted-text  { @apply text-gray-300 text-sm; }

@@ -6,3 +6,7 @@ node_modules
 
 # Local agent/editor settings — machine-specific permission grants, not project config
 .claude/settings.local.json
+
+# Xcode local build output — a device build here once reached 1.7GB
+ios/build_device/
+ios/DerivedData/

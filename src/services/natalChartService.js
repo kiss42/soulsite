@@ -104,6 +104,110 @@ function findAspect(a, b) {
  *   + birth time     → sharper Moon
  *   + birth city     → true Ascendant, Midheaven, houses, Part of Fortune
  */
+
+// ---------------------------------------------------------------------------
+// Chart patterns
+//
+// Derived entirely from the aspect list already computed above — no new
+// astronomy. A Yod would need a quincunx, which isn't in the aspect set, and
+// adding one would make new aspects appear in every existing chart, so the
+// four below are what the current orbs support.
+// ---------------------------------------------------------------------------
+
+const pairKey = (a, b) => [a, b].sort().join('|');
+
+function aspectIndex(aspects) {
+  const map = new Map();
+  for (const asp of aspects) map.set(pairKey(asp.a, asp.b), asp.name);
+  return map;
+}
+
+// Every subset of `names` of size >= 3 whose members are all mutually joined by
+// `aspectName`, reduced to the maximal ones — four bodies in mutual trine are
+// one grand trine with a fourth leg, not four separate triangles.
+function mutualCliques(names, index, aspectName, minSize) {
+  const joined = (a, b) => index.get(pairKey(a, b)) === aspectName;
+  const found = [];
+  const search = (start, current) => {
+    for (let i = start; i < names.length; i++) {
+      const candidate = names[i];
+      if (current.every(n => joined(n, candidate))) {
+        const next = [...current, candidate];
+        search(i + 1, next);
+        if (next.length >= minSize) found.push(next);
+      }
+    }
+  };
+  search(0, []);
+  // Drop any clique fully contained in a larger one.
+  return found.filter(c => !found.some(o => o.length > c.length && c.every(n => o.includes(n))));
+}
+
+function findPatterns(placements, aspects) {
+  const index = aspectIndex(aspects);
+  const names = [...new Set(aspects.flatMap(a => [a.a, a.b]))];
+  const is = (a, b, name) => index.get(pairKey(a, b)) === name;
+  const patterns = [];
+
+  // Grand trine — three or more bodies in mutual trine.
+  for (const set of mutualCliques(names, index, 'Trine', 3)) {
+    patterns.push({ type: 'Grand trine', bodies: set });
+  }
+
+  // Grand cross — two oppositions whose ends all square each other.
+  const oppositions = aspects.filter(a => a.name === 'Opposition');
+  const crosses = [];
+  for (let i = 0; i < oppositions.length; i++) {
+    for (let j = i + 1; j < oppositions.length; j++) {
+      const [a, b] = [oppositions[i].a, oppositions[i].b];
+      const [c, d] = [oppositions[j].a, oppositions[j].b];
+      if (new Set([a, b, c, d]).size !== 4) continue;
+      if (is(a, c, 'Square') && is(a, d, 'Square') && is(b, c, 'Square') && is(b, d, 'Square')) {
+        crosses.push([a, b, c, d]);
+        patterns.push({ type: 'Grand cross', bodies: [a, b, c, d] });
+      }
+    }
+  }
+
+  // T-square — an opposition with a third body square to both ends. A grand
+  // cross contains two of these; reporting them alongside it would describe
+  // the same configuration three times, so they're suppressed.
+  for (const opp of oppositions) {
+    for (const apex of names) {
+      if (apex === opp.a || apex === opp.b) continue;
+      if (!is(opp.a, apex, 'Square') || !is(opp.b, apex, 'Square')) continue;
+      const insideCross = crosses.some(c =>
+        c.includes(opp.a) && c.includes(opp.b) && c.includes(apex));
+      if (!insideCross) {
+        patterns.push({ type: 'T-square', bodies: [opp.a, opp.b, apex], apex });
+      }
+    }
+  }
+
+  // Stellium — three or more planets crowded into one sign. Planets only: the
+  // Ascendant and Midheaven aren't bodies piling up anywhere.
+  //
+  // Grouped by sign alone, not sign and house separately. Houses here are
+  // whole-sign, so a shared sign is always a shared house — collecting both
+  // would report the identical set of planets twice under two names.
+  const bySign = new Map();
+  for (const placement of placements) {
+    if (!bySign.has(placement.sign.name)) bySign.set(placement.sign.name, []);
+    bySign.get(placement.sign.name).push(placement);
+  }
+  for (const [sign, group] of bySign) {
+    if (group.length < 3) continue;
+    patterns.push({
+      type: 'Stellium',
+      bodies: group.map(g => g.name),
+      sign,
+      house: group[0].house ?? null,
+    });
+  }
+
+  return patterns.map(p => ({ ...p, ...natalData.patterns[p.type] }));
+}
+
 export function buildNatalChart({ birthdate, birthtime, birthLat, birthLon }) {
   if (!birthdate) return null;
 
@@ -247,6 +351,8 @@ export function buildNatalChart({ birthdate, birthtime, birthLat, birthLon }) {
     ? placements.find(p => p.name === signs[ascSignIndex].rulingPlanet) || null
     : null;
 
+  const patterns = findPatterns(placements, aspects);
+
   const plutoCoverage = getPlutoCoverage();
   const plutoOutOfRange = date < plutoCoverage.from || date > plutoCoverage.to;
 
@@ -260,6 +366,7 @@ export function buildNatalChart({ birthdate, birthtime, birthLat, birthLon }) {
     points,
     houses,
     aspects,
+    patterns,
     chartRuler,
     elements: tally('element'),
     modalities: tally('modality'),

@@ -378,5 +378,27 @@
       "color": "#c084fc",
       "meaning": "Two forces facing each other across the wheel. You swing between them until you learn to hold both at once."
     }
-  ]
+  ],
+  "patterns": {
+    "Grand trine": {
+      "color": "#4ade80",
+      "tone": "flow",
+      "meaning": "Three placements in easy, closed circuit with each other. Talent that arrives without being worked for — which is exactly why it's the easiest thing in the chart to coast on. A grand trine tends to be noticed by everyone except the person who has it."
+    },
+    "Grand cross": {
+      "color": "#f87171",
+      "tone": "friction",
+      "meaning": "Two oppositions locked at right angles — four placements all pulling against each other. Nothing here resolves by choosing a side; the configuration only settles when all four get a real place in your life. It's the hardest shape to carry and the most durable once carried."
+    },
+    "T-square": {
+      "color": "#fb923c",
+      "tone": "friction",
+      "meaning": "An opposition with a third placement squaring both ends. The apex is where the tension collects and where the pressure keeps announcing itself — it's the sore spot and the engine at once. Most of the chart's drive routes through it."
+    },
+    "Stellium": {
+      "color": "#b49bff",
+      "tone": "concentration",
+      "meaning": "Three or more planets crowded into a single sign — and so, under whole-sign houses, into a single house. That area of life gets a disproportionate share of your attention, for better and worse: it's where you're most fluent, most invested, and most likely to mistake your own intensity for the way things simply are."
+    }
+  }
 }

@@ -125,6 +125,58 @@ export default function NatalChart({ chart }) {
         </p>
       </div>
 
+      {/* Chart ruler — the planet ruling the Ascendant sign. Computed all
+          along, but until now never actually shown to anyone. */}
+      {chart.chartRuler && (
+        <div className="stack-card space-y-2">
+          <p className="eyebrow">Chart ruler</p>
+          <p className="text-sm text-white/80 leading-relaxed">
+            Your Ascendant is <span className="text-[var(--accent)]">{chart.houses[0].sign.name}</span>, so{' '}
+            <span style={{ color: chart.chartRuler.color }} className="natal-glyph">{chart.chartRuler.name}</span>{' '}
+            rules the chart — sitting in {chart.chartRuler.sign.name}
+            {chart.chartRuler.house ? `, ${ordinal(chart.chartRuler.house)} house` : ''}.
+          </p>
+          <p className="text-[11px] text-white/45 leading-relaxed">
+            The ruler is the thread the rest of the chart hangs on. Wherever it sits tends to
+            colour how everything else gets expressed.
+          </p>
+          {chart.chartRuler.blurb && (
+            <p className="text-[11px] text-white/40 leading-relaxed">{chart.chartRuler.blurb}</p>
+          )}
+        </div>
+      )}
+
+      {/* Aspect patterns */}
+      {chart.patterns.length > 0 && (
+        <div className="stack-card space-y-2">
+          <p className="eyebrow">Patterns</p>
+          <p className="text-xs text-white/40">
+            Shapes the aspects make together — the configurations that act as one thing rather than several.
+          </p>
+          <div className="space-y-2 pt-1">
+            {chart.patterns.map((pat, i) => (
+              <div key={`${pat.type}-${i}`}
+                   className="rounded-xl border px-3 py-2.5 space-y-1"
+                   style={{ borderColor: `${pat.color}40`, background: `${pat.color}0d` }}>
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <span className="text-sm font-medium" style={{ color: pat.color }}>
+                    {pat.type}{pat.sign ? ` in ${pat.sign}` : ''}
+                    {pat.house ? ` · ${ordinal(pat.house)} house` : ''}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.16em] text-white/30">
+                    {pat.bodies.join(' · ')}
+                  </span>
+                </div>
+                {pat.apex && (
+                  <p className="text-[11px] text-white/40">Apex: {pat.apex}</p>
+                )}
+                <p className="text-[11px] text-white/60 leading-relaxed">{pat.meaning}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Angles and calculated points */}
       {chart.points.length > 0 && (
         <div className="space-y-2">

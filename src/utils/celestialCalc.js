@@ -384,6 +384,26 @@ function sunEcliptic(d) {
   return { lon: norm360(v + w), r };
 }
 
+// Mean Black Moon Lilith — the Moon's mean apogee, i.e. the empty focus of the
+// lunar orbit, 180 deg from the mean perigee. This is the "mean" Lilith that
+// most astrology software and every printed ephemeris defaults to; the "true"
+// (osculating) apogee wobbles several degrees either side of it and can even
+// retrograde, which the mean point never does.
+//
+// Perigee series from Meeus, Astronomical Algorithms. Verified against
+// published ingress dates: this puts Lilith into Scorpio on 2025-03-27 and out
+// of it on 2025-12-21, matching the documented Mar 27 - Dec 20 2025 transit,
+// and the implied apsidal period is 8.848 years against a documented 8.85.
+export function getLilithLongitude(date = new Date()) {
+  const T = (toJD(date) - 2451545.0) / 36525;
+  const perigee = 83.3532465
+    + 4069.0137287 * T
+    - 0.0103200 * T * T
+    - (T * T * T) / 80053
+    + (T * T * T * T) / 18999000;
+  return norm360(perigee + 180);
+}
+
 export function getSunLongitude(date = new Date()) {
   return sunEcliptic(toJD(date) - 2451543.5).lon;
 }

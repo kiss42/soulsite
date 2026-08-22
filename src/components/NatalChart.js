@@ -69,6 +69,9 @@ function PlacementRow({ body, expanded, onToggle }) {
               Falling in your {ordinal(body.house)} house — {getHouseMeanings()[body.house - 1].meaning.toLowerCase()}
             </p>
           )}
+          {body.note && (
+            <p className="text-[10px] text-white/25 leading-relaxed">{body.note}</p>
+          )}
           {body.retrograde && (
             <p className="text-[11px] text-white/40 leading-relaxed">
               Retrograde at birth: this energy runs inward first. You tend to work it out privately before it ever shows.
@@ -130,7 +133,14 @@ export default function NatalChart({ chart }) {
             {chart.points.map(p => (
               <PlacementRow
                 key={p.name}
-                body={{ ...p, blurb: p.note, kind: 'point' }}
+                // Points with per-sign copy lead with it; the technical note drops
+                // to a footnote. Points without it keep the note as the body.
+                body={{
+                  ...p,
+                  blurb: p.blurb ?? p.note,
+                  note: p.blurb ? p.note : null,
+                  kind: 'point',
+                }}
                 expanded={openBody === p.name}
                 onToggle={() => setOpenBody(openBody === p.name ? null : p.name)}
               />

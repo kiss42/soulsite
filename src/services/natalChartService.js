@@ -3,6 +3,7 @@ import natalData from '../data/natalChartData.json';
 import {
   PLANET_ORDER, getPlanetMotion, getAscendantLongitude, getMidheavenLongitude,
   getLunarNodeLongitude, getSignIndexFromLongitude, getPlutoCoverage,
+  getLilithLongitude,
 } from '../utils/celestialCalc';
 import { resolveBirthUTC, isValidLat, isValidLon } from '../utils/birthTime';
 
@@ -174,6 +175,15 @@ export function buildNatalChart({ birthdate, birthtime, birthLat, birthLon }) {
     retrograde: true,
   });
 
+  // Black Moon Lilith — the Moon's mean apogee. A calculated point rather than
+  // a body, so it has no retrograde motion of its own.
+  const lilithLongitude = getLilithLongitude(date);
+  points.push({
+    name: 'Lilith', ...natalData.points.Lilith, ...describeLongitude(lilithLongitude),
+    house: hasHouses ? houseOf(lilithLongitude, ascSignIndex) : null,
+    retrograde: false,
+  });
+
   // Part of Fortune. Houses 1–6 sit below the horizon, so a Sun more than
   // 180° ahead of the Ascendant is a daytime birth — and the day and night
   // formulas are mirror images of each other.
@@ -187,6 +197,15 @@ export function buildNatalChart({ birthdate, birthtime, birthLat, birthLon }) {
       name: 'Part of Fortune', ...natalData.points['Part of Fortune'], ...describeLongitude(fortune),
       house: houseOf(fortune, ascSignIndex), retrograde: false,
     });
+  }
+
+  // Points that carry per-sign copy read the same way placements do. The rest
+  // (Ascendant, Midheaven, South Node, Part of Fortune) stay on their `rules`
+  // line rather than getting twelve thin readings written for them.
+  for (const point of points) {
+    const meta = natalData.points[point.name];
+    if (meta?.signs) point.blurb = meta.signs[point.sign.name] ?? null;
+    delete point.signs; // spread in from meta; the map itself isn't needed downstream
   }
 
   // Aspects across planets plus the two angles and the North Node. The

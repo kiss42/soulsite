@@ -218,7 +218,21 @@
       "color": "#4ade80",
       "title": "Growth direction",
       "rules": "the unfamiliar direction you're being pulled toward",
-      "note": "Where the Moon's orbit crosses the ecliptic going north. Always moves backwards through the zodiac."
+      "note": "Where the Moon's orbit crosses the ecliptic going north. Always moves backwards through the zodiac.",
+      "signs": {
+        "Aries": "Growth looks like acting before consensus. The old skill is accommodation; the new one is saying what you want first and tolerating the discomfort.",
+        "Taurus": "Growth looks like slowing down and keeping what you have. The old skill is crisis and intensity; the new one is steady, unglamorous enough.",
+        "Gemini": "Growth looks like asking instead of pronouncing. The old skill is the big picture; the new one is curiosity about the particular person in front of you.",
+        "Cancer": "Growth looks like letting yourself be cared for. The old skill is competence in public; the new one is admitting what you need at home.",
+        "Leo": "Growth looks like taking the stage as yourself, not the group. The old skill is the network; the new one is individual, nameable creative risk.",
+        "Virgo": "Growth looks like doing the practical next thing. The old skill is faith and drift; the new one is the checklist, the craft, the repair.",
+        "Libra": "Growth looks like partnership on equal terms. The old skill is self-sufficiency; the new one is letting someone else's needs actually change the plan.",
+        "Scorpio": "Growth looks like depth over comfort. The old skill is stability; the new one is intimacy that costs something and change you didn't choose.",
+        "Sagittarius": "Growth looks like trusting your own read. The old skill is gathering more information; the new one is committing to a direction on less.",
+        "Capricorn": "Growth looks like structure and public responsibility. The old skill is retreat and caretaking; the new one is building something that outlasts the mood.",
+        "Aquarius": "Growth looks like the group, not the spotlight. The old skill is personal brilliance; the new one is contributing to something you don't get credit for.",
+        "Pisces": "Growth looks like surrender and mercy. The old skill is analysis and fixing; the new one is accepting what can't be corrected."
+      }
     },
     "South Node": {
       "symbol": "☋",
@@ -233,6 +247,27 @@
       "title": "Ease & flourishing",
       "rules": "where things click without forcing them",
       "note": "An Arabic Part built from your Sun, Moon and Ascendant — the formula flips between day and night births."
+    },
+    "Lilith": {
+      "symbol": "⚸",
+      "color": "#c084fc",
+      "title": "What you were taught to bury",
+      "rules": "the appetite or edge you learned to apologise for",
+      "note": "The Moon's mean apogee — the far, empty focus of its orbit. A calculated point, not a body. This is mean Lilith, the ephemeris standard; true Lilith wobbles a few degrees either side.",
+      "signs": {
+        "Aries": "The part of you that wants to go first and say it plainly. You learned that wanting was rude, so anger arrives before the want does.",
+        "Taurus": "Appetite — for comfort, for money, for being enjoyed without earning it. You learned to call it indulgence and ration it.",
+        "Gemini": "The thing you actually think, before you soften it. You learned your unedited voice was too much, so you got very good at the edit.",
+        "Cancer": "Need. Wanting to be held, fed, chosen. You learned that needing was a burden, so you became the one who holds instead.",
+        "Leo": "The wish to be looked at and adored. You learned that was vanity, so you perform competence and let the wanting go hungry.",
+        "Virgo": "The right to be imperfect and still be useful. You learned that worth was earned by correction, so rest reads as failure.",
+        "Libra": "Your own preference, stated without a survey. You learned that agreeableness was the price of company, so 'whatever you want' became a reflex.",
+        "Scorpio": "Depth, hunger, the refusal to be casual. You learned that intensity frightens people, so you keep it behind a very calm face.",
+        "Sagittarius": "The belief you're not supposed to say out loud, and the urge to leave. You learned that certainty was arrogance and wandering was avoidance.",
+        "Capricorn": "Ambition without an apology attached. You learned that wanting authority was cold, so you take responsibility and refuse the credit.",
+        "Aquarius": "The part that will not fall in line. You learned that difference costs belonging, so you either hide it or lead with it and stay outside.",
+        "Pisces": "Longing that has no practical use. You learned that dreaming was escape, so you stay useful and let the ache go somewhere private."
+      }
     }
   },
   "houses": [
